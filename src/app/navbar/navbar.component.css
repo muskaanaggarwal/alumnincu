@@ -11,6 +11,7 @@ body {
   }
   
   #navbar {
+    margin: 0% 10%; 
     overflow: hidden;
     background-color: #333;
   }
@@ -38,8 +39,8 @@ body {
   .content {
     padding: 16px;
   }
-  
   .sticky {
+    margin: 0px!important;
     position: fixed;
     top: 0;
     width: 100%;
