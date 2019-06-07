@@ -3,14 +3,36 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AdminComponent } from './admin/admin.component';
+import { AlumniComponent } from './alumni/alumni.component';
+import { DirectoryComponent } from './directory/directory.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    AdminComponent,
+    AlumniComponent,
+    DirectoryComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot([
+      {path:'', component:HomeComponent},
+      {path:'admin', component:AdminComponent},
+      {path:'directory', component:DirectoryComponent},
+      {path:'alumni', component:AlumniComponent},
+
+      {path:'**',redirectTo:''}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
