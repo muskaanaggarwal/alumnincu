@@ -10,6 +10,11 @@ import { DirectoryComponent } from './directory/directory.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+ 
+import { ArticleComponent } from './article/article.component';
+import { ArticleService } from './article/article.service';
 
 
 @NgModule({
@@ -20,21 +25,26 @@ import { RouterModule } from '@angular/router';
     AlumniComponent,
     DirectoryComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path:'', component:HomeComponent},
       {path:'admin', component:AdminComponent},
       {path:'directory', component:DirectoryComponent},
       {path:'alumni', component:AlumniComponent},
 
-      {path:'**',redirectTo:''}
+      // {path:'**',redirectTo:''}
     ])
   ],
-  providers: [],
+  providers: [
+    ArticleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
