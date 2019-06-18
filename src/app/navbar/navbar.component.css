@@ -41,6 +41,7 @@ body {
   }
   .sticky {
     margin: 0px!important;
+    transition: margin 0.2s;
     position: fixed;
     top: 0;
     width: 100%;

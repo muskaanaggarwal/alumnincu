@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   }
   @HostListener("window:scroll", ['$event'])
   onWindowScroll() {
-    //we'll do some stuff here when the window is scrolled
+    //we'll do some stuff here when the window is scrolled  
     this.myFunction();
   }
 
