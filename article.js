@@ -38,4 +38,11 @@ router.get('/get-article-by-id', (req, res) => {
   });
 });
 
+/**Api to get the list of article */
+router.get('/get-company', (req, res) => {
+  articleService.getCompanyEmployee(req.query, (data) => {
+    res.send(data);
+  });
+});
+
 module.exports = router;

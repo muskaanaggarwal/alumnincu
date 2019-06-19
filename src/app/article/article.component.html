@@ -62,6 +62,9 @@
     <th></th>
     <th></th>
   </tr>
+  <div *ngFor='let emp of allEmployee'>
+    <p>{{ emp }}</p>
+  </div>
   <tr *ngFor="let article of allArticles">
     <td>{{article.id}}</td>
     <td>{{article.title}}</td>

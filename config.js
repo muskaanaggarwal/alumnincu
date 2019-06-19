@@ -7,7 +7,7 @@ let serverURLs = {
     "MYSQL_HOST": 'localhost',
     "MYSQL_USER": 'root',
     "MYSQL_PASSWORD": 'newpass',
-    'MYSQL_DATABASE': 'test',
+    'MYSQL_DATABASE': 'company',
   }
 }
 
