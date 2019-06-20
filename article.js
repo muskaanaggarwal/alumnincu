@@ -39,8 +39,8 @@ router.get('/get-article-by-id', (req, res) => {
 });
 
 /**Api to get the list of article */
-router.get('/get-company', (req, res) => {
-  articleService.getCompanyEmployee(req.query, (data) => {
+router.get('/get-test', (req, res) => {
+  articleService.getTestingTest(req.query, (data) => {
     res.send(data);
   });
 });

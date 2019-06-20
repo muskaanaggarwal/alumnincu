@@ -1,6 +1,6 @@
 <h1 class="text-center">Angular 7 CRUD Demo App</h1>
 <h3 class="text-center" *ngIf="articleIdToUpdate; else create">
-  Update Article for Id: {{articleIdToUpdate}}
+  <!-- Update Article for Id: {{articleIdToUpdate}} -->
 </h3>
 <ng-template #create>
   <h3 class="text-center"> Create New Article </h3>
@@ -9,16 +9,16 @@
   <form [formGroup]="articleForm" (ngSubmit)="onArticleFormSubmit()">
     <table class="table-striped" style="margin:0 auto;">
       <tr>
-        <td>Enter Title</td>
-        <td><input formControlName="title">
-          <label *ngIf="articleForm.get('title').invalid && processValidation" [ngClass]="'error'"> Title is required.
+        <td>Enter Name</td>
+        <td><input formControlName="name">
+          <label *ngIf="articleForm.get('name').invalid && processValidation" [ngClass]="'error'"> Name is required.
           </label>
         </td>
       </tr>
       <tr>
-        <td>Enter Category</td>
-        <td><input formControlName="category">
-          <label *ngIf="articleForm.get('category').invalid && processValidation" [ngClass]="'error'">Category is
+        <td>Enter Age</td>
+        <td><input formControlName="age">
+          <label *ngIf="articleForm.get('age').invalid && processValidation" [ngClass]="'error'">Age is
             required. </label>
         </td>
       </tr>
@@ -54,22 +54,22 @@
   </ng-template>
 </div>
 <h3 class="text-center">Article List</h3>
+<div *ngFor='let test of allTest'>
+  <p>{{ test }}</p>
+</div>
 <table class="table-striped" style="margin:0 auto;" *ngIf="allArticles">
   <tr>
     <th> Id</th>
-    <th>Title</th>
-    <th>Category</th>
+    <th>Name</th>
+    <th>Age</th>
     <th></th>
     <th></th>
   </tr>
-  <div *ngFor='let emp of allEmployee'>
-    <p>{{ emp }}</p>
-  </div>
   <tr *ngFor="let article of allArticles">
     <td>{{article.id}}</td>
-    <td>{{article.title}}</td>
-    <td>{{article.category}}</td>
+    <td>{{article.name}}</td>
+    <td>{{article.age}}</td>
     <td><button class="btn btn-default" type="button" (click)="loadArticleToEdit(article.id)">Edit</button> </td>
     <td><button class="btn btn-default" type="button" (click)="deleteArticle(article.id)">Delete</button></td>
   </tr>
-</table>
+</table> -->

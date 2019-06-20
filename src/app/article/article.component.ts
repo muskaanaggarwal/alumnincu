@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ArticleService } from './article.service';
-import { Article } from './article.model';
-import { CompanyEmployee } from './company.model';
+
+import { TestingTest } from './testing.model';
 
 @Component({
   selector: 'app-article',
@@ -13,23 +13,23 @@ import { CompanyEmployee } from './company.model';
 export class ArticleComponent implements OnInit {
   //Component properties
   // allArticles: Article[];
-  allEmployee: CompanyEmployee[];
+  allTest: TestingTest[];
   statusCode: number;
   requestProcessing = false;
   articleIdToUpdate = null;
   processValidation = false;
-  //Create form
-  // articleForm = new FormGroup({
-  //   title: new FormControl('', Validators.required),
-  //   category: new FormControl('', Validators.required)
-  // });
+//Create form
+   articleForm = new FormGroup({
+     name: new FormControl('', Validators.required),
+     age: new FormControl('', Validators.required)
+   });
   //Create constructor to get service instance
   constructor(private articleService: ArticleService) {
   }
   //Create ngOnInit() and and load articles
   ngOnInit(): void {
     // this.getAllArticles();
-    this.getAllEmployee();
+    this.getAllTest();
   }
   //Fetch all articles
 
@@ -41,91 +41,91 @@ export class ArticleComponent implements OnInit {
 
   // }
 
-  getAllEmployee() {
-    this.articleService.getAllEmployee()
+  getAllTest() {
+    this.articleService.getAllTest()
       .subscribe(
-        data => this.allEmployee = data,
+        data => this.allTest = data,
         errorCode => this.statusCode = errorCode);
 
   }
 
   // //Handle create and update article
-  // onArticleFormSubmit() {
-  //   this.processValidation = true;
-  //   if (this.articleForm.invalid) {
-  //     return; //Validation failed, exit from method.
-  //   }
-  //   //Form is valid, now perform create or update
-  //   this.preProcessConfigurations();
-  //   let article = this.articleForm.value;
-  //   if (this.articleIdToUpdate === null) {
-  //     //Generate article id then create article
-  //     this.articleService.getAllArticles()
-  //       .subscribe(articles => {
+   onArticleFormSubmit() {
+     this.processValidation = true;
+     if (this.articleForm.invalid) {
+      return; //Validation failed, exit from method.
+     }
+     //Form is valid, now perform create or update
+     this.preProcessConfigurations();
+     let article = this.articleForm.value;
+     if (this.articleIdToUpdate === null) {
+       //Generate article id then create article
+       this.articleService.getAllTest()
+         .subscribe(articles => {
 
   //         //Generate article id    
-  //         let maxIndex = articles.length - 1;
-  //         let articleWithMaxIndex = articles[maxIndex];
-  //         let articleId = articleWithMaxIndex.id + 1;
-  //         article.id = articleId;
-  //         console.log(article, 'this is form data---');
-  //         //Create article
-  //         this.articleService.createArticle(article)
-  //           .subscribe(successCode => {
-  //             this.statusCode = successCode;
-  //             this.getAllArticles();
-  //             this.backToCreateArticle();
-  //           },
-  //             errorCode => this.statusCode = errorCode
-  //           );
-  //       });
-  //   } else {
+           let maxIndex = articles.length - 1;
+           let articleWithMaxIndex = articles[maxIndex];
+           let articleId = articleWithMaxIndex.id + 1;
+           article.id = articleId;
+           console.log(article, 'this is form data---');
+           //Create article
+           this.articleService.createTest(article)
+             .subscribe(successCode => {
+               this.statusCode = successCode;
+               this.getAllTest();
+               this.backToCreateArticle();
+             },
+               errorCode => this.statusCode = errorCode
+             );
+         });
+     } else {
   //     //Handle update article
-  //     article.id = this.articleIdToUpdate;
-  //     this.articleService.updateArticle(article)
-  //       .subscribe(successCode => {
-  //         this.statusCode = successCode;
-  //         this.getAllArticles();
-  //         this.backToCreateArticle();
-  //       },
-  //         errorCode => this.statusCode = errorCode);
-  //   }
-  // }
-  // //Load article by id to edit
-  // loadArticleToEdit(articleId: string) {
-  //   this.preProcessConfigurations();
-  //   this.articleService.getArticleById(articleId)
-  //     .subscribe(article => {
-  //       console.log(article, 'poiuytre');
-  //       this.articleIdToUpdate = article.id;
-  //       this.articleForm.setValue({ title: article.title, category: article.category });
-  //       this.processValidation = true;
-  //       this.requestProcessing = false;
-  //     },
-  //       errorCode => this.statusCode = errorCode);
-  // }
+       article.id = this.articleIdToUpdate;
+       this.articleService.updateArticle(article)
+         .subscribe(successCode => {
+           this.statusCode = successCode;
+           this.getAllTest();
+           this.backToCreateArticle();
+         },
+           errorCode => this.statusCode = errorCode);
+     }
+   }
+   //Load article by id to edit
+   loadArticleToEdit(articleId: string) {
+     this.preProcessConfigurations();
+     this.articleService.getArticleById(articleId)
+       .subscribe(article => {
+         console.log(article, 'poiuytre');
+       this.articleIdToUpdate = article.id;
+         this.articleForm.setValue({ name: article.name, age: article.age });
+         this.processValidation = true;
+         this.requestProcessing = false;
+       },
+         errorCode => this.statusCode = errorCode);
+   }
   // //Delete article
-  // deleteArticle(articleId: string) {
-  //   this.preProcessConfigurations();
-  //   this.articleService.deleteArticleById(articleId)
-  //     .subscribe(successCode => {
-  //       //this.statusCode = successCode;
+   deleteArticle(articleId: string) {
+     this.preProcessConfigurations();
+     this.articleService.deleteArticleById(articleId)
+       .subscribe(successCode => {
+         this.statusCode = successCode;
   //       //Expecting success code 204 from server
-  //       this.statusCode = 204;
-  //       this.getAllArticles();
-  //       this.backToCreateArticle();
-  //     },
-  //       errorCode => this.statusCode = errorCode);
-  // }
+         this.statusCode = 204;
+         this.getAllTest();
+         this.backToCreateArticle();
+       },
+         errorCode => this.statusCode = errorCode);
+   }
   //Perform preliminary processing configurations
-  preProcessConfigurations() {
+  preProcessConfigurations(){
     this.statusCode = null;
     this.requestProcessing = true;
   }
   //Go back from update to create
-  // backToCreateArticle() {
-  //   this.articleIdToUpdate = null;
-  //   this.articleForm.reset();
-  //   this.processValidation = false;
-  // }
+   backToCreateArticle() {
+     this.articleIdToUpdate = null;
+     this.articleForm.reset();
+     this.processValidation = false;
+   }
 }
