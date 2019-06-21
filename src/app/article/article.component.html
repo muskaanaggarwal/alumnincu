@@ -3,7 +3,7 @@
   <!-- Update Article for Id: {{articleIdToUpdate}} -->
 </h3>
 <ng-template #create>
-  <h3 class="text-center"> Create New Article </h3>
+  <h3 class="text-center"> Registeration Form</h3>
 </ng-template>
 <div>
   <form [formGroup]="articleForm" (ngSubmit)="onArticleFormSubmit()">
@@ -53,11 +53,7 @@
     <!-- <img *ngIf="requestProcessing" src="assets/images/loading.gif"> -->
   </ng-template>
 </div>
-<h3 class="text-center">Article List</h3>
-<div *ngFor='let test of allTest'>
-  <p>{{ test }}</p>
-</div>
-<table class="table-striped" style="margin:0 auto;" *ngIf="allArticles">
+<table class="table-striped" style="margin:0 auto;" *ngIf="allTest">
   <tr>
     <th> Id</th>
     <th>Name</th>
@@ -65,11 +61,11 @@
     <th></th>
     <th></th>
   </tr>
-  <tr *ngFor="let article of allArticles">
+  <tr *ngFor="let article of allTest">
     <td>{{article.id}}</td>
     <td>{{article.name}}</td>
     <td>{{article.age}}</td>
-    <td><button class="btn btn-default" type="button" (click)="loadArticleToEdit(article.id)">Edit</button> </td>
-    <td><button class="btn btn-default" type="button" (click)="deleteArticle(article.id)">Delete</button></td>
+    <!-- <td><button class="btn btn-default" type="button" (click)="loadArticleToEdit(article.id)">Edit</button> </td>
+    <td><button class="btn btn-default" type="button" (click)="deleteArticle(article.id)">Delete</button></td> -->
   </tr>
-</table> -->
+</table>

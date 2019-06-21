@@ -12,9 +12,10 @@ config = require("../../config").config;
        var dataToSet = {
          "name": data.name ? data.name : '',
          "age": data.age,
+         "id": data.id
        }
        console.log(dataToSet);
-       articleDAO.createArticle(dataToSet, (err, dbData) => {
+       articleDAO.createTest(dataToSet, (err, dbData) => {
          if (err) {
            cb(null, {
              "statusCode": util.statusCode.FOUR_ZERO_ONE,

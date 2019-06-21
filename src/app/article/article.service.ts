@@ -33,7 +33,7 @@ export class ArticleService {
      createTest(test: TestingTest): Observable<number> {
          let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
          let options = new RequestOptions({ headers: cpHeaders });
-         return this.http.post(this.articleUrl + "/create-article", test, options)
+         return this.http.post(this.articleUrl + "/create-test", test, options)
              .map(success => success.status)
              .catch(this.handleError);
      }
