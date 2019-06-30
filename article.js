@@ -10,6 +10,13 @@ router.post('/create-article', (req, res) => {
   });
 });
 
+/**Api to create article */
+router.post('/create-test', (req, res) => {
+  articleService.createTest(req.body, (data) => {
+    res.send(data);
+  });
+});
+
 // /**Api to update article */
 router.put('/update-article', (req, res) => {
   articleService.updateArticle(req.body, (data) => {
@@ -34,6 +41,13 @@ router.get('/get-article', (req, res) => {
 // /**API to get the article by id... */
 router.get('/get-article-by-id', (req, res) => {
   articleService.getArticleById(req.query, (data) => {
+    res.send(data);
+  });
+});
+
+/**Api to get the list of article */
+router.get('/get-test', (req, res) => {
+  articleService.getTestingTest(req.query, (data) => {
     res.send(data);
   });
 });
