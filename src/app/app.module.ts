@@ -10,11 +10,13 @@ import { DirectoryComponent } from './directory/directory.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
  
-import { ArticleComponent } from './article/article.component';
-import { ArticleService } from './article/article.service';
+import { CarouselComponent } from './carousel/carousel.component';
+import { ForgotpageComponent } from './forgotpage/forgotpage.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -26,11 +28,16 @@ import { ArticleService } from './article/article.service';
     DirectoryComponent,
     FooterComponent,
     HomeComponent,
-    ArticleComponent
+    CarouselComponent,
+    ForgotpageComponent,
+    RegistrationComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
@@ -38,12 +45,17 @@ import { ArticleService } from './article/article.service';
       {path:'admin', component:AdminComponent},
       {path:'directory', component:DirectoryComponent},
       {path:'alumni', component:AlumniComponent},
+      {path:'forgotpage', component:ForgotpageComponent},
+      {path:'registration', component:RegistrationComponent},
+      {path:'signup', component:SignupComponent},
+
+
+
 
       // {path:'**',redirectTo:''}
     ])
   ],
   providers: [
-    ArticleService
   ],
   bootstrap: [AppComponent]
 })
