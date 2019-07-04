@@ -12,11 +12,12 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
- 
 import { CarouselComponent } from './carousel/carousel.component';
 import { ForgotpageComponent } from './forgotpage/forgotpage.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SignupComponent } from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DataserviceService } from './dataservice.service';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { SignupComponent } from './signup/signup.component';
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path:'', component:HomeComponent},
@@ -55,7 +57,7 @@ import { SignupComponent } from './signup/signup.component';
       // {path:'**',redirectTo:''}
     ])
   ],
-  providers: [
+  providers: [  DataserviceService
   ],
   bootstrap: [AppComponent]
 })
