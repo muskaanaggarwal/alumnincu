@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,10 +13,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ForgotpageComponent } from './forgotpage/forgotpage.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataserviceService } from './dataservice.service';
+import { DegreeformComponent } from './degreeform/degreeform.component';
+import { AddressformComponent } from './addressform/addressform.component';
+import { JobformComponent } from './jobform/jobform.component';
+import { PersonalformComponent } from './personalform/personalform.component';
+import { SociallinkformComponent } from './sociallinkform/sociallinkform.component';
 
 
 @NgModule({
@@ -31,8 +34,12 @@ import { DataserviceService } from './dataservice.service';
     HomeComponent,
     CarouselComponent,
     ForgotpageComponent,
-    RegistrationComponent,
-    SignupComponent
+    SignupComponent,
+    DegreeformComponent,
+    AddressformComponent,
+    JobformComponent,
+    PersonalformComponent,
+    SociallinkformComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +55,13 @@ import { DataserviceService } from './dataservice.service';
       {path:'directory', component:DirectoryComponent},
       {path:'alumni', component:AlumniComponent},
       {path:'forgotpage', component:ForgotpageComponent},
-      {path:'registration', component:RegistrationComponent},
       {path:'signup', component:SignupComponent},
+      {path:'degreeform', component:DegreeformComponent},
+      {path:'personalform', component:PersonalformComponent},
+      {path:'addressform', component:AddressformComponent},
+      {path:'jobform', component:JobformComponent},
+      {path:'sociallinkform', component:SociallinkformComponent},
+
 
 
 
