@@ -123,3 +123,50 @@ h1, h5 {
 .hello {
     width: 800px;
 }
+
+.rightslider{
+	max-height: 50px;
+	max-width: 50px;
+	}
+	
+	.leftslider{
+		max-height: 50px;
+		max-width: 50px;
+		transform: rotate(180deg);
+		}
+		
+	.back {
+		background: #36345A;
+		color: #fff;
+		border-bottom: none;
+		min-width: 200px;
+		min-height: 50px;
+		/* padding: 15px 39px; */
+		border-radius: 15px;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-o-border-radius: 15px;
+		-ms-border-radius: 15px;
+		margin-top: 20px;
+		margin-right: 100px;
+		font-size: 20px;
+		margin-bottom: 50px;
+		cursor: pointer; }
+
+		
+	.save {
+		background: #056152;
+		color: #fff;
+		border-bottom: none;
+		min-width: 200px;
+		margin-bottom: 50px;
+		min-height: 50px;
+		/* padding: 15px 39px; */
+		border-radius: 15px;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-o-border-radius: 15px;
+		-ms-border-radius: 15px;
+		margin-top: 20px;
+		font-size: 20px;
+		cursor: pointer; }

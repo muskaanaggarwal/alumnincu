@@ -1,23 +1,29 @@
 <body><br><br>
-  <h1 class="center"><b>Alumni Registration Form</b></h1><br><br><br>
+  <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
     <div class="card-item hello">
       <div class="card-body">
         <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
-        <!-- <p class="card-text"><img src="./right-arrow.png">
-           Lorem <img src="./right-arrow.png">
-          </p> -->
-          <span><img src="./right-arrow.png"></span>
+      
             <form [formGroup]="alumniportalForm">
-                <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Batch" required >
-                <input type="text" formControlName="school" class="form-control mb-2" placeholder="School" required >
-                <input type="text" formControlName="programme" class="form-control mb-2" placeholder="Progamme" required >
-                <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required >
-               
+                <div class="form-row">
+                    <div class="col">
+                <img class="leftslider" src="">
+              </div>
+                    <div class="col-8">
+                        <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Batch" required >
+                        <input type="text" formControlName="school" class="form-control mb-2" placeholder="School" required >
+                        <input type="text" formControlName="programme" class="form-control mb-2" placeholder="Progamme" required >
+                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required >
+                        </div>
+                        <div class="col">
+                            <img class="rightslider" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                          </div>
+                    </div>
+
                </form>
 
 
-             <span routerLink="/forgotpage"><img src="./right-arrow.png"></span>
       </div>
     </div>
     <div class="hi card-item">
@@ -43,5 +49,10 @@
     </div>
    
   </div>
-  <br><br><br>
+  <div style="text-align:center">
+      <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
+      <button type="button" class="btn btn-warning save" routerLink="/alumni">Save</button>
+
+  </div>
+
 </body>

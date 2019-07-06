@@ -17,6 +17,9 @@ body {
 h1, h5 {
 	padding: 0.5rem;
 }
+h3{
+	margin: -50px 0px 0px 0px;
+}
 
 .center {
 	text-align: center;
@@ -133,8 +136,9 @@ h1, h5 {
 		max-height: 50px;
 		max-width: 50px;
 		transform: rotate(180deg);
-		}
-		
+        }
+        
+        
 	.back {
 		background: #36345A;
 		color: #fff;

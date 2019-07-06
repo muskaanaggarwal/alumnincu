@@ -21,6 +21,7 @@ import { AddressformComponent } from './addressform/addressform.component';
 import { JobformComponent } from './jobform/jobform.component';
 import { PersonalformComponent } from './personalform/personalform.component';
 import { SociallinkformComponent } from './sociallinkform/sociallinkform.component';
+import { Job2formComponent } from './job2form/job2form.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { SociallinkformComponent } from './sociallinkform/sociallinkform.compone
     AddressformComponent,
     JobformComponent,
     PersonalformComponent,
-    SociallinkformComponent
+    SociallinkformComponent,
+    Job2formComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,8 @@ import { SociallinkformComponent } from './sociallinkform/sociallinkform.compone
       {path:'addressform', component:AddressformComponent},
       {path:'jobform', component:JobformComponent},
       {path:'sociallinkform', component:SociallinkformComponent},
+      {path:'job2form', component:Job2formComponent},
+
 
 
 
