@@ -10,11 +10,15 @@
                     <div class="col">
                 <img class="leftslider" src="">
               </div>
-                    <div class="col-8">
-                        <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Batch" required >
+                    <div class="col-8 align">
+                        <div class="form-control">
+                            <label for="your_name"><i class="fa fa-user"></i></label>
+                            <input type="text" name="your_name" id="your_name" class="form-control" placeholder="Your Name"/>
+                        </div>
+                      <!-- <label><i class="fa fa-hourglass"></i></label><input type="text" formControlName="batch" class="form-control mb-2" placeholder="Batch" required >
                         <input type="text" formControlName="school" class="form-control mb-2" placeholder="School" required >
                         <input type="text" formControlName="programme" class="form-control mb-2" placeholder="Progamme" required >
-                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required >
+                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required > -->
                         </div>
                         <div class="col">
                             <img class="rightslider" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
@@ -49,7 +53,7 @@
     </div>
    
   </div>
-  <div style="text-align:center">
+  <div class="center">
       <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
       <button type="button" class="btn btn-warning save" routerLink="/alumni">Save</button>
 
