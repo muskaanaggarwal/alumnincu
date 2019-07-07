@@ -1,4 +1,4 @@
-<div class=" container card mb-3 pt-3" style="max-width: 1300px;">
+<!-- <div class=" container card mb-3 pt-3" style="max-width: 1300px;">
     <div class="row no-gutters">
       
       <div class="col-md-8">
@@ -18,7 +18,7 @@
                     <input type="checkbox" formControlName="isverified" value="">
                     I agree that I am an alumni of The Northcap University
                   </label>
-                  <button class="btn btn-lg btn-primary btn-block mb-1" (click)="alumniportal()" type="button" routerLink="/registration">Submit</button>
+                  <button class="btn btn-lg btn-primary btn-block mb-1" (click)="alumniportal()" type="button" routerLink="/degreeform">Submit</button>
                   </form>
         </div>   
       </div>
@@ -29,4 +29,64 @@
         </div>
 
     </div>
-  </div>
+  </div> -->
+
+  
+<body>
+
+  <div class="main">
+      <section class="signup">
+          <div class="container">
+              <div class="signup-content">
+                  <div class="signup-form">
+                      <h2 class="form-title">Sign up</h2>
+                      <form method="POST" class="register-form" id="register-form" [formGroup]="alumniportalForm">
+                          <div class="form-group">
+                              <label for="name"><i class="fa fa-user"></i></label>
+                              <input type="text" formControlName="roll_no" name="name" required placeholder="Roll Number"/>
+                          </div><div class="form-group">
+                              <label for="name"><i class="fa fa-address-card"></i></label>
+                              <input type="text" formControlName="first_name" name="name" required placeholder="First Name"/>
+                          </div><div class="form-group">
+                              <label for="name"><i class="fa fa-address-card"></i></label>
+                              <input type="text" formControlName="last_name" name="name" required placeholder="Last Name"/>
+                          </div>
+                          <div class="form-group">
+                              <label for="name"><i class="fa fa-birthday-cake"></i></label>
+                              <input type="date" formControlName="date_of_birth" name="name" required placeholder="Date Of Birth"/>
+                          </div>
+                        <div class="form-group">
+                            <label for="name"><i class="fa fa-phone"></i></label>
+                            <input type="number" formControlName="contact" name="name" required placeholder="Phone Number"/>
+                        </div>
+                          <div class="form-group">
+                              <label for="pass"><i class="fa fa-envelope"></i></label>
+                              <input type="url" name="pass" formControlName="email" id="pass" required placeholder="Email"/>
+                          </div>
+                          <div class="form-group">
+                              <label for="re-pass"><i class="fa fa-lock"></i></label>
+                              <input type="password" name="re_pass" formControlName="password" required placeholder="Password"/>
+                          </div>
+                          <div class="form-group">
+                              <label for="re-pass"><i class="fa fa-lock"></i></label>
+                              <input type="password" name="re_pass" formControlName="password"  placeholder="Repeat your password"/>
+                          </div>
+                          <div class="form-group">
+                              <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                              <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree that I am an alumni of <a href="#" class="term-service">The NorthCap University</a></label>
+                          </div>
+                          <div class="form-group form-button">
+                              <!-- <button class="btn btn-lg btn-primary btn-block mb-1" (click)="alumniportal()" type="button" routerLink="/degreeform">Submit</button> -->
+                              <input  (click)="alumniportal()" type="button" routerLink="/degreeform" name="signup" id="signup" class="form-submit" value="Register"/>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="signup-image">
+                      <figure><img src="http://ku.90sjimg.com/element_origin_min_pic/18/03/18/edc97d70f986f6967c9135c5bfe96c8d.jpg" alt="sing up image"></figure>
+                      <a routerLink="/alumni" class="signup-image-link"><b>I am already member</b></a>
+                  </div>
+              </div>
+          </div>
+      </section>
+      </div>
+      </body>
