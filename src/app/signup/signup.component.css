@@ -324,7 +324,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
       height: 100%;
       position: absolute;
       font-size: 16px;
-      color: green; }
+      color: rgb(134, 18, 18); }
   
   .label-agree-term {
     position: relative;

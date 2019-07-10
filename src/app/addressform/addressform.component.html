@@ -13,23 +13,23 @@
           <!-- <p class="card-text"><img src="./right-arrow.png">
              Lorem <img src="./right-arrow.png">
             </p> -->
-              <form [formGroup]="alumniportalForm">
+              <form [formGroup]="addressForm">
                   
                   <div class="form-row">
                       <div class="form-group col-md-2">
                           <img class="leftslider"routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                         </div>
                       <div class="form-group col-md-8">
-                          <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Address Line 1" required >
-                          <!-- <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Address Line 2" required > -->
-                          <!-- <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Address Line 3" required > -->
-                          <input type="text" formControlName="school" class="form-control mb-2" placeholder="City" required >
-                          <input type="text" formControlName="programme" class="form-control mb-2" placeholder="State" required >
-                          <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Country" required >
-                          <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Postal Code" required >
+                          <input type="text" formControlName="address_line_1" class="form-control mb-2" placeholder="Address Line 1" required >
+                          <input type="text" formControlName="address_line_1" class="form-control mb-2" placeholder="Address Line 2" required >
+                          <input type="text" formControlName="address_line_1" class="form-control mb-2" placeholder="Address Line 3" required >
+                          <input type="text" formControlName="city" class="form-control mb-2" placeholder="City" required >
+                          <input type="text" formControlName="state" class="form-control mb-2" placeholder="State" required >
+                          <input type="text" formControlName="country" class="form-control mb-2" placeholder="Country" required >
+                          <input type="text" formControlName="pincode" class="form-control mb-2" placeholder="Postal Code" required >
                            </div>
                           <div class="form-group col-md-2">
-                              <img class="rightslider"routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                              <img class="rightslider"routerLink="/jobform" (click)="address()" type="button" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                             </div>
                       </div>
                  </form>
