@@ -13,7 +13,7 @@ export class DegreeformComponent implements OnInit {
   }
   school: string = 'SOET'
   schools: object = {
-    SOET: {
+    "SOET": {
       "B.Tech - Computer Science & Engineering (CSE)": "B.Tech - Computer Science & Engineering (CSE)",
       2: 2,
       3: 3
@@ -23,7 +23,7 @@ export class DegreeformComponent implements OnInit {
       5: 5,
       6: 6
     },
-    SOM: {
+    "SOM": {
       7: 7,
       8: 8,
       9: 9

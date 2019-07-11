@@ -16,10 +16,10 @@
                         
                         
                           
-                            <select id="school" (change)="onSelect($event.target.value)" class="form-control mb-2">
+                            <select id="school" (change)="onSelect($event.target.value)" class="form-control mb-2" formControlName="school" >
                               <option *ngFor="let sch of schools | keyvalue" [value]="sch.key">{{ sch.key }}</option>
                             </select>
-                            <select id="program" (change)="onProgram($event.target.value)" class="form-control mb-2">
+                            <select id="program" (change)="onProgram($event.target.value)" class="form-control mb-2" formControlName="prog">
                               <option *ngFor="let program of schools[school] | keyvalue" [value]="program.key">{{ program.value }}</option>
                             </select>
                           
@@ -40,10 +40,10 @@
                             <option>M.Tech - Mechanical Engineering (ME)</option>
                             <option>Ph.D.</option>                        
                           </select> -->
-                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required >
+                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization"  >
                         </div>
                         <div class="col">
-                            <img class="rightslider" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                            <img class="rightslider" (click)="degreeform()" type="button" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                           </div>
                     </div>
 
