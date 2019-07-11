@@ -11,4 +11,8 @@ export class DataserviceService {
   alumniportalUser(url, obj) {
     return this.http.post(url, obj);
   }
+  // degreeformUser(url1, obj) {
+  //   return this.http.post(url1, obj);
+  // }
+  
 }
