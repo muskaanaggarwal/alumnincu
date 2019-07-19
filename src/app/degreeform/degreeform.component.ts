@@ -8,6 +8,7 @@ import { DataserviceService } from '../dataservice.service';
   styleUrls: ['./degreeform.component.css']
 })
 export class DegreeformComponent implements OnInit {
+  school: string = 'SOET'
 
   degreeForm: FormGroup;
   url= 'http://localhost:9800/degreeform';
@@ -16,6 +17,8 @@ export class DegreeformComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
   ngOnInit() {
+  
+  
     this.degreeForm = this.formBuilder.group({
       end_year: [''],
       batch_id: ['1'],
@@ -23,6 +26,14 @@ export class DegreeformComponent implements OnInit {
       // specialization_name: ['2'],
       
       });
+      
+  }
+  onSelect(key: string) {
+    console.log(key);
+    this.school = key;
+  }
+  onProgram(key: string) {
+    console.log(key);
   }
   degreeform() {
     console.log("Data before***", this.degreeForm.value)
