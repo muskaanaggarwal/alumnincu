@@ -12,19 +12,16 @@ export class DegreeformComponent implements OnInit {
 
   degreeForm: FormGroup;
   url= 'http://localhost:9800/degreeform';
-  // url2= 'http://localhost:9800/degreeform2';
-  // url3= 'http://localhost:9800/degreeform3';
-
+  
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
   ngOnInit() {
   
   
     this.degreeForm = this.formBuilder.group({
-      end_year: [''],
-      batch_id: ['1'],
-      // program_name: ['2'],
-      // specialization_name: ['2'],
-      
+      school_name: [''],
+      program_name: [''],
+      specialization_name: [''],
+      batch_id:[''],
       });
       
   }

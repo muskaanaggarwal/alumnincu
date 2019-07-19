@@ -1,10 +1,4 @@
-.uevents{
-    height:30px;
-    background-color: brown;
-    border-radius: 20px;
-    margin-top:15px;
-    padding:10px;
-}
+/* 
 .unews{
     height:30px;
     background-color: brown;
@@ -13,12 +7,7 @@
 
     
 }
-#head1{
-    color:white;
-    margin:-6px;
-    padding-left:7px;
-    padding-top:-8px;
-}
+
 #head2{
     color:white;
     margin:-3px;
@@ -57,12 +46,28 @@
 .btn {
     text-decoration: none;
     color:brown;
-    /* border-radius:40px;
-    border: 0.4px solid #EAE6E6;
-    background-color: white; */
+    
 }
 .btn-link{
     font-size:20px;
     font-weight:600;
     
+} */
+
+.event{
+    outline: none;
+    border: white;
+}
+#head1{
+    color:white;
+    margin:-6px;
+    padding-left:7px;
+    padding-top:-8px;
+}
+.uevents{
+    height:30px;
+    background-color: brown;
+    border-radius: 20px;
+    margin-top:15px;
+    padding:10px;
 }
