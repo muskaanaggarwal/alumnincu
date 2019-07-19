@@ -27,14 +27,15 @@
       <div class="card-body">
         <h2 class="card-title center"><b>SOCIAL LINKS DETAILS</b></h2>
        
-            <form [formGroup]="alumniportalForm">
+            <form [formGroup]="sociallinkForm">
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <img class="leftslider"routerLink="/personalform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                       </div>
-                    <div class="form-group col-md-8">  <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Facebook" required >
-                      <input type="text" formControlName="school" class="form-control mb-2" placeholder="Linked In" required >
-                      <input type="text" formControlName="programme" class="form-control mb-2" placeholder="Twitter" required >
+                    <div class="form-group col-md-8">  
+                      <input type="text" formControlName="facebook" class="form-control mb-2" placeholder="Facebook" required >
+                      <input type="text" formControlName="linkedin" class="form-control mb-2" placeholder="Linked In" required >
+                      <input type="text" formControlName="twitter" class="form-control mb-2" placeholder="Twitter" required >
          </div>
                      
                     </div>
@@ -50,6 +51,6 @@
   </div>
   <div class="center">
       <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      <button type="button" class="btn btn-warning save" routerLink="/alumni">Save</button>
+      <button type="button" class="btn btn-warning save" (click)="sociallinkform()">Save</button>
 
   </div></body>

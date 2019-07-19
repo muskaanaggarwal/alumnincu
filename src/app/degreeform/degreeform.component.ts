@@ -10,7 +10,6 @@ import { DataserviceService } from '../dataservice.service';
 export class DegreeformComponent implements OnInit {
 
   degreeForm: FormGroup;
-  // url = 'http://localhost:9800/degreeform';
   url= 'http://localhost:9800/degreeform';
   // url2= 'http://localhost:9800/degreeform2';
   // url3= 'http://localhost:9800/degreeform3';
@@ -19,9 +18,9 @@ export class DegreeformComponent implements OnInit {
   ngOnInit() {
     this.degreeForm = this.formBuilder.group({
       end_year: [''],
-      batch_id: [''],
-      program_name: ['2'],
-      specialization_name: ['2'],
+      batch_id: ['1'],
+      // program_name: ['2'],
+      // specialization_name: ['2'],
       
       });
   }

@@ -3,62 +3,25 @@
   <div class="cards border-dark">
     <div class="card-item hello">
       <div class="card-body">
-        <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
-      
-            <form [formGroup]="degreeForm">
-                <div class="form-row">
-                    <div class="col">
-                <img class="leftslider" src="">
+        
+          <div class="form-row">
+              <div class="form-group col-md-2">
+                <!-- <img class="leftslider"routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg"> -->
               </div>
-                    <div class="col-8 align">
-<<<<<<< HEAD
-                        <!-- <div class="form-control">
-                            <label for="your_name"><i class="fa fa-user"></i></label>
-                            <input type="text" name="your_name" id="your_name" class="form-control" placeholder="Your Name"/>
-                        </div> -->
-                      <input type="number" formControlName="end_year" class="form-control mb-2" placeholder="Batch" required >
-                        <input type="text" formControlName="batch_id" class="form-control mb-2" placeholder="Batch_ID" required >
-                        <input type="text" formControlName="program_name" class="form-control mb-2" placeholder="Progamme" required >
-                        <input type="text" formControlName="specialization_name" class="form-control mb-2" placeholder="Specialization" required >
-=======
-                       
-                      <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Batch" required >
-                        
-                        
-                          
-                            <select id="school" (change)="onSelect($event.target.value)" class="form-control mb-2">
-                              <option *ngFor="let sch of schools | keyvalue" [value]="sch.key">{{ sch.key }}</option>
-                            </select>
-                            <select id="program" (change)="onProgram($event.target.value)" class="form-control mb-2">
-                              <option *ngFor="let program of schools[school] | keyvalue" [value]="program.key">{{ program.value }}</option>
-                            </select>
-                          
-                            
-                          
-                        
-                        
-                        
-                        <!-- <select class="form-control mb-2 ">
-                            <option>Programme</option>
-                            <option>B.Tech - Computer Science & Engineering (CSE)</option>
-                            <option>B.Tech - Electronics & Communication Engineering (ECE)</option>
-                            <option>B.Tech - Civil Engineering (CE)</option>
-                            <option>B.Tech - Mechanical Engineering (ME)</option>
-                            <option>M.Tech - Computer Science & Engineering (CSE)</option>
-                            <option>M.Tech - Electronics & Communication Engineering (ECE)</option>
-                            <option>M.Tech - Civil Engineering (CE)</option>
-                            <option>M.Tech - Mechanical Engineering (ME)</option>
-                            <option>Ph.D.</option>                        
-                          </select> -->
-                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required >
->>>>>>> a97e19d405f56aaea8778efa34c122e9a683c803
-                        </div>
-                        <div class="col">
-                            <img class="rightslider" (click)="degreeform()" type="button" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
-                          </div>
-                    </div>
-
-               </form>
+              <div class="form-group col-md-8">
+                <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
+                <form [formGroup]="degreeForm">
+                  <input type="number" formControlName="end_year" class="form-control mb-2" placeholder="Batch" required >
+                  <input type="text" formControlName="batch_id" class="form-control mb-2" placeholder="Batch_ID" required >
+                  <!-- <input type="text" formControlName="program_name" class="form-control mb-2" placeholder="Progamme" required > -->
+                  <!-- <input type="text" formControlName="specialization_name" class="form-control mb-2" placeholder="Specialization" required > -->
+                </form>
+              </div>
+              <div class="form-group col-md-2">
+                <img class=" rightslider" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+              </div>
+          </div>  
+          
       </div>
     </div>
     <div class="hi card-item">
@@ -86,9 +49,8 @@
   </div>
   <div class="center">
       <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      <button type="button" class="btn btn-warning save" routerLink="/alumni">Save</button>
+      <button type="button" class="btn btn-warning save" (click)="degreeform()">Save</button>
 
   </div>
 
 </body>
-
