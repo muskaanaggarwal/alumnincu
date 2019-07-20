@@ -72,7 +72,9 @@ h1, h5 {
 .rotate {
     transform: rotate(90deg);
     margin: -200px -100px 0px 0px;
-    color: grey;
+		color: grey;
+		white-space: nowrap;
+
     font-size: 20px;
 }
 

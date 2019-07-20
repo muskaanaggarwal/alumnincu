@@ -70,7 +70,9 @@ h1, h5 {
 }
 
 .rotate {
-    transform: rotate(90deg);
+		transform: rotate(90deg);
+		white-space: nowrap;
+
     margin: -200px -100px 0px 0px;
     color: grey;
     font-size: 20px;
