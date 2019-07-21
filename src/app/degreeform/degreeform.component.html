@@ -11,43 +11,41 @@
                 <img class="leftslider" src="">
               </div>
                     <div class="col-8 align">
-                       
-                      <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Batch" required >
+                        <!-- <div class="form-control">
+                            <label for="your_name"><i class="fa fa-user"></i></label>
+                            <input type="text" name="your_name" id="your_name" class="form-control" placeholder="Your Name"/>
+                        </div> -->
                         
-                        
-                          
-                            <select id="school" (change)="onSelect($event.target.value)" class="form-control mb-2">
-                              <option *ngFor="let sch of schools | keyvalue" [value]="sch.key">{{ sch.key }}</option>
-                            </select>
-                            <select id="program" (change)="onProgram($event.target.value)" class="form-control mb-2">
-                              <option *ngFor="let program of schools[school] | keyvalue" [value]="program.key">{{ program.value }}</option>
-                            </select>
-                          
-                            
-                          
-                        
-                        
-                        
-                        <!-- <select class="form-control mb-2 ">
-                            <option>Programme</option>
-                            <option>B.Tech - Computer Science & Engineering (CSE)</option>
-                            <option>B.Tech - Electronics & Communication Engineering (ECE)</option>
-                            <option>B.Tech - Civil Engineering (CE)</option>
-                            <option>B.Tech - Mechanical Engineering (ME)</option>
-                            <option>M.Tech - Computer Science & Engineering (CSE)</option>
-                            <option>M.Tech - Electronics & Communication Engineering (ECE)</option>
-                            <option>M.Tech - Civil Engineering (CE)</option>
-                            <option>M.Tech - Mechanical Engineering (ME)</option>
-                            <option>Ph.D.</option>                        
-                          </select> -->
-                        <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Specialization" required >
+                        <!-- <input type="number" formControlName="specialization_id" class="form-control mb-2" placeholder="Batch" required > -->
+                        <input type="number" formControlName="end_year" class="form-control mb-2" placeholder="end_year" required >
+                        <input type="number" formControlName="start_year" class="form-control mb-2" placeholder="start_year" required >
+                        <input type="number" formControlName="batch_id" class="form-control mb-2" placeholder="batch_id" required >
+                        <input type="text" formControlName="school_name" class="form-control mb-2" placeholder="school_name" required >
+                        <!-- <input type="number" formControlName="school_id" class="form-control mb-2" placeholder="Batch" required > -->
+                        <input type="number" formControlName="program_id" class="form-control mb-2" placeholder="program_id" required >
+                        <input type="text" formControlName="program_name" class="form-control mb-2" placeholder="program_name" required >
+                        <input type="text" formControlName="specialization_name" class="form-control mb-2" placeholder="specialization_name" required >
+                      
+                      
+                      
+                      
+                      
+                      <!-- <select id="school" (change)="onSelect($event.target.value)" class="form-control mb-2"  >
+                        <option *ngFor="let sch of schools | keyvalue" [value]="sch.key">{{ sch.key }}</option>
+                      </select>
+                      <select id="program" (change)="onProgram($event.target.value)" class="form-control mb-2">
+                        <option *ngFor="let program of schools[school] | keyvalue" [value]="program.key">{{ program.value }}</option>
+                      </select> -->
+                        <!-- <input type="text" formControlName="specialization_name" class="form-control mb-2" placeholder="Specialization" required > -->
                         </div>
                         <div class="col">
-                            <img class="rightslider" (click)="degreeform()" type="button" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                            <img class="rightslider" (click)="degreeform()" type="button" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg" (click)="degreeform()">>
                           </div>
                     </div>
 
                </form>
+
+
       </div>
     </div>
     <div class="hi card-item">
@@ -80,4 +78,3 @@
   </div>
 
 </body>
-

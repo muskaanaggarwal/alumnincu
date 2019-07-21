@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   
   signupForm: FormGroup;
-  url1 = 'http://localhost:9800/signup';
+  url = 'http://localhost:9800/signup';
   // title = 'alumnincu';
   
   // Register your dataservice using dependency injection
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
   signup() {
     console.log("Data before*****", this.signupForm.value)
     // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url1, this.signupForm.value).subscribe((data: Array<any>) => {
+    this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
       console.log("Data After*****", data)
     },
       (error: any) => {
