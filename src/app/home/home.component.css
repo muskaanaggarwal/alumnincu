@@ -8,7 +8,7 @@
 .unews{
     height:30px;
     background-color: brown;
-    margin-top:310px;
+    margin-top:20px;
     border-radius: 20px;
 
     
@@ -32,12 +32,7 @@
 
     
 }
- .col-lg-2{
-    margin-left:10px!important; 
-    margin-right: -15px;
-    
-     
-} 
+ 
  .c{
     width:230px!important;
     height:50px!important;
@@ -50,22 +45,21 @@
 .news{
     border:none;
 }
-.fa {
-    margin-left:940px;
-    font-size:25px;
-}
+
+
 .btn {
     text-decoration: none;
     color:brown;
-    /* border-radius:40px;
-    border: 0.4px solid #EAE6E6;
-    background-color: white; */
 }
+
+
+
 .btn-link{
     font-size:20px;
     font-weight:600;
     
 }
+<<<<<<< HEAD
 
 .title {
    
@@ -121,3 +115,18 @@
       
       
   }
+=======
+.news{
+    margin-top:20px;
+}
+.card{
+    border:none;
+}
+.card-header{
+    margin:10px;
+    background-color:white;
+}
+.events{
+    margin-top:20px;
+}
+>>>>>>> 0742c9588c15802c740bb3ee61ff2fa03daf6d4c

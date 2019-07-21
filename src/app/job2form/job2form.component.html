@@ -14,26 +14,28 @@
     </div>
     <div class="card-item hello">
       <div class="card-body">
-        <h2 class="card-title center"><b>JOB DETAILS</b></h2>
-        <h3 class="card-title center"><small>Self-Employment           Coperate</small></h3>
-
-            <form [formGroup]="alumniportalForm">
+       
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <img class="leftslider"routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                       </div>
                     <div class="form-group col-md-8">
-                        <input type="text" formControlName="batch" class="form-control mb-2" placeholder="Company Name" required >
-                <input type="text" formControlName="school" class="form-control mb-2" placeholder="Designation" required >
-                <input type="text" formControlName="programme" class="form-control mb-2" placeholder="City" required >
-                <input type="text" formControlName="specialization" class="form-control mb-2" placeholder="Website" required >
-                  </div>
+                        <h2 class="card-title center"><b>JOB DETAILS</b></h2>
+                        <h3 class="card-title center"><small>Self-Employment           Coperate</small></h3>
+                
+                        <form [formGroup]="job2Form">
+                        <input type="text" formControlName="company_name" class="form-control mb-2" placeholder="Company Name" required >
+                <input type="text" formControlName="designation" class="form-control mb-2" placeholder="Designation" required >
+                <input type="text" formControlName="company_city" class="form-control mb-2" placeholder="City" required >
+                <input type="text" formControlName="website" class="form-control mb-2" placeholder="Website" required >
+                 
+              </form>
+            </div>
                         <div class="form-group col-md-2">
                             <img class="rightslider"routerLink="/personalform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                           </div>
                     </div>
                
-               </form>
 
 
       </div>
@@ -53,6 +55,6 @@
   </div>
   <div class="center">
       <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      <button type="button" class="btn btn-warning save" routerLink="/alumni">Save</button>
+      <button type="button" class="btn btn-warning save" (click)="job2form()">Save</button>
 
   </div></body>
