@@ -19,8 +19,8 @@ export class DegreeformComponent implements OnInit {
   
     this.degreeForm = this.formBuilder.group({
       school_name: [''],
-      program_name: [''],
-      specialization_name: [''],
+      // program_name: [''],
+      // specialization_name: [''],
       batch_id:[''],
       });
       

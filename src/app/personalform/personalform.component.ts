@@ -17,6 +17,7 @@ export class PersonalformComponent implements OnInit {
     this.personalForm = this.formBuilder.group({
       photo: [''],
       spouse_name: [''],
+      roll_no: [''],
       anniversary_date: [''],
       });
   }
