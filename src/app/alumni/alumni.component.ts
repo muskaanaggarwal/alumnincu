@@ -29,18 +29,18 @@ export class AlumniComponent implements OnInit {
     this.errorMessage = false;
   }
 
-  login() {
-    if (!this.loginForm.controls.userName.value || !this.loginForm.controls.password.value){
-      this.errorMessage = true;
-    }
-    this.formData.userName = this.loginForm.controls.userName.value;
-    this.formData.password = this.loginForm.controls.password.value;
-    this.dataService.login(this.formData).subscribe((data: Array<any>) => {
-      if (data.length!=0 && data[0]['roll_no'] == this.formData.userName && data[0]['password'] == this.formData.password){
-        this.errorMessage = false;
-      }
-    })
+  // login() {
+  //   if (!this.loginForm.controls.userName.value || !this.loginForm.controls.password.value){
+  //     this.errorMessage = true;
+  //   } 
+  //   this.formData.userName = this.loginForm.controls.userName.value;
+  //   this.formData.password = this.loginForm.controls.password.value;
+  //   this.dataService.login(this.formData).subscribe((data: Array<any>) => {
+  //     if (data.length!=0 && data[0]['roll_no'] == this.formData.userName && data[0]['password'] == this.formData.password){
+  //       this.errorMessage = false;
+  //     }
+  //   })
 
-  }
+  // }
 
 }

@@ -11,14 +11,14 @@
               <div class="form-group col-md-8">
                 <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
                 <form [formGroup]="degreeForm">
-                  <input type="number" formControlName="batch_id" class="form-control mb-2" placeholder="Batch" required >
+                  <input type="number" formControlName="batch_id" id="batch_id" class="form-control mb-2" placeholder="Batch" required >
                   <input type="text" formControlName="school_name" class="form-control mb-2" placeholder="School" required >
-                  <!-- <input type="text" formControlName="program_name" class="form-control mb-2" placeholder="Progamme" required > -->
+                  <input type="text" formControlName="program_name" class="form-control mb-2" placeholder="Progamme" required >
                   <!-- <input type="text" formControlName="specialization_name" class="form-control mb-2" placeholder="Specialization" required > -->
                 </form>
               </div>
               <div class="form-group col-md-2">
-                <img class=" rightslider" routerLink="/addressform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                <img class=" rightslider" routerLink="/addressform" (click)="saveSoFar()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
               </div>
           </div>  
           
