@@ -8,9 +8,9 @@ describe('AddressformComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddressformComponent ]
+      declarations: [AddressformComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
