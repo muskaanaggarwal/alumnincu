@@ -24,15 +24,15 @@
                           <h3 class="card-title center"><small>Campus Placement</small></h3>
                   
                           <form [formGroup]="jobForm">
-                          <input type="text" formControlName="company_name" class="form-control mb-2" placeholder="Company Name" required >
-                  <input type="text" formControlName="designation" class="form-control mb-2" placeholder="Designation" required >
-                  <input type="text" formControlName="company_city" class="form-control mb-2" placeholder="City" required >
-                  <input type="text" formControlName="website" class="form-control mb-2" placeholder="Website" required >
+                          <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2" placeholder="Company Name" required >
+                  <input type="text" formControlName="designation"  id="designation" class="form-control mb-2" placeholder="Designation" required >
+                  <input type="text" formControlName="company_city" id="company_city" class="form-control mb-2" placeholder="City" required >
+                  <input type="text" formControlName="website" id="website" class="form-control mb-2" placeholder="Website" required >
                    
                 </form>
               </div>
                           <div class="form-group col-md-2">
-                              <img class="rightslider"routerLink="/job2form" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                              <img class="rightslider"routerLink="/job2form"  src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                             </div>
                       </div>
                  
@@ -55,6 +55,6 @@
   </div>
   <div class="center">
       <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      <button type="button" class="btn btn-warning save" (click)="jobform()">Save</button>
+      <button type="button" class="btn btn-warning save" disabled >Save</button>
 
   </div></body>

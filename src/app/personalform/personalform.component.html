@@ -28,13 +28,13 @@
                         <h2 class="card-title center"><b>PERSONAL DETAILS</b></h2>
 
                         <form [formGroup]="personalForm">
-                        <input type="text" formControlName="photo" class="form-control mb-2" placeholder="Insert Your image" required  accept="image/*">
+                        <input type="text" formControlName="photo" class="form-control mb-2" id="" placeholder="Insert Your image" required  accept="image/*">
                         <input type="text" formControlName="spouse_name" class="form-control mb-2" placeholder="Spouse Name" required >
                         <input type="date" formControlName="anniversary_date" class="form-control mb-2" placeholder="Anniversary Date" required >
                       </form>
                     </div>
                         <div class="form-group col-md-2">
-                            <img class="rightslider" routerLink="/sociallinkform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+                            <img class="rightslider"  routerLink="/sociallinkform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
                           </div>
                     </div>
                
@@ -52,6 +52,6 @@
   </div>
   <div class="center">
       <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      <button type="button" class="btn btn-warning save" (click)="personalform()">Save</button>
+      <button type="button" class="btn btn-warning save" disabled >Save</button>
 
   </div></body>

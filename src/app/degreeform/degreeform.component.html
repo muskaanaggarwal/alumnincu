@@ -3,52 +3,59 @@
   <div class="cards border-dark">
     <div class="card-item hello">
       <div class="card-body">
-        
-          <div class="form-row">
-              <div class="form-group col-md-2">
-                <!-- <img class="leftslider"routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg"> -->
-              </div>
-              <div class="form-group col-md-8">
-                <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
-                <form [formGroup]="degreeForm">
-                  <input type="number" formControlName="batch_id" id="batch_id" class="form-control mb-2" placeholder="Batch" required >
-                  <input type="text" formControlName="school_name" class="form-control mb-2" placeholder="School" required >
-                  <input type="text" formControlName="program_name" class="form-control mb-2" placeholder="Progamme" required >
-                  <!-- <input type="text" formControlName="specialization_name" class="form-control mb-2" placeholder="Specialization" required > -->
-                </form>
-              </div>
-              <div class="form-group col-md-2">
-                <img class=" rightslider" routerLink="/addressform" (click)="saveSoFar()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
-              </div>
-          </div>  
-          
+
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <!-- <img class="leftslider"routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg"> -->
+          </div>
+          <div class="form-group col-md-8">
+            <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
+            <form [formGroup]="degreeForm">
+              <input type="text" formControlName="roll_no" id="roll_no" class="form-control mb-2"
+                placeholder="Roll Number" required>
+              <input type="number" formControlName="batch_id" id="batch_id" class="form-control mb-2"
+                placeholder="Batch" required>
+              <input type="text" formControlName="school_name" id="school" class="form-control mb-2"
+                placeholder="School" required>
+              <input type="text" formControlName="program_name" id="program" class="form-control mb-2"
+                placeholder="Progamme" required>
+              <input type="text" formControlName="specialization_name" id="specialization" class="form-control mb-2"
+                placeholder="Specialization" required>
+            </form>
+          </div>
+          <div class="form-group col-md-2">
+            <img class=" rightslider" routerLink="/addressform"
+              src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="card-item hi">
       <div class="card-body">
         <h2 class="rotate card-title"><b>ADDRESS DETAILS</b></h2>
-        </div>
+      </div>
     </div>
     <div class="card-item hi">
       <div class="card-body">
         <h2 class="rotate card-title"><b>JOB DETAILS</b></h2>
-        </div>
+      </div>
     </div>
     <div class="card-item hi">
       <div class="card-body">
         <h2 class="rotate  card-title"><b>PERSONAL DETAILS</b></h2>
-       </div>
+      </div>
     </div>
     <div class="card-item hi">
       <div class="card-body">
         <h2 class="rotate  card-title"><b>SOCIAL PROFILE LINKS</b></h2>
-        
+
       </div>
     </div>
-   
+
   </div>
   <div class="center">
-      <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      <button type="button" class="btn btn-warning save" (click)="degreeform()">Save</button>
+    <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
+    <button type="button" class="btn btn-warning save" disabled (click)="degreeform()">Save</button>
   </div>
 </body>
