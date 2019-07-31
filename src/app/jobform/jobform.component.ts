@@ -18,7 +18,7 @@ export class JobformComponent implements OnInit {
   ngOnInit() {
     this.jobForm = this.formBuilder.group({
       designation: [''],
-      company_name: ['company_name'],
+      company_name: [''],
       company_city: [''],
       website: [''],
      

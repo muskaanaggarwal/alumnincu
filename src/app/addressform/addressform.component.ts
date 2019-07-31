@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Addressmodel } from './address.model';
 
@@ -18,7 +18,7 @@ export class AddressformComponent implements OnInit {
 
   ngOnInit() {
     this.addressForm = this.formBuilder.group({
-      address_line_1: [''],
+      address_line_1: ['', Validators.required],
       address_line_2: [''],
       address_line_3: [''],
       city: [''],
@@ -64,8 +64,6 @@ export class AddressformComponent implements OnInit {
   }
 
   addressform() {
-    console.log(this.dataService.degreeForm.value);
-    console.log(this.dataService.addressForm.value);
     // console.log("Data before***", this.addressForm.value)
     // // execute the registerUser() given in the spring boot 
     // this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
