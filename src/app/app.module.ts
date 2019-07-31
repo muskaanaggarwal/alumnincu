@@ -22,6 +22,13 @@ import { JobformComponent } from './jobform/jobform.component';
 import { PersonalformComponent } from './personalform/personalform.component';
 import { SociallinkformComponent } from './sociallinkform/sociallinkform.component';
 import { Job2formComponent } from './job2form/job2form.component';
+import { EditloginComponent } from './editlogin/editlogin.component';
+import { EditdegreeComponent } from './editdegree/editdegree.component';
+import { EditaddressComponent } from './editaddress/editaddress.component';
+import { EditpersonalComponent } from './editpersonal/editpersonal.component';
+import { EditjobComponent } from './editjob/editjob.component';
+
+
 
 
 @NgModule({
@@ -41,7 +48,19 @@ import { Job2formComponent } from './job2form/job2form.component';
     JobformComponent,
     PersonalformComponent,
     SociallinkformComponent,
-    Job2formComponent
+    Job2formComponent,
+    
+    EditloginComponent,
+    
+    EditdegreeComponent,
+    
+    EditaddressComponent,
+    
+    EditpersonalComponent,
+    
+    EditjobComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -64,6 +83,11 @@ import { Job2formComponent } from './job2form/job2form.component';
       {path:'jobform', component:JobformComponent},
       {path:'sociallinkform', component:SociallinkformComponent},
       {path:'job2form', component:Job2formComponent},
+      {path:'editlogin',component:EditloginComponent},
+      {path:'editdegree', component:EditdegreeComponent},
+      {path:'editaddress',component:EditaddressComponent},
+      {path:'editpersonal',component:EditpersonalComponent},
+      {path:'editjob',component:EditjobComponent},
 
 
 
