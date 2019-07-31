@@ -69,10 +69,7 @@ h1, h5 {
 	flex: 1 0 auto;
 	margin: 0;
 }
-/* -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
--webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
--o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
--ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05); */
+
 .rotate {
 		-moz-transform: rotate(0deg);
 		-webkit-transform: rotate(90deg);
@@ -130,9 +127,7 @@ h1, h5 {
 		display: block;
 		outline: none;
         transform: rotate(180deg);
-		}
-	
-	
+	}
 	.back {
 		background: #36345A;
 		color: #fff;
