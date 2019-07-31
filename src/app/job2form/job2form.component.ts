@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Job2model } from './job2.model';
@@ -21,6 +21,12 @@ this.job2Form = this.formBuilder.group({
   company_city: [''],
   website: [''],
   });
+  if(this.dataService.job2Form){
+    this.job2Form = this.dataService.job2Form;
+  }
+}
+ngOnDestroy() {
+this.dataService.job2Form = this.job2Form;
 }
 localjob2(){
   let company_name: any = document.getElementById('company_name');

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Sociallinkmodel } from './slink.model';
-import {localaddress} from '../addressform/addressform.component'
 
 @Component({
   selector: 'app-sociallinkform',
@@ -23,15 +22,17 @@ export class SociallinkformComponent implements OnInit {
       twitter: [''],
       
       });
+      if(this.dataService.sociallinkForm){
+        this.sociallinkForm = this.dataService.sociallinkForm;
+      }
+  }
+  ngOnDestroy() {
+    this.dataService.sociallinkForm = this.sociallinkForm;
   }
   localsocial(){
     let facebook: any = document.getElementById('facebook');
     let linkedin: any = document.getElementById('linkedin');
     let twitter: any = document.getElementById('twitter');
-    localaddress();
-
-  
-  
     if(facebook){
       this.social.facebook = facebook.value;
     }

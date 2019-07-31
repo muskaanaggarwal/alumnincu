@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Jobmodel } from './job.model';
@@ -23,6 +23,12 @@ export class JobformComponent implements OnInit {
       website: [''],
      
       });
+      if(this.dataService.jobForm){
+        this.jobForm = this.dataService.jobForm;
+      }
+  }
+  ngOnDestroy() {
+    this.dataService.jobForm = this.jobForm;
   }
   localjob(){
     let company_name: any = document.getElementById('company_name');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Addressmodel } from './address.model';
@@ -25,10 +25,16 @@ export class AddressformComponent implements OnInit {
       state: [''],
       country: [''],
       pincode: ['']
-      });
+    });
+    if (this.dataService.addressForm) {
+      this.addressForm = this.dataService.addressForm;
+    }
+  }
+  ngOnDestroy() {
+    this.dataService.addressForm = this.addressForm;
   }
 
-  localaddress(){
+  localaddress() {
     let address_line_1: any = document.getElementById('address_line_1');
     let address_line_2: any = document.getElementById('address_line_2');
     let address_line_3: any = document.getElementById('address_line_3');
@@ -38,34 +44,36 @@ export class AddressformComponent implements OnInit {
     let pincode: any = document.getElementById('pincode');
 
 
-    if(address_line_1){
+    if (address_line_1) {
       this.address.address_line_1 = address_line_1.value;
     }
-    if(address_line_2){
+    if (address_line_2) {
       this.address.address_line_2 = address_line_2.value;
-    } if(address_line_3){
+    } if (address_line_3) {
       this.address.address_line_3 = address_line_3.value;
-    } if(city){
+    } if (city) {
       this.address.city = city.value;
-    } if(state){
+    } if (state) {
       this.address.state = state.value;
-    }if(country){
+    } if (country) {
       this.address.country = country.value;
-    }if(pincode){
+    } if (pincode) {
       this.address.pincode = pincode.value;
     }
     console.log(this.address);
-   }
+  }
 
   addressform() {
-    console.log("Data before***", this.addressForm.value)
-    // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data)
-    },
-      (error: any) => {
-        console.log("Error in saving the record", error);
-      });
+    console.log(this.dataService.degreeForm.value);
+    console.log(this.dataService.addressForm.value);
+    // console.log("Data before***", this.addressForm.value)
+    // // execute the registerUser() given in the spring boot 
+    // this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
+    //   console.log("Data After***", data)
+    // },
+    //   (error: any) => {
+    //     console.log("Error in saving the record", error);
+    //   });
   }
 
 }

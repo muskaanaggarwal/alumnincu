@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Personalmodel } from './personal.model';
@@ -23,6 +23,12 @@ personal= new Personalmodel();
       roll_no: [''],
       anniversary_date: [''],
       });
+      if(this.dataService.personalForm){
+        this.personalForm = this.dataService.personalForm;
+      }
+  }
+  ngOnDestroy() {
+    this.dataService.personalForm = this.personalForm;
   }
   localpersonal(){
     let photo: any = document.getElementById('photo');
