@@ -30,25 +30,25 @@ export class JobformComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
-  localjob(){
-    let company_name: any = document.getElementById('company_name');
-    let designation: any = document.getElementById('designation');
-    let company_city: any = document.getElementById('company_city');
-    let website: any = document.getElementById('website');
+  // localjob(){
+  //   let company_name: any = document.getElementById('company_name');
+  //   let designation: any = document.getElementById('designation');
+  //   let company_city: any = document.getElementById('company_city');
+  //   let website: any = document.getElementById('website');
 
 
-    if(company_name){
-      this.job.company_name = company_name.value;
-    }
-    if(designation){
-      this.job.designation = designation.value;
-    } if(company_city){
-      this.job.company_city = company_city.value;
-    } if(website){
-      this.job.website = website.value;
-    } 
-    console.log(this.job);
-   }
+  //   if(company_name){
+  //     this.job.company_name = company_name.value;
+  //   }
+  //   if(designation){
+  //     this.job.designation = designation.value;
+  //   } if(company_city){
+  //     this.job.company_city = company_city.value;
+  //   } if(website){
+  //     this.job.website = website.value;
+  //   } 
+  //   console.log(this.job);
+  //  }
 
   
   jobform() {

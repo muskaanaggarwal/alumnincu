@@ -34,34 +34,34 @@ export class AddressformComponent implements OnInit {
     this.dataService.addressForm = this.addressForm;
   }
 
-  localaddress() {
-    let address_line_1: any = document.getElementById('address_line_1');
-    let address_line_2: any = document.getElementById('address_line_2');
-    let address_line_3: any = document.getElementById('address_line_3');
-    let city: any = document.getElementById('city');
-    let state: any = document.getElementById('state');
-    let country: any = document.getElementById('country');
-    let pincode: any = document.getElementById('pincode');
+  // localaddress() {
+  //   let address_line_1: any = document.getElementById('address_line_1');
+  //   let address_line_2: any = document.getElementById('address_line_2');
+  //   let address_line_3: any = document.getElementById('address_line_3');
+  //   let city: any = document.getElementById('city');
+  //   let state: any = document.getElementById('state');
+  //   let country: any = document.getElementById('country');
+  //   let pincode: any = document.getElementById('pincode');
 
 
-    if (address_line_1) {
-      this.address.address_line_1 = address_line_1.value;
-    }
-    if (address_line_2) {
-      this.address.address_line_2 = address_line_2.value;
-    } if (address_line_3) {
-      this.address.address_line_3 = address_line_3.value;
-    } if (city) {
-      this.address.city = city.value;
-    } if (state) {
-      this.address.state = state.value;
-    } if (country) {
-      this.address.country = country.value;
-    } if (pincode) {
-      this.address.pincode = pincode.value;
-    }
-    console.log(this.address);
-  }
+  //   if (address_line_1) {
+  //     this.address.address_line_1 = address_line_1.value;
+  //   }
+  //   if (address_line_2) {
+  //     this.address.address_line_2 = address_line_2.value;
+  //   } if (address_line_3) {
+  //     this.address.address_line_3 = address_line_3.value;
+  //   } if (city) {
+  //     this.address.city = city.value;
+  //   } if (state) {
+  //     this.address.state = state.value;
+  //   } if (country) {
+  //     this.address.country = country.value;
+  //   } if (pincode) {
+  //     this.address.pincode = pincode.value;
+  //   }
+  //   console.log(this.address);
+  // }
 
   addressform() {
     // console.log("Data before***", this.addressForm.value)

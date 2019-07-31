@@ -14,13 +14,11 @@ export class DataserviceService {
   public job2Form: FormGroup;
   public addressForm: FormGroup;
 
+
   constructor(private http: HttpClient) { }
 
   alumniportalUser(url, obj) {
     return this.http.post(url, obj);
   }
-  // degreeformUser(url1, obj) {
-  //   return this.http.post(url1, obj);
-  // }
-  
+    
 }

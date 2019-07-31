@@ -28,25 +28,25 @@ this.job2Form = this.formBuilder.group({
 ngOnDestroy() {
 this.dataService.job2Form = this.job2Form;
 }
-localjob2(){
-  let company_name: any = document.getElementById('company_name');
-  let designation: any = document.getElementById('designation');
-  let company_city: any = document.getElementById('company_city');
-  let website: any = document.getElementById('website');
+// localjob2(){
+//   let company_name: any = document.getElementById('company_name');
+//   let designation: any = document.getElementById('designation');
+//   let company_city: any = document.getElementById('company_city');
+//   let website: any = document.getElementById('website');
 
 
-  if(company_name){
-    this.job2.company_name = company_name.value;
-  }
-  if(designation){
-    this.job2.designation = designation.value;
-  } if(company_city){
-    this.job2.company_city = company_city.value;
-  } if(website){
-    this.job2.website = website.value;
-  } 
-  console.log(this.job2);
- }
+//   if(company_name){
+//     this.job2.company_name = company_name.value;
+//   }
+//   if(designation){
+//     this.job2.designation = designation.value;
+//   } if(company_city){
+//     this.job2.company_city = company_city.value;
+//   } if(website){
+//     this.job2.website = website.value;
+//   } 
+//   console.log(this.job2);
+//  }
 job2form() {
 console.log("Data before***", this.job2Form.value)
 // execute the registerUser() given in the spring boot 

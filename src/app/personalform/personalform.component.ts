@@ -30,22 +30,22 @@ personal= new Personalmodel();
   ngOnDestroy() {
     this.dataService.personalForm = this.personalForm;
   }
-  localpersonal(){
-    let photo: any = document.getElementById('photo');
-    let spouse_name: any = document.getElementById('spouse_name');
-    let anniversary: any = document.getElementById('anniversary');
+  // localpersonal(){
+  //   let photo: any = document.getElementById('photo');
+  //   let spouse_name: any = document.getElementById('spouse_name');
+  //   let anniversary: any = document.getElementById('anniversary');
   
   
-    if(photo){
-      this.personal.photo = photo.value;
-    }
-    if(spouse_name){
-      this.personal.spouse_name = spouse_name.value;
-    } if(anniversary){
-      this.personal.anniversary = anniversary.value;
-    } 
-    console.log(this.personal);
-   }
+  //   if(photo){
+  //     this.personal.photo = photo.value;
+  //   }
+  //   if(spouse_name){
+  //     this.personal.spouse_name = spouse_name.value;
+  //   } if(anniversary){
+  //     this.personal.anniversary = anniversary.value;
+  //   } 
+  //   console.log(this.personal);
+  //  }
   personalform() {
     console.log("Data before***", this.personalForm.value)
     // execute the registerUser() given in the spring boot 
