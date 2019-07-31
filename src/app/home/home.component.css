@@ -1,4 +1,55 @@
-.uevents{
+body {
+    background-color:  #eee;
+  }
+  .title {
+   
+      margin-bottom: 50px;
+      text-transform: uppercase;
+  }
+  
+  .card-block {
+      font-size: 1em;
+      position: relative;
+      margin: 0;
+      padding: 1em;
+      border: 10px;
+      border-top: 1px solid rgba(34, 36, 38, .1);
+      box-shadow: none;
+      
+       
+  }
+  .card {
+      font-size: 1em;
+      overflow: hidden;
+      padding: 5;
+      border: none;
+      border-radius: .28571429rem;
+      box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+      margin-top:20px;
+      background-color:lightgrey;
+      height: 250px;
+      width: 100%;
+  }
+ 
+  
+  .button {
+    margin-top: auto;
+    margin: 10px;
+  }
+  .d-block {
+      height: 200px;
+      width: 200px;
+      margin-bottom: 20px;
+      margin-left: 30px;
+      margin-top:20px;
+      border-radius: 60%;
+      
+      
+  }
+  .col-sm-2 {
+      margin-top: 20px;
+  }
+  .uevents{
     height:30px;
     background-color: brown;
     border-radius: 20px;
