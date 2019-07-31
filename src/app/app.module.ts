@@ -29,6 +29,7 @@ import { EditpersonalComponent } from './editpersonal/editpersonal.component';
 import { EditjobComponent } from './editjob/editjob.component';
 
 
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { EditjobComponent } from './editjob/editjob.component';
     EditjobComponent,
     
     
+    UserComponent
   ],
   imports: [
     BrowserModule,
