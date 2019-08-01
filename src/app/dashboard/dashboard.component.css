@@ -2,7 +2,7 @@
     height:30px;
     background-color: brown;
     border-radius: 20px;
-    margin-top:15px;
+    margin-top:0px;
     padding:10px;
 }
 .unews{
@@ -108,3 +108,10 @@ img{
 .dashboard{
     background-color:#E4E4E4;
 }
+#logo {
+    margin: -20px 0px -20px -14px;
+    padding-top: 0px;
+  }
+  .box{
+    border: solid white 1px;
+  }

@@ -19,15 +19,16 @@ h1, h5 {
 }
 
 .center {
-    text-align: center;
-    
-    margin-bottom: 80px;
+	text-align: center;
+	font-weight: bolder;
+	
+    /* margin-bottom: 80px;
     padding-bottom: 0px;
     margin-top: 0px;
-    margin-left: 202px;
+    margin-left: 180px;
     padding-right: 0px;
     padding-top: 0px;
-    padding-left: 0px;
+    padding-left: 0px; */
 
 }
 
@@ -91,7 +92,7 @@ h1, h5 {
 .cardclass {
     max-width: 140px;
 }
-.card-title,
+
 .card-text,
 .card-footer {
 	padding: 1em 1em 0;
@@ -101,7 +102,7 @@ h1, h5 {
 	margin-bottom: 1em;
 }
 .hello {
-    width: 800px;
+    width: 100%;
     padding-top:0px;
     margin-top:-10px;
     margin-bottom: 40px;
@@ -124,11 +125,12 @@ h1, h5 {
 		-o-border-radius: 15px;
 		-ms-border-radius: 15px;
 		margin-top: 20px;
-		margin-right: 100px;
+		margin-right: 50px;
 		font-size: 20px;
 		margin-bottom: 50px;
-		cursor: pointer; }
-
+		cursor: pointer; 
+		
+	}
 		
 	.save {
 		background: #056152;
@@ -149,9 +151,9 @@ h1, h5 {
 
 		.form-control {
 			position: relative;
-			margin-bottom: 12px;
+			margin-bottom: 5px;
             overflow: hidden;
-        margin-left:120px;
+        margin-left:90px;
         
     
     }
@@ -197,15 +199,42 @@ img{
     color:#685D5D;
     margin-bottom:25px;
     border: 3px solid black;
-    border-radius:12px;
+	border-radius:12px;
+	
     
     
 }
 .login:hover{
     background-color: black;
-    color:white;
+	color:white;
+	
+}
+.text{
+	text-align:left;
+	font-weight: bolder;
+}
+.logindetail{
+	/* text-align:center; */
+	font-size:30px;
+	padding-left:150px;
+		white-space:nowrap;
+margin-bottom:70px;
+}
+.maincard{
+	padding:0px;
+	padding-left:0px;
+	margin-top: 20px;
+}
+h1{
+	font-weight: 700;
+}
+.bttns{
+	margin-top:35px;
+}
+.homesave{
+	margin-left:280px;
 }
 .radio{
-	padding-left:180px;
+	padding-left:140px;
 	margin-bottom: 40px;
 }
