@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Personalmodel } from './personal.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +15,12 @@ export class PersonalformComponent implements OnInit {
   personalForm: FormGroup;
 personal= new Personalmodel();
   url = 'http://localhost:9800/personalform';
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+    }
     this.personalForm = this.formBuilder.group({
       photo: [''],
       spouse_name: [''],

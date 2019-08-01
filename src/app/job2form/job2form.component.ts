@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Job2model } from './job2.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job2form',
@@ -12,9 +13,12 @@ export class Job2formComponent implements OnInit {
   job2Form: FormGroup;
   job2 = new Job2model();
   url = 'http://localhost:9800/job2form';
-constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
+constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
 ngOnInit() {
+  if(!this.dataService.user){
+    this.route.navigateByUrl('/alumni');
+  }
 this.job2Form = this.formBuilder.group({
   company_name: [''],
   designation: [''],

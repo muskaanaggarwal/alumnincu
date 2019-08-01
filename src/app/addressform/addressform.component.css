@@ -21,7 +21,9 @@ h1, h5 {
 .center {
 	text-align: center;
 }
-
+#title{
+	margin: 0px 0px 40px 0px;
+}
 .cards {
 	display: flex;
     flex-flow: row wrap;
@@ -79,7 +81,7 @@ h1, h5 {
 }
 
 
-.hi {
+.cardclass {
     max-width: 140px;
 }
 .card-title,
@@ -91,7 +93,7 @@ h1, h5 {
 .card-footer {
 	margin-bottom: 1em;
 }
-.hello {
+.itemclass {
     width: 800px;
 }
 
@@ -119,7 +121,6 @@ margin: 0;
   right: 30%;
   -ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	/* border: 0; */
 	-webkit-appearance: none;
 	display: block;
 	outline: none;
@@ -162,12 +163,12 @@ margin: 0;
 		cursor: pointer; }
 
 
-		.form-control {
+		/* .form-control {
 			position: relative;
 			margin-bottom: 25px;
 			overflow: hidden; }
 			.form-group:last-child {
-			  margin-bottom: 0px; }
+			  margin-bottom: 0px; } */
 		  
 		  input {
 			width: 100%;
@@ -196,5 +197,21 @@ margin: 0;
 			  input:focus:-moz-placeholder {
 				color: #222; }
 		
-		
-	  
+				
+  .form-group {
+    position: relative;
+    margin-bottom: 2px;
+    overflow: hidden; }
+    .form-group:last-child {
+      margin-bottom: 0px; }
+  
+			label {
+				position: absolute;
+				left: 0;
+				top: 40%;
+				transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+				-o-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				color: #222; }
