@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { NgForm, NgModel } from "@angular/forms";
 
@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
 
   
   signupForm: FormGroup;
-  url1 = 'http://localhost:9800/signup';
+  url = 'http://localhost:9800/signup';
   // title = 'alumnincu';
   
   // Register your dataservice using dependency injection
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
-      roll_no: [''],
+      roll_no: ['',Validators.required],
       email: [''],
       contact: [''],
       date_of_birth: [''],
@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
   signup() {
     console.log("Data before*****", this.signupForm.value)
     // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url1, this.signupForm.value).subscribe((data: Array<any>) => {
+    this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
       console.log("Data After*****", data)
     },
       (error: any) => {

@@ -19,7 +19,16 @@ h1, h5 {
 }
 
 .center {
-	text-align: center;
+    text-align: center;
+    
+    margin-bottom: 80px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 202px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+
 }
 
 .cards {
@@ -41,7 +50,7 @@ h1, h5 {
 
 @media all and (min-width: 37.5em) {
 	.card-item {
-			width: calc(100% / 12 * 2 );
+			width: calc(100% / 12 * 6 );
 	}
 }
 @media all and (min-width: 56.25em) {
@@ -56,7 +65,6 @@ h1, h5 {
 	justify-content: space-around;
 	width: 100%;
 	padding: 0;
-	max-height: 500px;
     background-color: white;
     border-width: thick;
     border-bottom-width: 1px solid black;
@@ -71,14 +79,12 @@ h1, h5 {
 }
 
 .rotate {
-		-moz-transform: rotate(0deg);
-		-webkit-transform: rotate(90deg);
-		-o-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-        margin: -200px -100px 0px 0px;
-		color: grey;
+    transform: rotate(90deg);
+    margin: -200px -100px 0px 0px;
+    color: grey;
 		font-size: 20px;
 		white-space: nowrap;
+
 }
 
 
@@ -96,38 +102,16 @@ h1, h5 {
 }
 .hello {
     width: 800px;
+    padding-top:0px;
+    margin-top:-10px;
+    margin-bottom: 40px;
 }
 
-.rightslider{
-	max-height: 60px;
-	max-width: 60px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		outline: none;
-		-webkit-appearance: none;
-		display: block;
+
 	
 	
-	}
 	
-	.leftslider{
-	max-height: 60px;
-	max-width: 60px;
-	margin: 0;
-		position: absolute;
-		top: 46%;
-		right: 30%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		/* border: 0; */
-		-webkit-appearance: none;
-		display: block;
-		outline: none;
-        transform: rotate(180deg);
-	}
+
 	.back {
 		background: #36345A;
 		color: #fff;
@@ -165,12 +149,16 @@ h1, h5 {
 
 		.form-control {
 			position: relative;
-			margin-bottom: 25px;
-			overflow: hidden; }
+			margin-bottom: 12px;
+            overflow: hidden;
+        margin-left:120px;
+        
+    
+    }
 			.form-group:last-child {
 			  margin-bottom: 0px; }
 		  
-		  .form-control{
+		  input {
 			width: 100%;
 			display: block;
 			border: none;
@@ -197,17 +185,23 @@ h1, h5 {
 			  input:focus:-moz-placeholder {
 				color: #222; }
 		
-				label {
-					position: absolute;
-					left: 0;
-					top: 50%;
-					transform: translateY(-50%);
-					-moz-transform: translateY(-50%);
-					-webkit-transform: translateY(-50%);
-					-o-transform: translateY(-50%);
-					-ms-transform: translateY(-50%);
-					color: #222; 
-				}
-				  
 		
-	  
+#fl{
+	padding-left:270px;
+}
+img{
+	margin-right: 540px;
+}
+.login{
+    background-color:white;
+    color:#685D5D;
+    margin-bottom:25px;
+    border: 3px solid black;
+    border-radius:12px;
+    
+    
+}
+.login:hover{
+    background-color: black;
+    color:white;
+}

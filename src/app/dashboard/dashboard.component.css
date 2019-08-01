@@ -1,0 +1,110 @@
+.uevents{
+    height:30px;
+    background-color: brown;
+    border-radius: 20px;
+    margin-top:15px;
+    padding:10px;
+}
+.unews{
+    height:30px;
+    background-color: brown;
+    margin-top:20px;
+    border-radius: 20px;
+
+    
+}
+#head1{
+    color:white;
+    margin:-6px;
+    padding-left:7px;
+    padding-top:-8px;
+}
+#head2{
+    color:white;
+    margin:-3px;
+    padding-left:7px;
+    padding-top:4px;
+}
+
+.c1{
+    margin-top:30px;
+    height:50px;
+
+    
+}
+ 
+ .c{
+    width:230px!important;
+    height:50px!important;
+} 
+.c2{
+    background-color: white;
+    border-bottom:0px;
+    
+}
+.news{
+    border:none;
+}
+
+
+.btn {
+    text-decoration: none;
+    color:brown;
+}
+
+
+
+.btn-link{
+    font-size:20px;
+    font-weight:600;
+    
+}
+.news{
+    margin-top:20px;
+}
+.card{
+    border:none;
+}
+.card-header{
+    margin:10px;
+    background-color:white;
+}
+.events{
+    margin-top:20px;
+}
+.intro{
+    font-size: 20px;
+}
+figure{
+    padding-left:190px;
+}
+.name{
+    margin-top:40px;
+    padding-left:0px;
+}
+.ca2{
+    
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+
+}
+.ca3{
+    
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+
+}
+.call{
+    padding: 0px;
+}
+img{
+    padding-top:20px;
+    /* border-radius: 50%; */
+}
+.dashboard{
+    background-color:#E4E4E4;
+}
