@@ -28,4 +28,8 @@ export class DataserviceService {
     return this.http.post(url, payload);
   }
     
+//      degreeformUser(url1, obj) {
+//     return this.http.post(url1, obj);
+  
+// }
 }

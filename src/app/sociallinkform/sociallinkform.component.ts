@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, RequiredValidator } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Sociallinkmodel } from './slink.model';
 import { Router } from '@angular/router';
