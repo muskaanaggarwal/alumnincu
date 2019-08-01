@@ -96,8 +96,8 @@ export class SociallinkformComponent implements OnInit {
     console.log(this.dataService.sociallinkForm.value);
 
 
-    this.dataService.sociallinkForm.value['roll_no'] = this.dataService.degreeForm.value['roll_no'];
-    this.dataService.addressForm.value['roll_no'] = this.dataService.degreeForm.value['roll_no'];
+    this.dataService.sociallinkForm.value['roll_no'] = this.dataService.user['roll_no'];
+    this.dataService.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
     this.dataService.personalForm.value['roll_no'] = this.dataService.sociallinkForm.value['roll_no'];
 
 
