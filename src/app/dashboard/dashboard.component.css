@@ -115,3 +115,14 @@ img{
   .box{
     border: solid white 1px;
   }
+  .directory{
+      padding-right:90px;
+
+  }
+  .hiuser{
+      margin-right:50px;
+      text-decoration: none;
+  }
+  .tabs{
+      text-decoration: none;
+  }
