@@ -88,7 +88,7 @@ h1, h5 {
 }
 
 
-.hi {
+.cardclass {
     max-width: 140px;
 }
 .card-title,
@@ -100,7 +100,7 @@ h1, h5 {
 .card-footer {
 	margin-bottom: 1em;
 }
-.hello {
+.itemclass {
     width: 800px;
     padding-top:0px;
     margin-top:-10px;

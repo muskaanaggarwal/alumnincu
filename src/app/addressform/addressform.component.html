@@ -2,61 +2,103 @@
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
 
-    <div class="hi card-item">
+    <div class="cardclass card-item">
       <div class="card-body">
         <h2 class="rotate card-title"><b>DEGREE DETAILS</b></h2>
       </div>
     </div>
-    <div class="card-item hello">
+    <div class="card-item itemclass">
       <div class="card-body">
         <div class="form-row">
           <div class="form-group col-md-2">
             <img class="leftslider" routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
-          <div class="form-group col-md-8">
-            <h2 class="card-title center"><b>ADDRESS DETAILS</b></h2>
+            
+             
+            <div class="form-group col-md-4">
+                <h2 class="card-title center"><b>ADDRESS DETAILS</b></h2>
+
+
             <form [formGroup]="addressForm">
-              <input type="text" formControlName="address_line_1" id="address_line_1" class="form-control mb-2" placeholder="Address Line 1"
-                required>
-              <input type="text" formControlName="address_line_2" id="address_line_2" class="form-control mb-2" placeholder="Address Line 2"
-                required>
-              <input type="text" formControlName="address_line_3" id="address_line_3" class="form-control mb-2" placeholder="Address Line 3"
-                required>
-              <input type="text" formControlName="country" id="country" class="form-control mb-2" placeholder="Country" required>
-              <input type="text" formControlName="state" id="state" class="form-control mb-2" placeholder="State" required>
-              <input type="text" formControlName="city" id="city" class="form-control mb-2" placeholder="City" required>
-              <input type="text" formControlName="pincode" id="pincode" class="form-control mb-2" placeholder="Postal Code" required>
-              <!-- <select name="country" class="countries" id="countryId">
-                            <option value="">Select Country</option>
-                        </select>
-                        <select name="state" class="states" id="stateId">
-                            <option value="">Select State</option>
-                        </select>
-                        <select name="city" class="cities" id="cityId">
-                            <option value="">Select City</option>
-                        </select> -->
+              <div class="form-group">
+                <label><img src="https://cdn0.iconfinder.com/data/icons/map-3/1024/pin9-512.png" height="20px"
+                    width="20px"></label>
+                <input type="text" formControlName="address_line_1" id="address_line_1" class="form-control mb-2"
+                  placeholder="Address Line 1" required>
+              </div>
+
+              <div class="form-group">
+                <label><img src="https://cdn0.iconfinder.com/data/icons/map-3/1024/pin9-512.png" height="20px"
+                    width="20px"></label>
+                <input type="text" formControlName="address_line_2" id="address_line_2" class="form-control mb-2"
+                  placeholder="Address Line 2" required>
+              </div>
+
+              <div class="form-group">
+                <label><img src="https://cdn0.iconfinder.com/data/icons/map-3/1024/pin9-512.png" height="20px"
+                    width="20px"></label>
+                <input type="text" formControlName="address_line_3" id="address_line_3" class="form-control mb-2"
+                  placeholder="Address Line 3" required>
+              </div>
             </form>
+
+          </div>
+          <div class="form-group col-md-4">
+            <form [formGroup]="addressForm">
+
+
+              <div class="form-group">
+                <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
+                    height="20px" width="20px"></label>
+                <input type="text" formControlName="country" id="country" class="form-control mb-2"
+                  placeholder="Country" required>
+              </div>
+
+              <div class="form-group">
+                <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
+                    height="20px" width="20px"></label>
+                <input type="text" formControlName="state" id="state" class="form-control mb-2" placeholder="State"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
+                    height="20px" width="20px"></label>
+                <input type="text" formControlName="city" id="city" class="form-control mb-2" placeholder="City"
+                  required>
+
+              </div>
+
+              <div class="form-group">
+                <label><img
+                    src="https://cdn2.iconfinder.com/data/icons/lucid-generic/24/mailbox_box_letter_mail_post-512.png"
+                    height="20px" width="20px"></label>
+                <input type="text" formControlName="pincode" id="pincode" class="form-control mb-2"
+                  placeholder="Postal Code" required>
+              </div>
+
+            </form>
+
 
 
           </div>
           <div class="form-group col-md-2">
-            <img class=" rightslider" routerLink="/jobform" 
-              src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+            <img class=" rightslider" routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
         </div>
       </div>
     </div>
-    <div class="hi card-item">
+    <div class="cardclass card-item">
       <div class="card-body">
         <h2 class="rotate card-title"><b>JOB DETAILS</b></h2>
       </div>
     </div>
-    <div class="hi card-item">
+    <div class="cardclass card-item">
       <div class="card-body">
         <h2 class="rotate  card-title"><b>PERSONAL DETAILS</b></h2>
       </div>
     </div>
-    <div class="hi card-item">
+    <div class="cardclass card-item">
       <div class="card-body">
         <h2 class="rotate  card-title"><b>SOCIAL PROFILE LINKS</b></h2>
 

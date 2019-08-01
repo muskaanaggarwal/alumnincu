@@ -79,7 +79,7 @@ h1, h5 {
 }
 
 
-.hi {
+.cardclass {
     max-width: 140px;
 }
 .card-title,
@@ -91,43 +91,40 @@ h1, h5 {
 .card-footer {
 	margin-bottom: 1em;
 }
-.hello {
+.itemclass {
     width: 800px;
 }
 
 .rightslider{
-	max-height: 60px;
-	max-width: 60px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		outline: none;
-		-webkit-appearance: none;
-		display: block;
-	
-	
+max-height: 60px;
+max-width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	outline: none;
+	-webkit-appearance: none;
+	display: block;
+
+
+}
+
+.leftslider{
+max-height: 60px;
+max-width: 60px;
+margin: 0;
+  position: absolute;
+  top: 46%;
+  right: 30%;
+  -ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	-webkit-appearance: none;
+	display: block;
+	outline: none;
+
+	transform: rotate(180deg);
 	}
-	
-	.leftslider{
-	max-height: 60px;
-	max-width: 60px;
-	margin: 0;
-		position: absolute;
-		top: 46%;
-		right: 30%;
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		/* border: 0; */
-		-webkit-appearance: none;
-		display: block;
-		outline: none;
-	
-		transform: rotate(180deg);
-		}
-	
-	
 
 	.back {
 		background: #36345A;
@@ -164,12 +161,12 @@ h1, h5 {
 		cursor: pointer; }
 
 
-		.form-control {
+		/* .form-control {
 			position: relative;
 			margin-bottom: 25px;
 			overflow: hidden; }
 			.form-group:last-child {
-			  margin-bottom: 0px; }
+			  margin-bottom: 0px; } */
 		  
 		  input {
 			width: 100%;
@@ -198,10 +195,21 @@ h1, h5 {
 			  input:focus:-moz-placeholder {
 				color: #222; }
 		
-		
-#fl{
-	padding-left:270px;
-}
-img{
-	margin-right: 540px;
-}
+				
+  .form-group {
+    position: relative;
+    margin-bottom: 2px;
+    overflow: hidden; }
+    .form-group:last-child {
+      margin-bottom: 0px; }
+  
+			label {
+				position: absolute;
+				left: 0;
+				top: 40%;
+				transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+				-o-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				color: #222; }
