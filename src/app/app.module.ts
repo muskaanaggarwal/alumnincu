@@ -22,6 +22,7 @@ import { JobformComponent } from './jobform/jobform.component';
 import { PersonalformComponent } from './personalform/personalform.component';
 import { SociallinkformComponent } from './sociallinkform/sociallinkform.component';
 import { Job2formComponent } from './job2form/job2form.component';
+import { IddashboardComponent } from './iddashboard/iddashboard.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { Job2formComponent } from './job2form/job2form.component';
     JobformComponent,
     PersonalformComponent,
     SociallinkformComponent,
-    Job2formComponent
+    Job2formComponent,
+    IddashboardComponent
   ],
   imports: [
     BrowserModule,
