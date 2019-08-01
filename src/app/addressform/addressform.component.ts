@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Addressmodel } from './address.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addressform',
@@ -14,9 +15,12 @@ export class AddressformComponent implements OnInit {
   address = new Addressmodel;
 
   url = 'http://localhost:9800/addressform';
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+    }
     this.addressForm = this.formBuilder.group({
       address_line_1: ['', Validators.required],
       address_line_2: [''],

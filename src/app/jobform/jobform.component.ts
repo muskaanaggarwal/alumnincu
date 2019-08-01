@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Jobmodel } from './job.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,9 +14,12 @@ export class JobformComponent implements OnInit {
   job = new Jobmodel();
   jobForm: FormGroup;
   url = 'http://localhost:9800/jobform';
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+    }
     this.jobForm = this.formBuilder.group({
       designation: [''],
       company_name: [''],
