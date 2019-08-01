@@ -11,8 +11,6 @@
           <div class="form-group col-md-8">
             <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
             <form [formGroup]="degreeForm">
-              <input type="text" formControlName="roll_no" id="roll_no" class="form-control mb-2"
-                placeholder="Roll Number" required>
               <input type="number" formControlName="batch_id" id="batch_id" class="form-control mb-2"
                 placeholder="Batch" required>
               <input type="text" formControlName="school_name" id="school" class="form-control mb-2"
@@ -56,6 +54,6 @@
   </div>
   <div class="center">
     <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-    <button type="button" class="btn btn-warning save" disabled (click)="degreeform()">Save</button>
+    <button type="button" class="btn btn-warning save" (click)="degreeform()">Save</button>
   </div>
 </body>

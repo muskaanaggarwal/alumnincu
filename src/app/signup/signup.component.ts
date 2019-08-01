@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 
 
@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
-      roll_no: [''],
+      roll_no: ['', Validators.required],
       email: [''],
       contact: [''],
       date_of_birth: [''],

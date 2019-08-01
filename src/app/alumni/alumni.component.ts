@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Router } from '@angular/router';
 
@@ -11,36 +11,47 @@ import { Router } from '@angular/router';
 export class AlumniComponent implements OnInit {
   loginForm: FormGroup;
   url= 'http://localhost:9800/loginform';
-  errorMessage: boolean;
-  formData: { "userName":"","password":""};
+  errorMessage: string;
 
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    this.errorMessage = null;
     this.loginForm = this.formBuilder.group({
-      userName: [''],
-      password: ['']
+      roll_no: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(8)])]
     })
   }
 
   reset(){
     this.loginForm.reset();
-    this.errorMessage = false;
+    this.errorMessage = null;
   }
 
-  // login() {
-  //   if (!this.loginForm.controls.userName.value || !this.loginForm.controls.password.value){
-  //     this.errorMessage = true;
-  //   } 
-  //   this.formData.userName = this.loginForm.controls.userName.value;
-  //   this.formData.password = this.loginForm.controls.password.value;
-  //   this.dataService.login(this.formData).subscribe((data: Array<any>) => {
-  //     if (data.length!=0 && data[0]['roll_no'] == this.formData.userName && data[0]['password'] == this.formData.password){
-  //       this.errorMessage = false;
-  //     }
-  //   })
-
-  // }
-
+  login() {
+    if (this.loginForm.valid){
+      this.dataService.login("http://192.168.1.103:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
+        if (data.length){
+          if(data[0]["isverified"] != 1){
+            this.errorMessage = "Please wait till your account gets verified!";
+          }
+          else{
+            this.dataService.user = data[0];
+            this.route.navigateByUrl('/degreeform');
+          }
+        }
+        else{
+          this.errorMessage = "Invalid roll number or password!";
+        }
+      },
+        (error: any) => {
+          this.errorMessage = "Something went wrong!";
+          console.log("Error in logging in", error);
+        });
+      }
+    else{
+      this.errorMessage = "Form invalid!";
+    }
+  }
 }

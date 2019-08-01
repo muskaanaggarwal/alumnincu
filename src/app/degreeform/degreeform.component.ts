@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Degreemodel } from './degreemodel.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-degreeform',
@@ -15,14 +16,16 @@ export class DegreeformComponent implements OnInit {
   degreeForm: FormGroup;
   url= 'http://localhost:9800/degreeform';
   
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) {
+  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
     
    }
   ngOnInit() {
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+    }
       this.degreeForm = this.formBuilder.group({
       school_name: [''],
       program_name: [''],
-      roll_no: [''],
       // school_id: [''],
       specialization_name: [''],
       batch_id:[''],
@@ -67,12 +70,18 @@ export class DegreeformComponent implements OnInit {
   degreeform() {
     console.log("Data before***", this.degreeForm.value)
     // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data)
-    },
-      (error: any) => {
-        console.log("Error in saving the record", error);
-      });
+    // this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
+    //   console.log("Data After***", data)
+    // },
+    //   (error: any) => {
+    //     console.log("Error in saving the record", error);
+    //   });
+      this.dataService.getUsers("http://localhost:9800/allUsers").subscribe((data: Array<any>) => {
+        console.log("Data After***", data)
+      },
+        (error: any) => {
+          console.log("Error in saving the record", error);
+        });
      
   }
 }

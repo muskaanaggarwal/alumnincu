@@ -13,12 +13,19 @@ export class DataserviceService {
   public jobForm: FormGroup;
   public job2Form: FormGroup;
   public addressForm: FormGroup;
+  public user: Object;
 
 
   constructor(private http: HttpClient) { }
 
   alumniportalUser(url, obj) {
     return this.http.post(url, obj);
+  }
+  getUsers(url) {
+    return this.http.get(url);
+  }
+  login(url, payload){
+    return this.http.post(url, payload);
   }
     
 }

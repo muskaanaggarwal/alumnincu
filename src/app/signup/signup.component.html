@@ -41,6 +41,9 @@
                   <div class="signup-form">
                       <h2 class="form-title">Sign up</h2>
                       <form method="POST" class="register-form" id="register-form" [formGroup]="signupForm">
+                          <div *ngIf="!signupForm.value['roll_no']">
+                                Roll number is required.
+                          </div>
                           <div class="form-group">
                               <label for="name"><i class="fa fa-user"></i></label>
                               <input type="text" formControlName="roll_no" name="name" required placeholder="Roll Number"/>

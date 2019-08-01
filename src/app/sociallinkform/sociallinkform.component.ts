@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Sociallinkmodel } from './slink.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sociallinkform',
@@ -25,9 +26,12 @@ export class SociallinkformComponent implements OnInit {
   job2_url = 'http://localhost:9800/job2form';
   // degree_url = 'http://localhost:9800/degreeform';
 
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
+  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+    }
     this.sociallinkForm = this.formBuilder.group({
       facebook: [''],
       linkedin: [''],
