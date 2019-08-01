@@ -72,3 +72,38 @@
 .events{
     margin-top:20px;
 }
+.intro{
+    font-size: 20px;
+}
+figure{
+    padding-left:190px;
+}
+.name{
+    margin-top:40px;
+    padding-left:0px;
+}
+.ca2{
+    
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+
+}
+.ca3{
+    
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+
+}
+.call{
+    padding: 0px;
+}
+img{
+    padding-top:20px;
+}
+.dashboard{
+    background-color:#E4E4E4;
+}

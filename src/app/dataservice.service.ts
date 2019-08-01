@@ -20,12 +20,9 @@ export class DataserviceService {
   alumniportalUser(url, obj) {
     return this.http.post(url, obj);
   }
-<<<<<<< HEAD
     
-=======
-  degreeformUser(url, obj) {
-    return this.http.post(url, obj);
-  }
+//      degreeformUser(url1, obj) {
+//     return this.http.post(url1, obj);
   
->>>>>>> 784b611d3e2521e947f520a52dad7ca8b46cbf9c
+// }
 }

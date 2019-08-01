@@ -27,9 +27,9 @@ import { EditdegreeComponent } from './editdegree/editdegree.component';
 import { EditaddressComponent } from './editaddress/editaddress.component';
 import { EditpersonalComponent } from './editpersonal/editpersonal.component';
 import { EditjobComponent } from './editjob/editjob.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
-import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -61,8 +61,10 @@ import { UserComponent } from './user/user.component';
     
     EditjobComponent,
     
+    DashboardComponent,
     
-    UserComponent
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -90,6 +92,7 @@ import { UserComponent } from './user/user.component';
       {path:'editaddress',component:EditaddressComponent},
       {path:'editpersonal',component:EditpersonalComponent},
       {path:'editjob',component:EditjobComponent},
+    {path:'dashboard',component:DashboardComponent},
 
 
 

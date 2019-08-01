@@ -67,7 +67,7 @@ export class DegreeformComponent implements OnInit {
   degreeform() {
     console.log("Data before***", this.degreeForm.value)
     // execute the registerUser() given in the spring boot 
-    this.dataService.degreeformUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
+    this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
       console.log("Data After***", data)
     },
       (error: any) => {
