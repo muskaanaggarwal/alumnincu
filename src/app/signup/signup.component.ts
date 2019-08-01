@@ -22,11 +22,7 @@ export class SignupComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
-<<<<<<< HEAD
       roll_no: ['', Validators.required],
-=======
-      roll_no: ['',Validators.required],
->>>>>>> 0aca3ef326447cb67991d50bfbb4521509a21d97
       email: [''],
       contact: [''],
       date_of_birth: [''],

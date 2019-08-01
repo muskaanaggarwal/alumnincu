@@ -1,12 +1,6 @@
 import { DataserviceService } from './../dataservice.service';
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DataserviceService } from '../dataservice.service';
-=======
-import { FormGroup, FormBuilder } from '@angular/forms';
-// import { DataserviceService } from '../dataservice.service'; 
->>>>>>> 0aca3ef326447cb67991d50bfbb4521509a21d97
 import { Router } from '@angular/router';
 
 @Component({

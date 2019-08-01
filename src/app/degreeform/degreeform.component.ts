@@ -14,18 +14,6 @@ export class DegreeformComponent implements OnInit {
   degree = new Degreemodel();
 
   degreeForm: FormGroup;
-<<<<<<< HEAD
-  url= 'http://localhost:9800/degreeform';
-  
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
-    
-   }
-  ngOnInit() {
-    if(!this.dataService.user){
-      this.route.navigateByUrl('/alumni');
-    }
-      this.degreeForm = this.formBuilder.group({
-=======
 
   schools: object = {
     "SOET": {
@@ -143,14 +131,16 @@ export class DegreeformComponent implements OnInit {
 
 
   }
-  url = 'http://localhost:9800/degreeform';
-
-  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) {
-
-  }
+  url= 'http://localhost:9800/degreeform';
+  
+  constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
+    
+   }
   ngOnInit() {
-    this.degreeForm = this.formBuilder.group({
->>>>>>> 0aca3ef326447cb67991d50bfbb4521509a21d97
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+    }
+      this.degreeForm = this.formBuilder.group({
       school_name: [''],
       program_name: [''],
       // school_id: [''],
@@ -202,7 +192,6 @@ export class DegreeformComponent implements OnInit {
   degreeform() {
     console.log("Data before***", this.degreeForm.value)
     // execute the registerUser() given in the spring boot 
-<<<<<<< HEAD
     // this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
     //   console.log("Data After***", data)
     // },
@@ -216,14 +205,5 @@ export class DegreeformComponent implements OnInit {
           console.log("Error in saving the record", error);
         });
      
-=======
-    this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data)
-    },
-      (error: any) => {
-        console.log("Error in saving the record", error);
-      });
-
->>>>>>> 0aca3ef326447cb67991d50bfbb4521509a21d97
   }
 }
