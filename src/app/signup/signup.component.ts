@@ -50,8 +50,11 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.invalid) {
         return;
     }
+    // console.log("1");
+    this.signup();
+    this.route.navigateByUrl('/alumni');
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.signupForm.value))
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.signupForm.value))
 }
 
 
@@ -60,7 +63,7 @@ export class SignupComponent implements OnInit {
     console.log("Data before*****", this.signupForm.value)
     // execute the registerUser() given in the spring boot 
     this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After*****", data)
+      // console.log("Data After*****", data)
     },
       (error: any) => {
         console.log("Error in saving the record", error);
