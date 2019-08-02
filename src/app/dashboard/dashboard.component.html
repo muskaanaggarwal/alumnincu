@@ -12,17 +12,13 @@
         </li>
         </ul>
         <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle hiuser" style="background-color: #A8413D;color:beige" type="button" id="menu1" data-toggle="dropdown">HI USER
+            <button *ngIf="user" class="btn btn-default dropdown-toggle hiuser" style="background-color: #A8413D;color:beige" type="button" id="menu1" data-toggle="dropdown">{{ user.first_name }}
             <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="background-color: #A8413D;">
               <a class="tabs" routerLink="/editlogin" style="color: beige;" >Edit Profile</a>
               <li role="presentation" class="divider" ></li>
               <a class="tabs" style="color: beige"  href="#">Logout</a>
-              
-              
-              
             </ul>
-          
           </div>
         </div>
         
@@ -51,8 +47,8 @@
     </div>
 
     <div class=" name col-lg-5">
-      <h2 class=" intro form-title">NAME SURNAME</h2>
-      <h2 class=" intro form-title">Roll Number: 99xxxxxxx</h2>
+      <h2 *ngIf="user" class=" intro form-title">{{ user.first_name }} {{ user.last_name }}</h2>
+      <h2 *ngIf="user" class=" intro form-title">Roll Number: {{ user.roll_no }}</h2>
       <h2 class=" intro form-title">Batch: 20**</h2>
 
 

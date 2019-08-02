@@ -31,7 +31,7 @@ export class AlumniComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid){
-      this.dataService.login("http://192.168.1.103:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
+      this.dataService.login("http://localhost:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
         if (data.length){
           if(data[0]["isverified"] != 1){
             this.errorMessage = "Please wait till your account gets verified!";
@@ -46,7 +46,7 @@ export class AlumniComponent implements OnInit {
         }
       },
         (error: any) => {
-          this.errorMessage = "Something went wrong!";
+          this.errorMessage = "Something went wrong!\n"+error['message'];
           console.log("Error in logging in", error);
         });
       }
