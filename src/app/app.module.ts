@@ -93,13 +93,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       { path: 'editpersonal', component: EditpersonalComponent },
       { path: 'editjob', component: EditjobComponent },
       { path: 'dashboard', component: DashboardComponent },
-
-
-
-
-
-
-      // {path:'**',redirectTo:''}
+      { path: '**', redirectTo: '' }
     ])
   ],
   providers: [DataserviceService

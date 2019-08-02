@@ -1,4 +1,4 @@
-<navbar></navbar>
+<!-- <navbar></navbar>
 
 <body>
     <div class="main">
@@ -16,6 +16,7 @@
                                     [ngClass]="{ 'is-invalid': submitted && f.roll_no.errors }" />
                                 <div *ngIf="submitted && f.roll_no.errors" class="invalid-feedback">
                                     <div *ngIf="f.roll_no.errors.required">Roll Number is required</div>
+                                    <div *ngIf="f.roll_no.errors.minlength">Password must be at least 6 characters</div>
                                 </div>
 
                             </div>
@@ -50,6 +51,117 @@
                                     placeholder="Phone Number" />
                                 <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
                                     <div *ngIf="f.contact.errors.required">Contact is required</div>
+                                    <div *ngIf="f.contact.errors.minlength">Password must be at least 9 characters</div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="fa fa-envelope"></i></label>
+                                <input type="url" name="pass" formControlName="email" id="pass" required  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                    placeholder="Email" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">E-mail is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="fa fa-lock"></i></label>
+                                <input type="password" name="re_pass" formControlName="password" required  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                    placeholder="Password" />
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="fa fa-lock"></i></label>
+                                <input type="password" name="re_pass" formControlName="confirmPassword" required class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+                                    placeholder="Confirm password" />
+                                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree that
+                                    I am an alumni of <a href="#" class="term-service">The NorthCap
+                                        University</a></label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img
+                                src="http://ku.90sjimg.com/element_origin_min_pic/18/03/18/edc97d70f986f6967c9135c5bfe96c8d.jpg"
+                                alt="sing up image"></figure>
+                        <a routerLink="/alumni" class="signup-image-link"><b>I am already member</b></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body> -->
+<navbar></navbar>
+<body>
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form (ngSubmit)="onSubmit()" method="POST" class="register-form" id="register-form"
+                            [formGroup]="signupForm">
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-user"></i></label>
+                                <input type="text" formControlName="roll_no" name="name" required class="form-control"
+                                    placeholder="Roll Number"
+                                    [ngClass]="{ 'is-invalid': submitted && f.roll_no.errors }" />
+                                <div *ngIf="submitted && f.roll_no.errors" class="invalid-feedback">
+                                    <div *ngIf="f.roll_no.errors.required">Roll Number is required</div>
+                                    <div *ngIf="f.roll_no.errors.minlength">Roll Number must be at least 6 characters</div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-address-card"></i></label>
+                                <input type="text" formControlName="first_name" name="name" required class="form-control" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+                                    placeholder="First Name" />
+                                <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-address-card"></i></label>
+                                <input type="text" formControlName="last_name" name="name" required class="form-control" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
+                                    placeholder="Last Name" />
+                                <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.last_name.errors.required">Last Name is required</div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-birthday-cake"></i></label>
+                                <input type="date" formControlName="date_of_birth" name="name" required class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date_of_birth.errors }"
+                                    placeholder="Date Of Birth" />
+                                <div *ngIf="submitted && f.date_of_birth.errors" class="invalid-feedback">
+                                    <div *ngIf="f.date_of_birth.errors.required">Date Of Birth is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-phone"></i></label>
+                                <input type="number" formControlName="contact" name="name" required class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }"
+                                    placeholder="Phone Number" />
+                                <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+                                    <div *ngIf="f.contact.errors.required">Contact is required</div>
+                                    <div *ngIf="f.contact.errors.minlength">Contact must be at least 9 digits</div>
+
                                 </div>
                             </div>
                             <div class="form-group">
@@ -58,6 +170,8 @@
                                     placeholder="Email" />
                                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                                     <div *ngIf="f.email.errors.required">E-mail is required</div>
+                                    <div *ngIf="f.email.errors.email">E-mail is not valid</div>
+
                                 </div>
                             </div>
                             <div class="form-group">
@@ -66,6 +180,8 @@
                                     placeholder="Password" />
                                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                     <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+
                                 </div>
                             </div>
                             <div class="form-group">

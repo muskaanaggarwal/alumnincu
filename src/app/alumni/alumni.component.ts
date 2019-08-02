@@ -46,7 +46,7 @@ export class AlumniComponent implements OnInit {
         }
       },
         (error: any) => {
-          this.errorMessage = "Something went wrong!";
+          this.errorMessage = "Something went wrong!\n"+error['message'];
           console.log("Error in logging in", error);
         });
       }
