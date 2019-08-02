@@ -18,9 +18,10 @@ export class SociallinkformComponent implements OnInit {
   degreeForm: FormGroup;
   personalForm: FormGroup;
 
+  // for (var attrname in sociallinkform) {personalform[attrname]=sociallinkform[attrname];}
+
   // social = new Sociallinkmodel();
-  personal_url = 'http://localhost:9800/personalform';
-  social_url = 'http://localhost:9800/sociallinkform';
+  personal_details_url = 'http://localhost:9800/personal_detailsform';
   address_url = 'http://localhost:9800/addressform';
   job_url = 'http://localhost:9800/jobform';
   job2_url = 'http://localhost:9800/job2form';
@@ -87,7 +88,6 @@ export class SociallinkformComponent implements OnInit {
     this.dataService.personalForm = this.personalForm;
     // this.dataService.degreeForm = this.degreeForm;
 
-
     console.log(this.dataService.degreeForm);
     console.log(this.dataService.addressForm.value);
     console.log(this.dataService.jobForm.value);
@@ -95,25 +95,12 @@ export class SociallinkformComponent implements OnInit {
     console.log(this.dataService.personalForm.value);
     console.log(this.dataService.sociallinkForm.value);
 
-
-    this.dataService.sociallinkForm.value['roll_no'] = this.dataService.degreeForm.value['roll_no'];
-    this.dataService.addressForm.value['roll_no'] = this.dataService.degreeForm.value['roll_no'];
-    this.dataService.personalForm.value['roll_no'] = this.dataService.sociallinkForm.value['roll_no'];
-
-
-    if (this.dataService.sociallinkForm.valid)
-      this.dataService.alumniportalUser(this.social_url, this.dataService.sociallinkForm.value).subscribe((data: Array<any>) => {
-        console.log("Data After***", data)
-      },
-        (error: any) => {
-          console.log("Error in saving the record", error);
-        });
-    else {
-      console.log('form not valid');
-    }
+    this.dataService.sociallinkForm.value['roll_no'] = this.dataService.user['roll_no'];
+    this.dataService.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
+    // this.dataService.personalForm.value['roll_no'] = this.dataService.sociallinkForm.value['roll_no'];
 
 
-    if (this.dataService.addressForm.valid)
+   if (this.dataService.addressForm.valid)
       this.dataService.alumniportalUser(this.address_url, this.dataService.addressForm.value).subscribe((data: Array<any>) => {
         console.log("Data After***", data)
       },
@@ -144,6 +131,19 @@ export class SociallinkformComponent implements OnInit {
     else {
       console.log('form not valid');
     }
+    
+    // if (this.dataService.sociallinkForm.valid)
+    //   this.dataService.alumniportalUser(this.personal_details_url, this.dataService.sociallinkForm.value).subscribe((data: Array<any>) => {
+    //     console.log("Data After***", data)
+    //   },
+    //     (error: any) => {
+    //       console.log("Error in saving the record", error);
+    //     });
+    // else {
+    //   console.log('form not valid');
+    // }
+
+
     // if (this.dataService.degreeForm.valid)
     //   this.dataService.alumniportalUser(this.degree_url, this.dataService.degreeForm.value).subscribe((data: Array<any>) => {
     //     console.log("Data After***", data)
@@ -154,8 +154,8 @@ export class SociallinkformComponent implements OnInit {
     // else {
     //   console.log('form not valid');
     // }
-    if (this.dataService.personalForm.valid)
-      this.dataService.alumniportalUser(this.personal_url, this.dataService.personalForm.value).subscribe((data: Array<any>) => {
+    if (this.dataService.personalForm.valid && this.dataService.sociallinkForm.valid)
+      this.dataService.alumniportalUser(this.personal_details_url, this.dataService.personalForm.value && this.dataService.sociallinkForm.valid).subscribe((data: Array<any>) => {
         console.log("Data After***", data)
       },
         (error: any) => {

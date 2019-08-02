@@ -50,21 +50,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PersonalformComponent,
     SociallinkformComponent,
     Job2formComponent,
-    
+
     EditloginComponent,
-    
+
     EditdegreeComponent,
-    
+
     EditaddressComponent,
-    
+
     EditpersonalComponent,
-    
+
     EditjobComponent,
-    
+
     DashboardComponent,
-    
-    
-    
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -75,24 +75,24 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path:'', component:HomeComponent},
-      {path:'admin', component:AdminComponent},
-      {path:'directory', component:DirectoryComponent},
-      {path:'alumni', component:AlumniComponent},
-      {path:'forgotpage', component:ForgotpageComponent},
-      {path:'signup', component:SignupComponent},
-      {path:'degreeform', component:DegreeformComponent},
-      {path:'personalform', component:PersonalformComponent},
-      {path:'addressform', component:AddressformComponent},
-      {path:'jobform', component:JobformComponent},
-      {path:'sociallinkform', component:SociallinkformComponent},
-      {path:'job2form', component:Job2formComponent},
-      {path:'editlogin',component:EditloginComponent},
-      {path:'editdegree', component:EditdegreeComponent},
-      {path:'editaddress',component:EditaddressComponent},
-      {path:'editpersonal',component:EditpersonalComponent},
-      {path:'editjob',component:EditjobComponent},
-    {path:'dashboard',component:DashboardComponent},
+      { path: '', component: HomeComponent },
+      { path: 'admin', component: AdminComponent },
+      { path: 'directory', component: DirectoryComponent },
+      { path: 'alumni', component: AlumniComponent },
+      { path: 'forgotpage', component: ForgotpageComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: 'degreeform', component: DegreeformComponent },
+      { path: 'personalform', component: PersonalformComponent },
+      { path: 'addressform', component: AddressformComponent },
+      { path: 'jobform', component: JobformComponent },
+      { path: 'sociallinkform', component: SociallinkformComponent },
+      { path: 'job2form', component: Job2formComponent },
+      { path: 'editlogin', component: EditloginComponent },
+      { path: 'editdegree', component: EditdegreeComponent },
+      { path: 'editaddress', component: EditaddressComponent },
+      { path: 'editpersonal', component: EditpersonalComponent },
+      { path: 'editjob', component: EditjobComponent },
+      { path: 'dashboard', component: DashboardComponent },
 
 
 
@@ -102,7 +102,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       // {path:'**',redirectTo:''}
     ])
   ],
-  providers: [  DataserviceService
+  providers: [DataserviceService
   ],
   bootstrap: [AppComponent]
 })
