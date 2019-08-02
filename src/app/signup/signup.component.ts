@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       roll_no: ['',Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      contact: ['',Validators.required],
+      contact: ['',[Validators.required,Validators.minLength(9)]],
       date_of_birth: ['',Validators.required],
       first_name: ['',Validators.required],
       last_name: ['',Validators.required],
