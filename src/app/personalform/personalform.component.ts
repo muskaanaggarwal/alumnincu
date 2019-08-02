@@ -14,7 +14,7 @@ export class PersonalformComponent implements OnInit {
 
   personalForm: FormGroup;
 personal= new Personalmodel();
-  url = 'http://localhost:9800/personalform';
+  url = 'http://localhost:9800/personal_detailsform';
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {

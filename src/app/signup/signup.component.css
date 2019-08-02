@@ -419,4 +419,6 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
       margin-right: 0px;
       margin-bottom: 10px; } }
   
-  
+  .required{
+    color:rgb(184, 28, 28);
+  }
