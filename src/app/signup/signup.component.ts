@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { NgForm, NgModel } from "@angular/forms";
+import { Router } from '@angular/router';
+
+
 
 
 
@@ -15,14 +18,17 @@ export class SignupComponent implements OnInit {
   
   signupForm: FormGroup;
   url = 'http://localhost:9800/signup';
+  errorMessage :string;
+  
   // title = 'alumnincu';
   
   // Register your dataservice using dependency injection
   
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService) { }
   ngOnInit() {
+  
     this.signupForm = this.formBuilder.group({
-      roll_no: ['', Validators.required],
+      roll_no: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
       email: [''],
       contact: [''],
       date_of_birth: [''],
@@ -33,15 +39,8 @@ export class SignupComponent implements OnInit {
       });
   }
   
-  signup() {
-    console.log("Data before*****", this.signupForm.value)
-    // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After*****", data)
-    },
-      (error: any) => {
-        console.log("Error in saving the record", error);
-      });
-  }
-}
+  onSignup() {
+    
+    }
 
+}

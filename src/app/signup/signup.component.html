@@ -7,14 +7,18 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form method="POST" class="register-form" id="register-form" [formGroup]="signupForm">
+                        <form method="POST" class="register-form" id="register-form" [formGroup]="signupForm" (ngSubmit)="onsignup">
                             <div class="form-group">
-                                <label for="name"><i class="fa fa-user"></i></label>
-                                <input type="text" formControlName="roll_no" name="name" required
-                                    placeholder="Roll Number" />
-                            </div>
+                                <label for="your_name"><i class="fa fa-user"></i></label>
+                                <input type="text" formControlName="roll_no" id="roll_no" class="form-control mb-2"  [ngClass]="{ 'is-invalid': submitted && signupform.control.roll_no.errors }" 
+                                  placeholder="Roll number" required>
+                                  <div *ngIf="submitted && signupform.control.roll_no.errors" class="invalid-feedback">
+                                    <div *ngIf="signupform.control.roll_no.errors.required">Roll_no is required</div>
+                                </div>
+                              </div>
+                            
                             <div class="form-group">
-                                <label for="name"><i class="fa fa-address-card"></i></label>
+                                <label for="name"><i class="fa fa-address-card"></i><span aria-hidden="true" class="required">*</span></label>
                                 <input type="text" formControlName="first_name" name="name" required
                                     placeholder="First Name" />
                             </div>
@@ -56,7 +60,7 @@
                             </div>
                             <div class="form-group form-button">
                                 <!-- <button class="btn btn-lg btn-primary btn-block mb-1" (click)="alumniportal()" type="button" routerLink="/degreeform">Submit</button> -->
-                                <input (click)="signup()" type="button" routerLink="/degreeform" name="signup"
+                                <input  type="button"  name="signup"
                                     id="signup" class="form-submit" value="Register" />
                             </div>
                         </form>
