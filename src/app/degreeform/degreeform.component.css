@@ -1,3 +1,4 @@
+
 *{
 	box-sizing: border-box;
 }
@@ -46,8 +47,25 @@ h1, h5 {
 }
 @media all and (min-width: 56.25em) {
 	.card-item {
-			width: calc(100% / 12 * 2 );
+			width: calc(100% / 12 * 1.2 );
 	}
+}
+
+@media screen and (max-width: 900px) {
+	.child h5 {
+		transform: rotate(-90deg);
+		direction:rtl; 
+		
+	}	
+}
+
+.child {
+	margin-top: 15px;
+	margin-left: auto;
+	color: grey;	
+	font-size: 100%;
+	width: 1rem;
+	height: 1rem;
 }
 
 .card-body {
@@ -69,18 +87,32 @@ h1, h5 {
 	margin: 0;
 }
 
-.rotate {
-    transform: rotate(90deg);
-    margin: -200px -100px 0px 0px;
-    color: grey;
-		font-size: 20px;
-		white-space: nowrap;
+
+
+.parent {
+	width: 100%;
+	height: 100%;
+}
+
+.child {
+	margin-top: 15px;
+	color: grey;
+	word-wrap: break-word;
+	white-space: nowrap;
+	font-size: 100%;
+	width: 1rem;
+	height: 1rem;
+	/* background-color: #3D9970; */
+	/* margin-left: auto; */
+	transform: rotate(90deg);
 
 }
 
 
 .cardclass {
-    max-width: 140px;
+	/* width: 100%; */
+		/* min-width: 0px; */
+		min-height: 3.5rem;
 }
 .card-title,
 .card-text,
@@ -98,7 +130,8 @@ h1, h5 {
 .rightslider{
 max-height: 60px;
 max-width: 60px;
-  position: absolute;
+	position: absolute;
+	width: 60%;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -138,9 +171,9 @@ margin: 0;
 		-o-border-radius: 15px;
 		-ms-border-radius: 15px;
 		margin-top: 20px;
-		margin-right: 100px;
+		/* margin-right: 100px; */
 		font-size: 20px;
-		margin-bottom: 50px;
+		/* margin-bottom: 40px; */
 		cursor: pointer; }
 
 		
@@ -149,7 +182,7 @@ margin: 0;
 		color: #fff;
 		border-bottom: none;
 		min-width: 200px;
-		margin-bottom: 50px;
+		/* margin-bottom: 40px; */
 		min-height: 50px;
 		border-radius: 15px;
 		-moz-border-radius: 15px;
@@ -159,6 +192,10 @@ margin: 0;
 		margin-top: 20px;
 		font-size: 20px;
 		cursor: pointer; }
+
+		.formbutton {
+					margin-bottom: 40px;
+		}
 
 
 		/* .form-control {
@@ -213,3 +250,8 @@ margin: 0;
 				-o-transform: translateY(-50%);
 				-ms-transform: translateY(-50%);
 				color: #222; }
+
+
+			
+			
+			
