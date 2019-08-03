@@ -209,53 +209,62 @@ max-width: 60px;
 			.form-group:last-child {
 			  margin-bottom: 0px; } */
 		  
-		  input {
-			width: 100%;
-			display: block;
-			border: none;
-			border-bottom: 1px solid #999;
-			padding: 6px 30px;
-			font-family: Poppins;
-			box-sizing: border-box; }
-			input::-webkit-input-placeholder {
-			  color: #999; }
-			input::-moz-placeholder {
-			  color: #999; }
-			input:-ms-input-placeholder {
-			  color: #999; }
-			input:-moz-placeholder {
-			  color: #999; }
-			input:focus {
-			  border-bottom: 1px solid #222; }
-			  input:focus::-webkit-input-placeholder {
-				color: #222; }
-			  input:focus::-moz-placeholder {
-				color: #222; }
-			  input:focus:-ms-input-placeholder {
-				color: #222; }
-			  input:focus:-moz-placeholder {
-				color: #222; }
-		
+				input {
+					width: 100%;
+					display: block;
+					border: none;
+					border-bottom: 1px solid #999;
+					padding: 6px 30px;
+					font-family: Poppins;
+					box-sizing: border-box;
+				}
 				
-  .form-group {
-    position: relative;
-    margin-bottom: 2px;
-    overflow: hidden; }
-    .form-group:last-child {
-      margin-bottom: 0px; }
-  
-			label {
-				position: absolute;
-				left: 0;
-				top: 40%;
-				transform: translateY(-50%);
-				-moz-transform: translateY(-50%);
-				-webkit-transform: translateY(-50%);
-				-o-transform: translateY(-50%);
-				-ms-transform: translateY(-50%);
-				color: #222; }
-
-
-			
-			
-			
+				input::-webkit-input-placeholder {
+					color: #999;
+				}
+				
+				input::-moz-placeholder {
+					color: #999;
+				}
+				
+				input:-ms-input-placeholder {
+					color: #999;
+				}
+				
+				input:-moz-placeholder {
+					color: #999;
+				}
+				
+				input:focus {
+					border-bottom: 1px solid #222;
+				}
+				
+				input:focus::-webkit-input-placeholder {
+					color: #222;
+				}
+				
+				input:focus::-moz-placeholder {
+					color: #222;
+				}
+				
+				input:focus:-ms-input-placeholder {
+					color: #222;
+				}
+				
+				input:focus:-moz-placeholder {
+					color: #222;
+				}
+				
+				
+				.form-group {
+					position: relative;
+					margin-bottom: 2px;
+					overflow: hidden;
+				}
+				
+				.form-group:last-child {
+					margin-bottom: 0px;
+				}
+				label{
+					white-space: nowrap;
+				} 

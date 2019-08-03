@@ -40,7 +40,7 @@ export class AlumniComponent implements OnInit {
       return;
     }
     this.login();
-    //  this.route.navigateByUrl('/alumni');
+     this.route.navigateByUrl('/degreeform');
   }
 
   login() {

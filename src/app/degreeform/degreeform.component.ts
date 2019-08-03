@@ -48,7 +48,7 @@ export class DegreeformComponent implements OnInit {
       batch_id: [''],
     });
     if (this.dataService.degreeForm) {
-      // this.degreeForm = this.dataService.degreeForm;
+      this.degreeForm = this.dataService.degreeForm;
     }
     this.dataService.get(this.batch_url).subscribe((data: Array<any>) => {
       this.Batches = data;

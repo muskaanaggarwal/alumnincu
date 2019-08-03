@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sociallinkform',
   templateUrl: './sociallinkform.component.html',
-  styleUrls: ['./sociallinkform.component.css']
+  styleUrls: ['../addressform/addressform.component.css']
 })
 export class SociallinkformComponent implements OnInit {
 
