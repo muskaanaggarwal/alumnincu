@@ -8,7 +8,7 @@
 
   <div class="some row">
     <div class="col-lg-1 "></div>
-    <div class="col-lg-3 bttns">
+    <div class="col-lg-3 bttns ">
       <div class="row 1">
           <button type="button" routerLink="/editlogin" class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN DETAILS</span></button>
       </div>
@@ -29,43 +29,42 @@
 
       </div>
     </div>
-    <div class="col-lg-1"></div>
+   <div class=col-lg-1></div>
     <div class="col-lg-6 maincard">
 
-        <div class="cards border-dark">
-  
-      
-          <div class="card-item hello">
-            <div class="card-body">
-  
-              <div class="form-row">
-                
-                <div class="form-group col-md-8">
-                  <div class="logindetail card-title"> <b>JOB DETAILS</b></div>
+      <div class="cards border-dark">
 
-                <form >
-                  <div class="row radio">
-                    <div class="col-lg-6 one">
-                    <input type="radio"  name="job" value="campus" checked> Campus 
-                    </div>
-                    <div class="col-lg-6 two">
-  
-                    <input type="radio" name="job" value="self"> SelfEmployed/Cooperate
-                    </div>
-                    </div>
-                  <input type="text"  class="form-control mb-2" placeholder="Company Name"
-                    required >
-                  <input type="text" class="form-control mb-2" placeholder="Designation"
-                    required>
-                  <input type="text"  class="form-control mb-2"
-                    placeholder="City" required>
-                    <input type="text" class="form-control mb-2"
-                    placeholder="Website" required>
-                </form>
-              </div>
+    
+        <div class="card-item hello">
+          <div class="card-body col-lg-12">
+          <div class="row logindetails">
+            <div class="col-lg-1"></div>
+           <div class="col-lg-10"><b>JOB DETAILS</b></div>
+           <div class="col-lg-1"></div>
+           </div>
+          
+
+         <div class="form-check form-check-inline line1">
+            <label class="form-check-label lable1" for="inlineCheckbox1">CampusPlacement</label><input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
               
             </div>
-
+            <div class="form-check form-check-inline line2">
+                <label class="form-check-label lable2" for="inlineCheckbox2">Self/CorporateJob</label><input class="form-check-input input2" type="radio" id="inlineCheckbox2" value="option2">
+            </div>
+            
+          <form class="box" >
+              
+              
+             
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="Company Name">
+          </div>
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="designation">
+          </div>
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder=" company city">
+          </div>  
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder=" website">
+          </div>        
+</form>
 
 
           </div>
@@ -74,13 +73,14 @@
     </div>
     <div class="col-lg-1"></div>
   </div>
- 
-
   
-  <div class="homesave">
-    <button type="button" class="btn btn-warning back" routerLink=''>Home</button>
-    <button type="button" class="btn btn-warning save">Save</button>
-
-  </div>
-  </div>
+  
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div  class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
+  <div class="col-lg-3">
+    <button type="button" class=" btn2 btn btn-primary btn-lg">Save</button></div>
+    <div class="col-lg-3"></div>
+</div> 
+</div>
 </body>

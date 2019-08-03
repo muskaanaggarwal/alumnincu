@@ -21,7 +21,7 @@ export class DataserviceService {
   alumniportalUser(url, obj) {
     return this.http.post(url, obj);
   }
-  getUsers(url) {
+  get(url) {
     return this.http.get(url);
   }
   login(url, payload){

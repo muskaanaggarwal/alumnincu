@@ -113,47 +113,13 @@ h1, h5 {
 	
 	
 
-	.back {
-		background: #36345A;
-		color: #fff;
-		border-bottom: none;
-		min-width: 200px;
-		min-height: 50px;
-		border-radius: 15px;
-		-moz-border-radius: 15px;
-		-webkit-border-radius: 15px;
-		-o-border-radius: 15px;
-		-ms-border-radius: 15px;
-		margin-top: 20px;
-		margin-right: 50px;
-		font-size: 20px;
-		margin-bottom: 50px;
-		cursor: pointer; 
-		
-	}
-		
-	.save {
-		background: #056152;
-		color: #fff;
-		border-bottom: none;
-		min-width: 200px;
-		margin-bottom: 50px;
-		min-height: 50px;
-		border-radius: 15px;
-		-moz-border-radius: 15px;
-		-webkit-border-radius: 15px;
-		-o-border-radius: 15px;
-		-ms-border-radius: 15px;
-		margin-top: 20px;
-		font-size: 20px;
-		cursor: pointer; }
-
 
 		.form-control {
 			position: relative;
 			margin-bottom: 5px;
             overflow: hidden;
-        margin-left:90px;
+		margin-left:60px;
+		margin-right:70px;
         
     
     }
@@ -213,12 +179,17 @@ img{
 	text-align:left;
 	font-weight: bolder;
 }
-.logindetail{
+.logindetails{
 	/* text-align:center; */
 	font-size:30px;
-	padding-left:150px;
+	padding-left:0px;
 		white-space:nowrap;
 margin-bottom:70px;
+margin-top:20px;
+margin-right:0px!important;
+margin-left: 0px!important;
+text-align: center;
+
 }
 .maincard{
 	padding:0px;
@@ -230,7 +201,26 @@ h1{
 }
 .bttns{
 	margin-top:35px;
+	padding-left:40px;
+	padding-right:40px;
 }
 .homesave{
-	margin-left:280px;
+	margin-left:60px;
+}
+.box{
+	margin-bottom: 120px;
+}
+.btn2{
+	width:140px;
+	margin-bottom: 20px;
+	background-color: #36345A;
+	outline: none!important;
+	border-radius:10px;
+	border: none;
+	margin-left:90px;
+	
+}
+	.btn2:change {
+		outline: none;
+		border: none;
 }
