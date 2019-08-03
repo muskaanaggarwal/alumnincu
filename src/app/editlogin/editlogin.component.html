@@ -8,7 +8,7 @@
 
   <div class="some row">
     <div class="col-lg-1 "></div>
-    <div class="col-lg-3 bttns">
+    <div class="col-lg-3 bttns ">
       <div class="row 1">
           <button type="button" class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN DETAILS</span></button>
       </div>
@@ -36,25 +36,20 @@
 
     
         <div class="card-item hello">
-          <div class="card-body">
-
-            <div class="form-row">
-              
-              <div class="form-group col-md-8">
-                <div class="logindetail card-title"> <b>LOGIN DETAILS</b></div>
-
-                <form>
-                  <input type="text"  class="form-control mb-2" placeholder="Old Password"
-                    required >
-                  <input type="text" class="form-control mb-2" placeholder="New Password"
-                    required>
-                  <input type="text"  class="form-control mb-2"
-                    placeholder="Confirm Password" required>
-                </form>
-              </div>
-             
-            </div>
-
+          <div class="card-body col-lg-12">
+          <div class="row logindetails">
+            <div class="col-lg-1"></div>
+           <div class="col-lg-10"><b>LOGIN DETAILS</b></div>
+           <div class="col-lg-1"></div>
+           </div>
+          <form class="box" >
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="username">
+          </div>
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="old password">
+          </div>
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="confirm password">
+          </div>          
+</form>
 
 
           </div>
@@ -65,10 +60,12 @@
   </div>
   
   
-  <div class="homesave">
-    <button type="button" class="btn btn-warning back" routerLink=''>Home</button>
-    <button type="button" class="btn btn-warning save" >Save</button>
-
-  </div>
-  </div>
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div  class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
+  <div class="col-lg-3">
+    <button type="button" class=" btn2 btn btn-primary btn-lg">Save</button></div>
+    <div class="col-lg-3"></div>
+</div> 
+</div>
 </body>

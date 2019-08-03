@@ -1,83 +1,79 @@
 <navbar></navbar>
-
 <body><br><br>
+ 
+    <div class="container">
+  <div class="center"><b><h1>EDIT PROFILE</h1></b><br><br></div>
+    
+  
 
-  <div class="container">
-    <div class="center"><b>
-        <h1>EDIT PROFILE</h1>
-      </b><br><br></div>
-
-
-
-    <div class="some row">
-      <div class="col-lg-1 "></div>
-      <div class="col-lg-3 bttns">
-        <div class="row 1">
-          <button type="button" routerLink="/editlogin" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">LOGIN DETAILS</span></button>
-        </div>
-        <div class="row 2">
-          <button type="button" routerLink="/editdegree" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">DEGREE DETAILS</span></button>
-
-        </div>
-        <div class="row 3">
-          <button type="button" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">ADDRESS</span></button>
-
-        </div>
-        <div class="row 4">
-          <button type="button" routerLink="/editjob" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">JOB DETAILS</span></button>
-
-        </div>
-        <div class="row 5">
-          <button type="button" routerLink="/editpersonal" class=" login btn btn-primary btn-lg btn-block "> <span
-              class="text">PERSONAL DETAILS</span></button>
-
-        </div>
+  <div class="some row">
+    <div class="col-lg-1 "></div>
+    <div class="col-lg-3 bttns ">
+      <div class="row 1">
+          <button type="button" routerLink="/editlogin" class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN DETAILS</span></button>
       </div>
-      <div class=col-lg-1></div>
+      <div class="row 2">
+          <button type="button" routerLink="/editdegree" class=" login btn btn-primary btn-lg btn-block "><span class="text">DEGREE DETAILS</span></button>
+
+      </div>
+      <div class="row 3">
+          <button type="button"  class=" login btn btn-primary btn-lg btn-block "><span class="text">ADDRESS</span></button>
+
+      </div>
+      <div class="row 4">
+          <button type="button" routerLink="/editjob" class=" login btn btn-primary btn-lg btn-block "><span class="text">JOB DETAILS</span></button>
+
+      </div>
+      <div class="row 5">
+          <button type="button" routerLink="/editpersonal" class=" login btn btn-primary btn-lg btn-block "> <span class="text">PERSONAL DETAILS</span></button>
+
+      </div>
+    </div>
+   <div class=col-lg-1></div>
     <div class="col-lg-6 maincard">
 
       <div class="cards border-dark">
 
     
         <div class="card-item hello">
-          <div class="card-body">
+          <div class="card-body col-lg-12">
+          <div class="row logindetails">
+            <div class="col-lg-1"></div>
+           <div class="col-lg-10"><b>ADDRESS DETAILS</b></div>
+           <div class="col-lg-1"></div>
+           </div>
+          <form class="box" >
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="AddressLine 1">
+          </div>
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="AddressLine 2">
+          </div>
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="AddressLine 3">
+          </div>  
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="Country">
+          </div>  
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="State">
+          </div>    
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="city">
+          </div> 
+          <div class="row"><input class="form-control form-control-mb-2" type="text" placeholder="postal code">
+          </div>   
+</form>
 
-            <div class="form-row">
-              
-              <div class="form-group col-md-8">
-                <div class="logindetail card-title"> <b>ADDRESS DETAILS</b></div>
 
-
-                    <form>
-                      <input type="text" class="form-control mb-2" placeholder="Address Line 1" required>
-                      <input type="text" class="form-control mb-2" placeholder="Address Line 2" required>
-                      <input type="text" class="form-control mb-2" placeholder="Address Line 3" required>
-                      <input type="text" class="form-control mb-2" placeholder="Country" required>
-                      <input type="text" class="form-control mb-2" placeholder="State" required>
-                      <input type="text" class="form-control mb-2" placeholder="City" required>
-                    </form>
-                  </div>
-
-                </div>
-
-
-
-              </div>
-            </div>
           </div>
         </div>
-        <div class="col-lg-1"></div>
-      </div>
-
-      <div class="homesave">
-        <button type="button" class="btn btn-warning back" routerLink=''>Home</button>
-        <button type="button" class="btn btn-warning save">Save</button>
-
       </div>
     </div>
+    <div class="col-lg-1"></div>
+  </div>
   
+  
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div  class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
+  <div class="col-lg-3">
+    <button type="button" class=" btn2 btn btn-primary btn-lg">Save</button></div>
+    <div class="col-lg-3"></div>
+</div> 
+</div>
 </body>
