@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-personalform',
   templateUrl: './personalform.component.html',
-  styleUrls: ['./personalform.component.css']
+  styleUrls: ['../addressform/addressform.component.css']
 })
 export class PersonalformComponent implements OnInit {
 

@@ -202,6 +202,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   input {
     width: 100%;
     display: block;
+
     border: none;
     border-bottom: 1px solid #999;
     padding: 6px 30px;
@@ -421,4 +422,10 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   
   .required{
     color:rgb(184, 28, 28);
+  }
+
+  .iconfix .label {
+    height: 20em;
+
+
   }

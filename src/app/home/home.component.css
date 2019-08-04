@@ -92,7 +92,21 @@
 .info{
     text-decoration: none;
     color:brown;
+    font-size:25px;
 }
 .panel-title{
     margin-bottom:30px;
+}
+.heading{
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+font-size:20px;
+}
+.inf{
+font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+.knowmore{
+    color:white;
+    font-weight:600;
 }
