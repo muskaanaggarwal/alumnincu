@@ -24,4 +24,9 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  logout(){
+    this.dataService.user = null;
+    this.dataService.details = null;
+  }
+
 }

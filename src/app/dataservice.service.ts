@@ -15,6 +15,7 @@ export class DataserviceService {
   public job2Form: FormGroup;
   public addressForm: FormGroup;
   public user: Object;
+  public details: Object;
 
   constructor(private http: HttpClient) { }
 

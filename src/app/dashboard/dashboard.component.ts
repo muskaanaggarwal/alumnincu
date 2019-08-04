@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css', '../home/home.component.css']
 })
 export class DashboardComponent implements OnInit {
 
@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   isLoggedIn: boolean;
   user: Object;
+  details: Object;
 
   ngOnInit() {
     if(!this.dataService.user){
@@ -26,6 +27,12 @@ export class DashboardComponent implements OnInit {
     }
     else{
       this.isLoggedIn = false; 
+    }
+    if(this.dataService.details){
+      this.details = this.dataService.details;
+    }
+    else{
+      this.details = null;
     }
   }
 

@@ -49,8 +49,15 @@ export class AlumniComponent implements OnInit {
           }
           else {
             this.dataService.user = data[0];
-            // this.loggedin.emit(true);
-            this.route.navigateByUrl('/degreeform');
+            this.dataService.get("http://localhost:9800/details?id="+this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+              if(data.length > 0){
+                this.dataService.details = data[0];
+                this.route.navigateByUrl('/dashboard');
+              }
+              else{
+                this.route.navigateByUrl('/degreeform');
+              }
+            });
           }
         }
         else {

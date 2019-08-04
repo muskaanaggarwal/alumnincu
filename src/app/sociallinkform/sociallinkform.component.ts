@@ -67,21 +67,28 @@ export class SociallinkformComponent implements OnInit {
     this.dataService.sociallinkForm = this.sociallinkForm;
   }
   sociallinkform() {
+    this.errorMessage = null;
     this.postAddress();
     this.postJob(this.jobForm);
     this.postJob(this.job2Form);
     this.postPersonalDetails();
     if(!this.errorMessage){
-      this.route.navigateByUrl('/dashbaord');
+      this.route.navigateByUrl('/dashboard');
     }
   }
   postAddress() {
-    this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
-    this.dataService.alumniportalUser(this.address_url, this.addressForm.value).subscribe((data: Array<any>) => {
-    },
-      (error: any) => {
-        this.errorMessage = error;
-      });
+    if(this.addressForm.valid && this.dataService.user['roll_no'] != undefined){
+      this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
+      console.log(this.addressForm);
+      this.dataService.alumniportalUser(this.address_url, this.addressForm.value).subscribe((data: Array<any>) => {
+      },
+        (error: any) => {
+          this.errorMessage = error.message;
+        });
+    }
+    else{
+      console.log('Form invalid');
+    }
   }
   postJob(jobForm: FormGroup) {
     if (jobForm.valid) {
@@ -89,7 +96,7 @@ export class SociallinkformComponent implements OnInit {
         this.postJobUserRelation(data['company_id'], 1);
       },
         (error: any) => {
-          this.errorMessage = error;
+          this.errorMessage = error.message;
         });
     }
     else {
@@ -104,7 +111,7 @@ export class SociallinkformComponent implements OnInit {
     this.dataService.alumniportalUser(this.job2_url, jobUser).subscribe((data: Array<any>) => {
     },
       (error: any) => {
-        this.errorMessage = error;
+        this.errorMessage = error.message;
       });
   }
   postPersonalDetails() {
@@ -117,7 +124,7 @@ export class SociallinkformComponent implements OnInit {
     this.dataService.alumniportalUser(this.personal_details_url, this.personalForm.value).subscribe((data: Array<any>) => {
     },
       (error: any) => {
-        this.errorMessage = error;
+        this.errorMessage = error.message;
       });
   }
 }
