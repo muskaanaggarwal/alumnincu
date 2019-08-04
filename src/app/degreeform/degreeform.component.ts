@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Degreemodel } from './degreemodel.model';
 import { Router } from '@angular/router';
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./degreeform.component.css']
 })
 export class DegreeformComponent implements OnInit {
-  submitted = false;
   degree = new Degreemodel();
   Batches: Object[];
   Schools: Object[];
@@ -39,11 +38,11 @@ export class DegreeformComponent implements OnInit {
   }
   ngOnInit() {
     this.degreeForm = this.formBuilder.group({
-      school_id: ['', Validators.required],
-      program_id: ['', Validators.required],
-      stream_id: ['',Validators.required],
-      specialization_id: ['',Validators.required],
-      batch_id: ['',Validators.required],
+      school_id: [''],
+      program_id: [''],
+      stream_id: [''],
+      specialization_id: [''],
+      batch_id: [''],
     });
     if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
@@ -86,27 +85,6 @@ export class DegreeformComponent implements OnInit {
     },
       (error: any) => {
         console.log("Error in fetching details", error);
-      });
-  }
-  get f() { return this.degreeForm.controls; }
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.degreeForm.invalid) {
-      return;
-    }
-    this.signup();
-     this.route.navigateByUrl('/addressform');
-
-  }
-  signup() {
-    console.log("Data before***", this.degreeForm.value)
-    // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
-      // console.log("Data After***", data)
-    },
-      (error: any) => {
-        console.log("Error in saving the record", error);
       });
   }
   ngOnDestroy() {

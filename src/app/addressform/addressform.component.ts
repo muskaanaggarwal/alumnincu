@@ -1,3 +1,5 @@
+
+    
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
@@ -26,10 +28,10 @@ export class AddressformComponent implements OnInit {
       address_line_1: ['', Validators.required],
       address_line_2: [''],
       address_line_3: [''],
-      city: ['' , Validators.required],
-      state: ['' ,Validators.required],
-      country: ['', Validators.required],
-      pincode: ['', Validators.required]
+      city: [''],
+      state: [''],
+      country: [''],
+      pincode: ['']
     });
     if (this.dataService.addressForm) {
       this.addressForm = this.dataService.addressForm;

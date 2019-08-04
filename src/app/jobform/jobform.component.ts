@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder,Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Jobmodel } from './job.model';
 import { Router } from '@angular/router';
@@ -19,8 +19,8 @@ export class JobformComponent implements OnInit {
   ngOnInit() {
     this.jobForm = this.formBuilder.group({
       designation: [''],
-      company_name: ['',Validators.required],
-      company_city: ['',Validators.required],
+      company_name: [''],
+      company_city: [''],
       website: [''],
      
       });
