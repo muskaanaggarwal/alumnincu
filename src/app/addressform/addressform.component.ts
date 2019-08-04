@@ -25,10 +25,10 @@ export class AddressformComponent implements OnInit {
       address_line_1: ['', Validators.required],
       address_line_2: [''],
       address_line_3: [''],
-      city: [''],
-      state: [''],
-      country: [''],
-      pincode: ['']
+      city: ['' , Validators.required],
+      state: ['' ,Validators.required],
+      country: ['', Validators.required],
+      pincode: ['', Validators.required]
     });
     if (this.dataService.addressForm) {
       this.addressForm = this.dataService.addressForm;

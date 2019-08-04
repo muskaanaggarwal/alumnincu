@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder ,Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Job2model } from './job2.model';
 import { Router } from '@angular/router';
@@ -20,9 +20,9 @@ ngOnInit() {
     this.route.navigateByUrl('/alumni');
   }
 this.job2Form = this.formBuilder.group({
-  company_name: [''],
+  company_name: ['' , Validators.required],
   designation: [''],
-  company_city: [''],
+  company_city: ['' , Validators.required],
   website: [''],
   });
   if(this.dataService.job2Form){
