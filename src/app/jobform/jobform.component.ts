@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-jobform',
   templateUrl: './jobform.component.html',
-  styleUrls: ['./jobform.component.css']
+  styleUrls: ['../addressform/addressform.component.css']
 })
 export class JobformComponent implements OnInit {
   job = new Jobmodel();

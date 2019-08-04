@@ -50,21 +50,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PersonalformComponent,
     SociallinkformComponent,
     Job2formComponent,
-
     EditloginComponent,
-
     EditdegreeComponent,
-
     EditaddressComponent,
-
     EditpersonalComponent,
-
     EditjobComponent,
-
     DashboardComponent,
-
-
-
   ],
   imports: [
     BrowserModule,

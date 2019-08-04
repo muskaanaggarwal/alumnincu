@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-job2form',
   templateUrl: './job2form.component.html',
-  styleUrls: ['./job2form.component.css']
+  styleUrls: ['../addressform/addressform.component.css']
 })
 export class Job2formComponent implements OnInit {
   job2Form: FormGroup;

@@ -10,200 +10,128 @@ import { Router } from '@angular/router';
   styleUrls: ['./degreeform.component.css']
 })
 export class DegreeformComponent implements OnInit {
-  school: string = 'SOET'
   degree = new Degreemodel();
-
+  Batches: Object[];
+  Schools: Object[];
+  Programs: Object[];
+  Streams: Object[];
+  Specializations: Object[];
+  current_batch: String;
+  current_school: number;
+  current_program: number;
+  current_stream: number;
+  current_specialization: number;
+  filteredBatches: Object[];
+  filteredPrograms: Object[];
+  filteredStreams: Object[];
+  filteredSpecialization: Object[];
   degreeForm: FormGroup;
+  batch_url = 'http://localhost:9800/batch/all';
+  school_url = 'http://localhost:9800/school/all';
+  program_url = 'http://localhost:9800/program/all';
+  stream_url = 'http://localhost:9800/stream/all';
+  specialization_url = 'http://localhost:9800/specialization/all';
+  url = 'http://localhost:9800/degreeform';
 
-  schools: object = {
-    "SOET": {
-      "B.Tech - Computer Science & Engineering (CSE)": "B.Tech - Computer Science & Engineering (CSE)",
-      "B.Tech - Electronics & Communication Engineering (ECE)": "B.Tech - Electronics & Communication Engineering (ECE)",
-      "B.Tech - Civil Engineering (CE)": "B.Tech - Civil Engineering (CE)",
-      "B.Tech - Mechanical Engineering (ME)": "B.Tech - Mechanical Engineering (ME)",
-      "M.Tech - Computer Science & Engineering (CSE)": "	M.Tech - Computer Science & Engineering (CSE)",
-      "M.Tech - Civil Engineering (CE)": "M.Tech - Civil Engineering (CE)",
-      "M.Tech - Mechanical Engineering (ME)": "M.Tech - Mechanical Engineering (ME)",
-      "Ph.D.": "Ph.D."
-
-    },
-    "School Of Applied Sciences": {
-      "Bachelor of Science (B.Sc.) Mathematics (Hons.)": "Bachelor of Science (B.Sc.) Mathematics (Hons.)",
-
-      "Bachelor of Science (B.Sc.) Physics (Hons.)": "Bachelor of Science (B.Sc.) Physics (Hons.)",
-
-      "Master of Science (M.Sc.) Mathematics": "Master of Science (M.Sc.) Mathematics",
-
-      "Ph.D.": "Ph.D."
-
-
-    },
-    "School Of Management": {
-      "Bachelor of Business Administration (BBA)": "Bachelor of Business Administration (BBA)",
-
-      "Bachelor of Commerce (B.Com) (Hons.)": "Bachelor of Commerce (B.Com) (Hons.)",
-
-      "Bachelor of Arts (BA) - Economics (Hons.)": "Bachelor of Arts (BA) - Economics (Hons.)",
-
-      "Bachelor of Arts (BA) - Psychology (Hons.)": "Bachelor of Arts (BA) - Psychology (Hons.)",
-
-      "Master of Business Administration (MBA)": "Master of Business Administration (MBA)",
-
-      "Ph.D.": "Ph.D."
-    },
-    "School Of Law": {
-      "Bachelor of Laws - BBA.LL.B(Hons.)": "Bachelor of Laws - BBA.LL.B(Hons.)",
-
-      "Master of Laws (LLM)": "Master of Laws (LLM)",
-
-      "Ph.D.": "Ph.D."
-
-    }
-  }
-  program: string = "B.Tech - Computer Science & Engineering (CSE)"
-  programs: object = {
-    "B.Tech - Computer Science & Engineering (CSE)": {
-      "Data Science & AI": "Data Science & AI",
-
-      "Full Stack": "Full Stack",
-
-      "IOT": "IOT",
-
-      "Cyber Security": "Cyber Security",
-
-      "Game Tech, AR & VR": "Game Tech, AR & VR",
-
-      "General": "General"
-
-    },
-    "B.Tech - Civil Engineering (CE)": {
-      "General": "General"
-    },
-    "M.Tech - Civil Engineering (CE)": {
-      "General": "General"
-    },
-    "B.Tech - Electronics & Communication Engineering (ECE)": {
-      "	IoT": "IoT",
-
-      "Embedded systems": "Embedded systems",
-
-      "VLSI design": "VLSI design"
-
-    },
-    "	B.Tech - Mechanical Engineering (ME)": {
-      "Thermal Engineering": "Thermal Engineering",
-
-      "Mechanical Engineering Design": "Mechanical Engineering Design",
-      "Industrial and Production Engineering": "Industrial and Production Engineering",
-
-      "Automobile Engineering": "Automobile Engineering"
-    },
-    "M.Tech - Computer Science & Engineering (CSE)": {
-      "Data Science & AI": "Data Science & AI",
-
-      "Full Stack": "Full Stack",
-
-      "IOT": "IT",
-
-      "Cyber Security": "Cyber Security",
-
-      "Game Tech, AR & VR": "Game Tech, AR & VR",
-
-      "General": "General"
-
-    },
-    "M.Tech - Electronics & Communication Engineering (ECE)": {
-      "IoT": "IoT",
-
-      "Embedded systems": "Embedded systems",
-
-      "VLSI design": "VLSI design"
-    },
-    "M.Tech - Mechanical Engineering (ME)": {
-      "Thermal Engineering": "Thermal Engineering",
-
-      "Mechanical Engineering Design": "Mechanical Engineering Design",
-
-      "Industrial and Production Engineering": "Industrial and Production Engineering",
-
-      "Automobile Engineering": "Automobile Engineering"
-    }
-
-
-  }
-  url= 'http://localhost:9800/degreeform';
-  
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
-    
-   }
+
+  }
   ngOnInit() {
-    if(!this.dataService.user){
+    if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
     }
-      this.degreeForm = this.formBuilder.group({
-      school_name: [''],
-      program_name: [''],
-      // school_id: [''],
-      specialization_name: [''],
+    this.degreeForm = this.formBuilder.group({
+      school_id: [''],
+      program_id: [''],
+      stream_id: [''],
+      specialization_id: [''],
       batch_id: [''],
     });
     if (this.dataService.degreeForm) {
       this.degreeForm = this.dataService.degreeForm;
     }
+    this.dataService.get(this.batch_url).subscribe((data: Array<any>) => {
+      this.Batches = data;
+      this.current_batch = data[0]['batch_id'];
+    },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
+    this.dataService.get(this.school_url).subscribe((data: Array<any>) => {
+      this.Schools = data;
+      this.current_school = data[0]['school_id'];
+    },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
+    this.dataService.get(this.program_url).subscribe((data: Array<any>) => {
+      this.Programs = data;
+      this.current_program = data[0]['program_id'];
+    },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
+    this.dataService.get(this.stream_url).subscribe((data: Array<any>) => {
+      this.Streams = data;
+      this.current_stream = data[0]['stream_id'];
+    },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
+    this.dataService.get(this.specialization_url).subscribe((data: Array<any>) => {
+      this.Specializations = data;
+      this.current_specialization = data[0]['specialization_id'];
+    },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
   }
   ngOnDestroy() {
     this.dataService.degreeForm = this.degreeForm;
   }
 
-  // localdegree(){
-  //   let batch: any = document.getElementById('batch_id');
-  //   let roll_no: any = document.getElementById('roll_no');
-  //   let school: any = document.getElementById('school');
-  //   let program: any = document.getElementById('program');
-  //   let specialization: any = document.getElementById('specialization');
-
-  //   if(batch){
-  //     this.degree.batch = batch.value;
-  //   }
-  //   if(roll_no){
-  //     this.degree.roll_no = roll_no.value;
-  //   } if(school){
-  //     this.degree.school = school.value;
-  //   } if(program){
-  //     this.degree.program = program.value;
-  //   } if(specialization){
-  //     this.degree.specialization = specialization.value;
-  //   }
-  //   console.log(this.degree);
-  //  }
-
-  onSelect(key: string) {
-    console.log(key);
-    this.school = key;
-  }
-  onProgram(key: string) {
-    console.log(key);
-    console.log(key);
-    this.program = key;
-  }
-  onSpecialization(key: string) {
-    console.log(key);
-  }
   degreeform() {
-    console.log("Data before***", this.degreeForm.value)
-    // execute the registerUser() given in the spring boot 
-    // this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
-    //   console.log("Data After***", data)
-    // },
-    //   (error: any) => {
-    //     console.log("Error in saving the record", error);
-    //   });
-      this.dataService.getUsers("http://localhost:9800/allUsers").subscribe((data: Array<any>) => {
-        console.log("Data After***", data)
-      },
-        (error: any) => {
-          console.log("Error in saving the record", error);
-        });
-     
+
+
+  }
+  onBatchChange(key: string) {
+    this.current_batch = key;
+  }
+  onSchoolChange(key: number) {
+    this.current_school = key;
+    this.filteredPrograms = this.Programs.filter(tempProgram => {
+      if(tempProgram['school_id'] == this.current_school){
+        return tempProgram;
+      }
+    });
+    this.filteredStreams = null;
+    this.filteredSpecialization = null;
+    this.filteredBatches = null;
+  }
+  onProgramChange(key: number) {
+    this.current_program = key;
+    this.filteredStreams = this.Streams.filter(tempStream => {
+      if(tempStream['program_id'] == this.current_program){
+        return tempStream;
+      }
+    });
+    this.filteredSpecialization = null;
+    this.filteredBatches = null;
+  }
+  onStreamChange(key: number) {
+    this.current_stream = key;
+    this.filteredSpecialization = this.Specializations.filter(tempSpecialization => {
+      if(tempSpecialization['stream_id'] == this.current_stream){
+        return tempSpecialization;
+      }
+    });
+    this.filteredBatches = this.Streams.filter(tempStream => {
+      if(tempStream['stream_id'] == this.current_stream){
+          return tempStream;
+      }
+    });
+  }
+  onSpecializationChange(key: number) {
+    this.current_specialization = key;
   }
 }
