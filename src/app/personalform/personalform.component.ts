@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Personalmodel } from './personal.model';
 import { Router } from '@angular/router';
@@ -21,7 +21,7 @@ personal= new Personalmodel();
     this.personalForm = this.formBuilder.group({
       photo: [''],
       spouse_name: [''],
-      roll_no: [''],
+      
       anniversary_date: [''],
       });
     if(!this.dataService.user){
