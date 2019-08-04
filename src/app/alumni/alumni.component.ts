@@ -46,14 +46,8 @@ export class AlumniComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       this.dataService.login("http://localhost:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
-<<<<<<< HEAD
-        if (data.length){
-          if(data[0]["isverified"] != 1){
-            // this.loggedin.emit(false);
-=======
         if (data.length) {
           if (data[0]["isverified"] != 1) {
->>>>>>> 6fb3f07a62334d8a503571c9d35e2049649c3932
             this.errorMessage = "Please wait till your account gets verified!";
           }
           else {
@@ -62,22 +56,12 @@ export class AlumniComponent implements OnInit {
             this.route.navigateByUrl('/degreeform');
           }
         }
-<<<<<<< HEAD
-        else{
-          // this.loggedin.emit(false);
-=======
         else {
->>>>>>> 6fb3f07a62334d8a503571c9d35e2049649c3932
           this.errorMessage = "Invalid roll number or password!";
         }
       },
         (error: any) => {
-<<<<<<< HEAD
-          // this.loggedin.emit(false);
-          this.errorMessage = "Something went wrong!\n"+error['message'];
-=======
           this.errorMessage = "Something went wrong!\n" + error['message'];
->>>>>>> 6fb3f07a62334d8a503571c9d35e2049649c3932
           console.log("Error in logging in", error);
         });
     }
