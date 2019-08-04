@@ -17,9 +17,6 @@ export class JobformComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
-    if(!this.dataService.user){
-      this.route.navigateByUrl('/alumni');
-    }
     this.jobForm = this.formBuilder.group({
       designation: [''],
       company_name: [''],
@@ -27,6 +24,10 @@ export class JobformComponent implements OnInit {
       website: [''],
      
       });
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+      return;
+    }
       if(this.dataService.jobForm){
         this.jobForm = this.dataService.jobForm;
       }

@@ -21,6 +21,7 @@ export class SociallinkformComponent implements OnInit {
   personalForm: FormGroup;
   jobUser: JobUserModel = new JobUserModel;
   job2User: JobUserModel = new JobUserModel;
+  errorMessage: String;
 
   // for (var attrname in sociallinkform) {personalform[attrname]=sociallinkform[attrname];}
 
@@ -33,14 +34,16 @@ export class SociallinkformComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
-    if (!this.dataService.user) {
-      this.route.navigateByUrl('/alumni');
-    }
     this.sociallinkForm = this.formBuilder.group({
       facebook: [''],
       linkedin: [''],
       twitter: [''],
     });
+    if (!this.dataService.user) {
+      this.route.navigateByUrl('/alumni');
+      return;
+    }
+    this.errorMessage = null;
     if (this.dataService.sociallinkForm) {
       this.sociallinkForm = this.dataService.sociallinkForm;
     }
@@ -68,12 +71,16 @@ export class SociallinkformComponent implements OnInit {
     this.postJob(this.jobForm);
     this.postJob(this.job2Form);
     this.postPersonalDetails();
+    if(!this.errorMessage){
+      this.route.navigateByUrl('/dashbaord');
+    }
   }
   postAddress() {
     this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
     this.dataService.alumniportalUser(this.address_url, this.addressForm.value).subscribe((data: Array<any>) => {
     },
       (error: any) => {
+        this.errorMessage = error;
       });
   }
   postJob(jobForm: FormGroup) {
@@ -82,11 +89,11 @@ export class SociallinkformComponent implements OnInit {
         this.postJobUserRelation(data['company_id'], 1);
       },
         (error: any) => {
-          console.log("Error in saving the record", error);
+          this.errorMessage = error;
         });
     }
     else {
-      console.log("Job form invalid");
+      this.errorMessage = 'Form invalid';
     }
   }
   postJobUserRelation(company_id, campus_or_current: number) {
@@ -97,7 +104,7 @@ export class SociallinkformComponent implements OnInit {
     this.dataService.alumniportalUser(this.job2_url, jobUser).subscribe((data: Array<any>) => {
     },
       (error: any) => {
-        console.log("Error in saving the record", error);
+        this.errorMessage = error;
       });
   }
   postPersonalDetails() {
@@ -110,7 +117,7 @@ export class SociallinkformComponent implements OnInit {
     this.dataService.alumniportalUser(this.personal_details_url, this.personalForm.value).subscribe((data: Array<any>) => {
     },
       (error: any) => {
-        console.log("Error in saving the record", error);
+        this.errorMessage = error;
       });
   }
 }

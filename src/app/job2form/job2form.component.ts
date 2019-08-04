@@ -16,15 +16,16 @@ export class Job2formComponent implements OnInit {
 constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
 ngOnInit() {
+  this.job2Form = this.formBuilder.group({
+    company_name: [''],
+    designation: [''],
+    company_city: [''],
+    website: [''],
+    });
   if(!this.dataService.user){
     this.route.navigateByUrl('/alumni');
+    return;
   }
-this.job2Form = this.formBuilder.group({
-  company_name: [''],
-  designation: [''],
-  company_city: [''],
-  website: [''],
-  });
   if(this.dataService.job2Form){
     this.job2Form = this.dataService.job2Form;
   }

@@ -20,6 +20,7 @@ export class AddressformComponent implements OnInit {
   ngOnInit() {
     if(!this.dataService.user){
       this.route.navigateByUrl('/alumni');
+      return;
     }
     this.addressForm = this.formBuilder.group({
       address_line_1: ['', Validators.required],
