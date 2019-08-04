@@ -40,11 +40,10 @@ export class AlumniComponent implements OnInit {
       return;
     }
     this.login();
-     this.route.navigateByUrl('/degreeform');
+    //  this.route.navigateByUrl('/degreeform');
   }
 
   login() {
-    if (this.loginForm.valid) {
       this.dataService.login("http://localhost:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
         if (data.length) {
           if (data[0]["isverified"] != 1) {
@@ -64,8 +63,5 @@ export class AlumniComponent implements OnInit {
           console.log("Error in logging in", error);
         });
     }
-    else {
-      this.errorMessage = "Form invalid!";
-    }
-  }
+  
 }
