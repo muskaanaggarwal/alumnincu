@@ -18,15 +18,16 @@ personal= new Personalmodel();
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
-    if(!this.dataService.user){
-      this.route.navigateByUrl('/alumni');
-    }
     this.personalForm = this.formBuilder.group({
       photo: [''],
       spouse_name: [''],
       roll_no: [''],
       anniversary_date: [''],
       });
+    if(!this.dataService.user){
+      this.route.navigateByUrl('/alumni');
+      return;
+    }
       if(this.dataService.personalForm){
         this.personalForm = this.dataService.personalForm;
       }

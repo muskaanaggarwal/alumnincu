@@ -59,7 +59,7 @@ export class SignupComponent implements OnInit {
     console.log("Data before***", this.signupForm.value)
     // execute the registerUser() given in the spring boot 
     this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
-      // console.log("Data After***", data)
+      console.log("Data After***", data);
     },
       (error: any) => {
         console.log("Error in saving the record", error);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 
 
@@ -9,19 +9,18 @@ import { DataserviceService } from '../dataservice.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService) { }
-
+  constructor(private dataService: DataserviceService) {
+  }
   isLoggedIn: boolean;
   user: Object;
 
   ngOnInit() {
-    this.isLoggedIn = false;
-    if(this.dataService.user){
+    if (this.dataService.user) {
       this.isLoggedIn = true;
       this.user = this.dataService.user;
     }
-    else{
-      this.isLoggedIn = false; 
+    else {
+      this.isLoggedIn = false;
     }
   }
 

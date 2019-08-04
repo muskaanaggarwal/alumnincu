@@ -1,28 +1,31 @@
- <nav  class="navbar navbar-expand-lg navbar-light" style="background-color: #A8413D;">
-    <a class="navbar-brand" routerLink="/" style="color: beige"><img id="logo"
-      src="http://www.ncuindia.edu/wp-content/themes/ncuindia/assets/images/logo.png" height="40px" width="100px"> NCU ALUMNI PORTAL</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span> 
-    </button>
-  
-    <div  class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active" >
-          <a class="nav-link directory" routerLink="/directory" style="color: beige">DIRECTORY  </a>
-        </li>
-        </ul>
-        <div class="dropdown">
-            <button *ngIf="user" class="btn btn-default dropdown-toggle hiuser" style="background-color: #A8413D;color:beige" type="button" id="menu1" data-toggle="dropdown">{{ user.first_name }}
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="background-color: #A8413D;">
-              <a class="tabs" routerLink="/editlogin" style="color: beige;" >Edit Profile</a>
-              <li role="presentation" class="divider" ></li>
-              <a class="tabs" style="color: beige"  href="#">Logout</a>
-            </ul>
-          </div>
-        </div>
-        
-        <!-- <li class="nav-item active ">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #A8413D;">
+  <a class="navbar-brand" routerLink="/" style="color: beige"><img id="logo"
+      src="http://www.ncuindia.edu/wp-content/themes/ncuindia/assets/images/logo.png" height="40px" width="100px"> NCU
+    ALUMNI PORTAL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link directory" routerLink="/directory" style="color: beige">DIRECTORY </a>
+      </li>
+    </ul>
+    <div class="dropdown">
+      <button *ngIf="user" class="btn btn-default dropdown-toggle hiuser" style="background-color: #A8413D;color:beige"
+        type="button" id="menu1" data-toggle="dropdown">{{ user.first_name }}
+        <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="background-color: #A8413D;">
+        <a class="tabs" routerLink="/editlogin" style="color: beige;">Edit Profile</a>
+        <li role="presentation" class="divider"></li>
+        <a class="tabs" style="color: beige" href="#">Logout</a>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <li class="nav-item active ">
           <a class="nav-link disabled" routerLink="/alumni" style="color: beige">LOGGED IN</a>
         </li>
         <li class="nav-item active">
@@ -37,13 +40,12 @@
       </ul>
       
     </div> -->
-  </nav>
-  <div class="container-fluid">
+</nav>
+<div class="container-fluid">
   <div class="dashboard row">
     <div class=" col-lg-4">
-      <figure><img
-          src="http://simpleicon.com/wp-content/uploads/user1.png"
-          alt="USER IMAGE" width="170" height="170"></figure>
+      <figure><img src="http://simpleicon.com/wp-content/uploads/user1.png" alt="USER IMAGE" width="170" height="170">
+      </figure>
     </div>
 
     <div class=" name col-lg-5">
@@ -55,9 +57,9 @@
 
     </div>
     <div class="call col-lg-3">
-      
+
       <button type="button" class=" ca2 btn btn-warning">Call To Action 2</button><br>
-      
+
     </div>
   </div>
 </div>
@@ -66,54 +68,54 @@
 </div>
 
 <div class="container">
-<div class="card-deck">
+  <div class="card-deck">
     <div class="card bg-white">
       <div class="card-body text-center">
         <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
-          <div class="card-body">
-              <h4 class="card-title">EVENT 1</h4>
-              <p class="card-text">Some example text.</p>
-              <p class="card-text">Some more text to increase the height</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
+        <div class="card-body">
+          <h4 class="card-title">EVENT 1</h4>
+          <p class="card-text">Some example text.</p>
+          <p class="card-text">Some more text to increase the height</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
     </div>
     <div class="card bg-white">
-        <div class="card-body text-center">
-          <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
-            <div class="card-body">
-                <h4 class="card-title">EVENT 2</h4>
-                <p class="card-text">Some example text.</p>
-                <p class="card-text">Some more text to increase the height</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-      </div>
-      <div class="card bg-white">
-          <div class="card-body text-center">
-            <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
-              <div class="card-body">
-                  <h4 class="card-title">EVENT 3</h4>
-                  <p class="card-text">Some example text.</p>
-                  <p class="card-text">Some more text to increase the height</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
+      <div class="card-body text-center">
+        <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">EVENT 2</h4>
+          <p class="card-text">Some example text.</p>
+          <p class="card-text">Some more text to increase the height</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-        <div class="card bg-white">
-            <div class="card-body text-center">
-              <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">EVENT 4</h4>
-                    <p class="card-text">Some example text.</p>
-                    <p class="card-text">Some more text to increase the height</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-          </div>
-          </div>
+      </div>
+    </div>
+    <div class="card bg-white">
+      <div class="card-body text-center">
+        <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">EVENT 3</h4>
+          <p class="card-text">Some example text.</p>
+          <p class="card-text">Some more text to increase the height</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-white">
+      <div class="card-body text-center">
+        <img class="card-img-top" src="http://altofina.co.uk/wp-content/uploads/2014/02/Pink001.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">EVENT 4</h4>
+          <p class="card-text">Some example text.</p>
+          <p class="card-text">Some more text to increase the height</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-    
+
 
 <div class=" unews container-fluid">
   <p id="head2"><b>LATEST NEWS AND ANNOUNCEMENTS</b></p>
@@ -121,65 +123,89 @@
 
 
 <div class="container news">
-<div id="accordion">
+  <div id="accordion">
     <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                <i class="fa fa-newspaper"></i>
-              <span class="newss"> LATEST NEWS AND ANNOUNCEMENTS 1</span>
-            </button>
-          </h5>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+            aria-controls="collapseOne">
             <i class="fa fa-newspaper"></i>
-          <span class="newss"> LATEST NEWS AND ANNOUNCEMENTS 2</span>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <span class="newss"> LATEST NEWS AND ANNOUNCEMENTS 1</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+            aria-controls="collapseTwo">
+            <i class="fa fa-newspaper"></i>
+            <span class="newss"> LATEST NEWS AND ANNOUNCEMENTS 2</span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="false" aria-controls="collapseThree">
             LATEST NEWS AND ANNOUNCEMENTS 3
-        </button>
-      </h5>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+            aria-expanded="false" aria-controls="collapseFour">
+            LATEST NEWS AND ANNOUNCEMENTS 4
+          </button>
+        </h5>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+          haven't heard of them accusamus labore sustainable VHS.
+        </div>
       </div>
     </div>
   </div>
-
-<div class="card">
-  <div class="card-header" id="headingFour">
-    <h5 class="mb-0">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          LATEST NEWS AND ANNOUNCEMENTS 4
-      </button>
-    </h5>
-  </div>
-  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-    <div class="card-body">
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-    </div>
-  </div>
-</div>
-</div>
 </div>
