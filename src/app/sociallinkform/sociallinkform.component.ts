@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, RequiredValidator } from '@angular/
 import { DataserviceService } from '../dataservice.service';
 import { Sociallinkmodel } from './slink.model';
 import { Router } from '@angular/router';
+import { JobUserModel } from './job_user.model';
+import { CommentStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-sociallinkform',
@@ -17,27 +19,27 @@ export class SociallinkformComponent implements OnInit {
   job2Form: FormGroup;
   degreeForm: FormGroup;
   personalForm: FormGroup;
+  jobUser: JobUserModel = new JobUserModel;
+  job2User: JobUserModel = new JobUserModel;
 
   // for (var attrname in sociallinkform) {personalform[attrname]=sociallinkform[attrname];}
 
-  // social = new Sociallinkmodel();
   personal_details_url = 'http://localhost:9800/personal_detailsform';
   address_url = 'http://localhost:9800/addressform';
   job_url = 'http://localhost:9800/jobform';
   job2_url = 'http://localhost:9800/job2form';
-  // degree_url = 'http://localhost:9800/degreeform';
+  degree_url = 'http://localhost:9800/degreeform';
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
-    if(!this.dataService.user){
+    if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
     }
     this.sociallinkForm = this.formBuilder.group({
       facebook: [''],
       linkedin: [''],
       twitter: [''],
-
     });
     if (this.dataService.sociallinkForm) {
       this.sociallinkForm = this.dataService.sociallinkForm;
@@ -54,115 +56,74 @@ export class SociallinkformComponent implements OnInit {
     if (this.dataService.personalForm) {
       this.personalForm = this.dataService.personalForm;
     }
-    // if (this.dataService.degreeForm) {
-    //   this.personalForm = this.dataService.degreeForm;
-    // }
+    if (this.dataService.degreeForm) {
+      this.degreeForm = this.dataService.degreeForm;
+      console.log(this.degreeForm);
+    }
   }
   ngOnDestroy() {
     this.dataService.sociallinkForm = this.sociallinkForm;
-    this.dataService.addressForm = this.addressForm;
-    this.dataService.jobForm = this.jobForm;
-    this.dataService.job2Form = this.job2Form;
-    // this.dataService.degreeForm = this.degreeForm;
-    this.dataService.personalForm = this.personalForm;
   }
-  // localsocial() {
-  //   let facebook: any = document.getElementById('facebook');
-  //   let linkedin: any = document.getElementById('linkedin');
-  //   let twitter: any = document.getElementById('twitter');
-  //   if (facebook) {
-  //     this.social.facebook = facebook.value;
-  //   }
-  //   if (linkedin) {
-  //     this.social.linkedin = linkedin.value;
-  //   } if (twitter) {
-  //     this.social.twitter = twitter.value;
-  //   }
-  //   console.log(this.social);
-  // }
   sociallinkform() {
-    this.dataService.sociallinkForm = this.sociallinkForm;
-    this.dataService.addressForm = this.addressForm;
-    this.dataService.jobForm = this.jobForm;
-    this.dataService.job2Form = this.job2Form;
-    this.dataService.personalForm = this.personalForm;
-    // this.dataService.degreeForm = this.degreeForm;
-
-    console.log(this.dataService.degreeForm);
-    console.log(this.dataService.addressForm.value);
-    console.log(this.dataService.jobForm.value);
-    console.log(this.dataService.job2Form.value);
-    console.log(this.dataService.personalForm.value);
-    console.log(this.dataService.sociallinkForm.value);
-
-    this.dataService.sociallinkForm.value['roll_no'] = this.dataService.user['roll_no'];
-    this.dataService.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
-    // this.dataService.personalForm.value['roll_no'] = this.dataService.sociallinkForm.value['roll_no'];
-
-
-   if (this.dataService.addressForm.valid)
-      this.dataService.alumniportalUser(this.address_url, this.dataService.addressForm.value).subscribe((data: Array<any>) => {
-        console.log("Data After***", data)
+    this.postAddress();
+    this.postJob(this.jobForm);
+    this.postJob(this.job2Form);
+    this.postPersonalDetails();
+  }
+  postAddress() {
+    this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
+    console.log(this.addressForm.value);
+    this.dataService.alumniportalUser(this.address_url, this.addressForm.value).subscribe((data: Array<any>) => {
+      console.log("Data After***", data);
+    },
+      (error: any) => {
+        console.log("Error in saving the record", error);
+      });
+  }
+  postJob(jobForm: FormGroup) {
+    console.log(jobForm.value);
+    if (jobForm.valid) {
+      this.dataService.alumniportalUser(this.job_url, jobForm.value).subscribe((data: Array<any>) => {
+        console.log("Data After***", data);
+        console.log(data);
+        this.postJobUserRelation(data['company_id'], 1);
       },
         (error: any) => {
           console.log("Error in saving the record", error);
         });
-    else {
-      console.log('form not valid');
     }
-
-    if (this.dataService.jobForm.valid)
-      this.dataService.alumniportalUser(this.job_url, this.dataService.jobForm.value).subscribe((data: Array<any>) => {
-        console.log("Data After***", data)
-      },
-        (error: any) => {
-          console.log("Error in saving the record", error);
-        });
     else {
-      console.log('form not valid');
+      console.log("Job form invalid");
     }
-    if (this.dataService.job2Form.valid)
-      this.dataService.alumniportalUser(this.job2_url, this.dataService.job2Form.value).subscribe((data: Array<any>) => {
-        console.log("Data After***", data)
-      },
-        (error: any) => {
-          console.log("Error in saving the record", error);
-        });
-    else {
-      console.log('form not valid');
-    }
-    
-    // if (this.dataService.sociallinkForm.valid)
-    //   this.dataService.alumniportalUser(this.personal_details_url, this.dataService.sociallinkForm.value).subscribe((data: Array<any>) => {
-    //     console.log("Data After***", data)
-    //   },
-    //     (error: any) => {
-    //       console.log("Error in saving the record", error);
-    //     });
-    // else {
-    //   console.log('form not valid');
-    // }
-
-
-    // if (this.dataService.degreeForm.valid)
-    //   this.dataService.alumniportalUser(this.degree_url, this.dataService.degreeForm.value).subscribe((data: Array<any>) => {
-    //     console.log("Data After***", data)
-    //   },
-    //     (error: any) => {
-    //       console.log("Error in saving the record", error);
-    //     });
-    // else {
-    //   console.log('form not valid');
-    // }
-    if (this.dataService.personalForm.valid && this.dataService.sociallinkForm.valid)
-      this.dataService.alumniportalUser(this.personal_details_url, this.dataService.personalForm.value && this.dataService.sociallinkForm.valid).subscribe((data: Array<any>) => {
-        console.log("Data After***", data)
-      },
-        (error: any) => {
-          console.log("Error in saving the record", error);
-        });
-    else {
-      console.log('form not valid');
-    }
+  }
+  postJobUserRelation(company_id, campus_or_current: number) {
+    let jobUser: JobUserModel = new JobUserModel;
+    jobUser.company_id = company_id
+    jobUser.roll_no = this.dataService.user['roll_no'];
+    jobUser.campus_or_current = campus_or_current;
+    console.log(jobUser);
+    this.dataService.alumniportalUser(this.job2_url, jobUser).subscribe((data: Array<any>) => {
+      console.log("Data After***", data);
+    },
+      (error: any) => {
+        console.log("Error in saving the record", error);
+      });
+  }
+  postPersonalDetails() {
+    console.log(this.sociallinkForm.value);
+    console.log(this.degreeForm.value);
+    this.personalForm.value['facebook'] = this.sociallinkForm.value['facebook'];
+    this.personalForm.value['twitter'] = this.sociallinkForm.value['twitter'];
+    this.personalForm.value['linkedin'] = this.sociallinkForm.value['linkedin'];
+    this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
+    this.personalForm.value['batch_id'] = this.degreeForm.value['batch_id'];
+    this.personalForm.value['specialization_id'] = this.degreeForm.value['specialization_id'];
+    console.log(this.personalForm);
+    this.dataService.alumniportalUser(this.personal_details_url, this.personalForm.value).subscribe((data: Array<any>) => {
+      console.log("Data After***", data)
+    },
+      (error: any) => {
+        console.log("Error in saving the record", error);
+      });
   }
 }

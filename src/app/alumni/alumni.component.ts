@@ -1,5 +1,5 @@
 import { DataserviceService } from './../dataservice.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class AlumniComponent implements OnInit {
   loginForm: FormGroup;
   url= 'http://localhost:9800/loginform';
   errorMessage: string;
-
+  // @Output() loggedin = new EventEmitter<boolean>();
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
@@ -34,18 +34,22 @@ export class AlumniComponent implements OnInit {
       this.dataService.login("http://localhost:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
         if (data.length){
           if(data[0]["isverified"] != 1){
+            // this.loggedin.emit(false);
             this.errorMessage = "Please wait till your account gets verified!";
           }
           else{
             this.dataService.user = data[0];
+            // this.loggedin.emit(true);
             this.route.navigateByUrl('/degreeform');
           }
         }
         else{
+          // this.loggedin.emit(false);
           this.errorMessage = "Invalid roll number or password!";
         }
       },
         (error: any) => {
+          // this.loggedin.emit(false);
           this.errorMessage = "Something went wrong!\n"+error['message'];
           console.log("Error in logging in", error);
         });
