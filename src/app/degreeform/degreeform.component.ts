@@ -88,7 +88,6 @@ export class DegreeformComponent implements OnInit {
   }
   ngOnDestroy() {
     this.dataService.degreeForm = this.degreeForm;
-    console.log(this.dataService.degreeForm);
   }
 
   degreeform() {

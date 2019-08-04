@@ -33,7 +33,6 @@ export class AddressformComponent implements OnInit {
     if (this.dataService.addressForm) {
       this.addressForm = this.dataService.addressForm;
     }
-    console.log(this.dataService.degreeForm);
   }
   ngOnDestroy() {
     this.dataService.addressForm = this.addressForm;

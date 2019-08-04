@@ -58,7 +58,6 @@ export class SociallinkformComponent implements OnInit {
     }
     if (this.dataService.degreeForm) {
       this.degreeForm = this.dataService.degreeForm;
-      console.log(this.degreeForm);
     }
   }
   ngOnDestroy() {
@@ -72,20 +71,14 @@ export class SociallinkformComponent implements OnInit {
   }
   postAddress() {
     this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
-    console.log(this.addressForm.value);
     this.dataService.alumniportalUser(this.address_url, this.addressForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data);
     },
       (error: any) => {
-        console.log("Error in saving the record", error);
       });
   }
   postJob(jobForm: FormGroup) {
-    console.log(jobForm.value);
     if (jobForm.valid) {
       this.dataService.alumniportalUser(this.job_url, jobForm.value).subscribe((data: Array<any>) => {
-        console.log("Data After***", data);
-        console.log(data);
         this.postJobUserRelation(data['company_id'], 1);
       },
         (error: any) => {
@@ -101,26 +94,20 @@ export class SociallinkformComponent implements OnInit {
     jobUser.company_id = company_id
     jobUser.roll_no = this.dataService.user['roll_no'];
     jobUser.campus_or_current = campus_or_current;
-    console.log(jobUser);
     this.dataService.alumniportalUser(this.job2_url, jobUser).subscribe((data: Array<any>) => {
-      console.log("Data After***", data);
     },
       (error: any) => {
         console.log("Error in saving the record", error);
       });
   }
   postPersonalDetails() {
-    console.log(this.sociallinkForm.value);
-    console.log(this.degreeForm.value);
     this.personalForm.value['facebook'] = this.sociallinkForm.value['facebook'];
     this.personalForm.value['twitter'] = this.sociallinkForm.value['twitter'];
     this.personalForm.value['linkedin'] = this.sociallinkForm.value['linkedin'];
     this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
     this.personalForm.value['batch_id'] = this.degreeForm.value['batch_id'];
     this.personalForm.value['specialization_id'] = this.degreeForm.value['specialization_id'];
-    console.log(this.personalForm);
     this.dataService.alumniportalUser(this.personal_details_url, this.personalForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data)
     },
       (error: any) => {
         console.log("Error in saving the record", error);
