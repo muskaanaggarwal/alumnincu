@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     if(!this.dataService.user){
       this.route.navigateByUrl('/alumni');
+      return;
     }
     this.isLoggedIn = false;
     if(this.dataService.user){

@@ -38,9 +38,6 @@ export class DegreeformComponent implements OnInit {
 
   }
   ngOnInit() {
-    if (!this.dataService.user) {
-      this.route.navigateByUrl('/alumni');
-    }
     this.degreeForm = this.formBuilder.group({
       school_id: ['', Validators.required],
       program_id: ['', Validators.required],
@@ -48,6 +45,10 @@ export class DegreeformComponent implements OnInit {
       specialization_id: ['',Validators.required],
       batch_id: ['',Validators.required],
     });
+    if (!this.dataService.user) {
+      this.route.navigateByUrl('/alumni');
+      return;
+    }
     if (this.dataService.degreeForm) {
       this.degreeForm = this.dataService.degreeForm;
     }
