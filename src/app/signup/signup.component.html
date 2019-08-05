@@ -5,19 +5,24 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form (ngSubmit)="onSubmit()" method="POST" class="register-form" id="register-form"
+                        <form (ngSubmit)="onSubmit()" method="POST" class="register-form col-lg-12" id="register-form"
                             [formGroup]="signupForm">
 
-                            <div class="form-group">
-                                <label for="name"><i class="fa fa-user"></i></label>
+                            <div class="form-group  ">
+                                
+                                    <label for="name"><i class="fa fa-user"></i></label>
+                                
                                 <input type="text" formControlName="roll_no" name="name" required class="form-control"
                                     placeholder="Roll Number"
                                     [ngClass]="{ 'is-invalid': submitted && f.roll_no.errors }" />
+                                
                                 <div *ngIf="submitted && f.roll_no.errors" class="invalid-feedback">
                                     <div *ngIf="f.roll_no.errors.required">Roll Number is required</div>
                                     <div *ngIf="f.roll_no.errors.minlength">Roll Number must be at least 6 characters
                                     </div>
                                 </div>
+                            
+                                
 
                             </div>
                             <div class="form-group">
@@ -41,12 +46,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="name"><i class="fa fa-birthday-cake"></i></label>
-                                <input placeholder="Date Of Birth" type="text" onfocus="(this.type='date')" formControlName="date_of_birth" name="name" required
-                                    class="form-control"
+                                <input placeholder="Date Of Birth" type="text" onfocus="(this.type='date')" formControlName="date_of_birth" name="date" required
+                                    class="form-control "
                                     [ngClass]="{ 'is-invalid': submitted && f.date_of_birth.errors }"
                                     placeholder="Date Of Birth" />
                                 <div *ngIf="submitted && f.date_of_birth.errors" class="invalid-feedback">
                                     <div *ngIf="f.date_of_birth.errors.required">Date Of Birth is required</div>
+                                    <div *ngIf="date.errors.max">
+                                            No future dates allowed.
+                                          </div>
                                 </div>
                             </div>
                             <div class="form-group">

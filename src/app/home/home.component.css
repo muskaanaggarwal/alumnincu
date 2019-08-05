@@ -75,16 +75,17 @@
 .events{
     margin-top:20px;
 }
-.panel-heading .accordion-toggle:after {    
+a.info.accordion-toggle:after {    
     font-family: 'FontAwesome';  
     content: "\f0ab";    
     float: right;        
     color: brown;
     
 }
-.panel-heading .accordion-toggle.collapsed:after {    
-    content: "\f0ab";
-
+a.info.accordion-toggle[aria-expanded="true"]:after {    
+    content: "\f0aa";
+   
+    
 }
 /* 
 .collapse.show	{
