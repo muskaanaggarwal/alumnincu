@@ -1,143 +1,3 @@
-<!-- <navbar></navbar>
-
-<body><br><br>
-  <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
-  <div class="cards border-dark">
-    <div class="card-item itemclass">
-      <div class="card-body">
-          <div class="form-row">
-            <div class="form-group col-2"></div>
-<div class="form-group col-8">
-        <div class="form-row">
-          <div class="form-group col-md-12">
-              <h2 class="card-title center"><b>DEGREE DETAILS</b></h2>
-          </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-
-            </div>
-            <div class="form-group col-md-6">
-              
-              </div>
-          </div>
-         
-            <form [formGroup]="degreeForm">
-              <div class="form-group row px-3">
-                <label for="school" class="col-md-3 col-form-label">
-                    <i class="fa fa-university" aria-hidden="true"></i>&nbsp; School
-                </label>
-                <div class="col-md-9">
-                  <select id="school" formControlName="school_id" (ngModelChange)="onSchoolChange($event)"
-                    class="form-control mb-2">
-                    <option *ngFor="let sch of Schools" [value]="sch.school_id">
-                      {{ sch.school_name }}</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row px-3">
-                <label for="program" class="col-md-3 col-form-label">
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp; Program
-                </label>
-                <div class="col-md-9">
-                  <select id="program" formControlName="program_id" (ngModelChange)="onProgramChange($event)"
-                    class="form-control mb-2">
-                    <option *ngFor="let prog of filteredPrograms" [value]="prog.program_id">{{ prog.program_name }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row px-3">
-                <label for="stream" class="col-md-3 col-form-label">
-                    <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Stream
-                </label>
-                <div class="col-md-9">
-                  <select id="stream" formControlName="stream_id" (ngModelChange)="onStreamChange($event)"
-                    class="form-control mb-2">
-                    <option *ngFor="let str of filteredStreams" [value]="str.stream_id">{{ str.stream_name }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row px-3">
-                <label for="specialization" class="col-md-3 col-form-label">
-                  <i class="fa fa-star" aria-hidden="true"></i>&nbsp; Specialization
-                </label>
-                <div class="col-md-9">
-                  <select id="specialization" formControlName="specialization_id" class="form-control mb-2"
-                    (ngModelChange)="onSpecializationChange($event)">
-                    <option *ngFor="let spl of filteredSpecialization" [value]="spl.specialization_id">
-                      {{ spl.specialization_name }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row px-3">
-                <label for="batches" class="col-md-3 col-form-label">
-                  <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Batch
-                </label>
-                <div class="col-md-9">
-                  <select id="batches" formControlName="batch_id" (ngModelChange)="onBatchChange($event)"
-                    class="form-control mb-2">
-                    <option *ngFor="let bran of filteredBatches" [value]="bran.batch_id">
-                      {{ bran.batch_id }}</option>
-                  </select>
-                </div>
-              </div>
-              <br>
-            </form>
-          </div>
-        </div>
-          <div class="form-group col-2">
-            <img class=" rightslider" routerLink="/addressform"
-              src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
-          </div>
-      </div>
-    </div>
-    <div class="card-item cardclass">
-      <div class="card-body">
-          <div class="parent">
-              <div class="child"><h5><b>ADDRESS DETAILS</b></h5></div>
-            </div>
-      </div>
-    </div>
-    <div class="card-item cardclass">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6"></div>
-          <div class="col-md-6"><h5 class="othertitle">JOB DETAILS</h5></div>
-        </div>
-      </div>
-    </div>
-    <div class="card-item cardclass">
-      <div class="card-body">
-        <h2 class="rotate  card-title"><b>PERSONAL DETAILS</b></h2>
-      </div>
-    </div>
-    <div class="card-item cardclass">
-      <div class="card-body">
-        <h2 class="rotate  card-title"><b>SOCIAL PROFILE LINKS</b></h2>
-
-      </div>
-    </div>
-
-  </div>
-  <div class="center formbutton">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-      </div>
-      <div class="col-md-3"> <button type="button" class="btn btn-warning save" (click)="degreeform()">Save</button>
-      </div>
-      <div class="col-md-3"></div>
-
-
-    </div>
-  </div>
-</body> -->
-
-<navbar></navbar>
-
 <body><br><br>
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
@@ -224,11 +84,20 @@
               </div>
             </div>
             <div class="form-group col-2">
-              <img class=" rightslider" routerLink="/addressform"
+              <img class=" rightslider" routerLink="/jobform"
                 src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
             </div>
           </div>
         </form>
+      </div>
+    </div>
+    <div class="card-item cardclass">
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>JOB DETAILS</b></h5>
+          </div>
+        </div>
       </div>
     </div>
     <div class="card-item cardclass">
@@ -241,33 +110,24 @@
       </div>
     </div>
     <div class="card-item cardclass">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>JOB DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>PERSONAL DETAILS</b></h5>
           </div>
         </div>
-    <div class="card-item cardclass">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>PERSONAL DETAILS</b></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-    <div class="card-item cardclass">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>SOCIAL LINK DETAILS</b></h5>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
+    <div class="card-item cardclass">
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>SOCIAL LINK DETAILS</b></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="center formbutton">
     <div class="row">

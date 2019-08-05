@@ -1,45 +1,43 @@
-<navbar></navbar>
-
 <body><br><br>
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
 
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>DEGREE DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>DEGREE DETAILS</b></h5>
           </div>
         </div>
+      </div>
+    </div>
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>ADDRESS DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>JOB DETAILS</b></h5>
           </div>
         </div>
+      </div>
+    </div>
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>JOB DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>ADDRESS DETAILS</b></h5>
           </div>
         </div>
+      </div>
+    </div>
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>PERSONAL DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>PERSONAL DETAILS</b></h5>
           </div>
         </div>
+      </div>
+    </div>
     <div class="card-item itemclass">
       <div class="card-body">
 
@@ -55,19 +53,20 @@
               <div class="form-group">
                 <label><img src="https://image.flaticon.com/icons/png/512/33/33702.png" height="20px"
                     width="20px"></label>
-                    <input type="text" formControlName="facebook" class="form-control mb-2" placeholder="Facebook">
+                <input type="text" formControlName="facebook" class="form-control mb-2" placeholder="Facebook">
 
               </div>
               <div class="form-group">
                 <label><img src="https://image.flaticon.com/icons/png/512/61/61109.png" height="20px"
                     width="20px"></label>
-                    <input type="text" formControlName="linkedin" class="form-control mb-2" placeholder="Linked In" required>
+                <input type="text" formControlName="linkedin" class="form-control mb-2" placeholder="Linked In"
+                  required>
 
               </div>
               <div class="form-group">
                 <label><img src="https://image.flaticon.com/icons/png/512/60/60580.png" height="20px"
                     width="20px"></label>
-                    <input type="text" formControlName="twitter" class="form-control mb-2" placeholder="Twitter">
+                <input type="text" formControlName="twitter" class="form-control mb-2" placeholder="Twitter">
 
               </div>
             </form>
@@ -81,24 +80,25 @@
     </div>
 
   </div>
-  
+
   <div class="center formbutton">
-      <div class="row">
-          <div class="col-4"></div>
-          <div class="col-4 mt-3">
-              <div *ngIf="errorMessage" class="alert alert-danger">
-                  {{ errorMessage }}
-                </div>
-          </div>
-          <div class="col-4"></div>
-        <div class="col-md-3"></div>
-        <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4 mt-3">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
         </div>
-        <div class="col-md-3"> <button (click)="sociallinkform()" type="button" class="btn btn-warning save" disable>Save</button>
-        </div>
-        <div class="col-md-3"></div>
-  
-  
       </div>
+      <div class="col-4"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
+      </div>
+      <div class="col-md-3"> <button (click)="sociallinkform()" type="button" class="btn btn-warning save"
+          disable>Save</button>
+      </div>
+      <div class="col-md-3"></div>
+
+
     </div>
-  </body>
+  </div>
+</body>

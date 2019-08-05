@@ -1,29 +1,52 @@
-<navbar></navbar>
-<div class=" container card mb-3 pt-3" style="max-width: 1300px;">
-  <h1 style="text-align:center">FORGOT USERNAME/PASSWORD?</h1><br><br>
- <div class="row no-gutters">
-    <div class="col-md-5">
-      <p>Search by Roll Number</p>
-      <input type="text" class="form-control mb-2" placeholder="Roll Number" required autofocus>
 
+
+
+
+
+<div class="main">
+
+  <section class="sign-in">
+    <div class="container">
+      <div class="signin-content">
+        <div class="row">
+          <div class="col-12">
+        <h2>Forgot Username/Password</h2>
+
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+              <label>Search by Roll Number</label> 
+              <input type="text" class="form-control mb-2" placeholder="Roll Number" required autofocus>
+
+          </div>
+          <div class="col-2">
+            <p>or</p>
+            
+            </div>
+            <div class="col-5">
+                <label>Search by E-mail</label> 
+                <input type="text" class="form-control mb-2" placeholder="Email Address" required autofocus>
+            
+              </div>
+        </div>
+       
+       
+      </div>
+      <div class="center formbutton">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/alumni">Back</button>
+            </div>
+            <div class="col-md-3"> <button type="button" class="btn btn-warning save" >Submit</button>
+            </div>
+            <div class="col-md-3"></div>
+      
+      
+          </div>
+        </div><br>
+     
     </div>
-    <div class="col-md-2">
-      <div class="vl"></div>
-      <p class="v2">OR</p>
-      <div class="vl"></div>
-
-    </div>
-    
-    <div class="col-md-5">
-        <p>Search by E-mail</p>
-      <input type="text" class="form-control mb-2" placeholder="E-mail" required autofocus>
-
-    </div>
-  </div> 
-  <div style="text-align:center">
-      <button type="button" class="btn btn-warning m-3" routerLink="/alumni">BACK</button>
-      <button type="button" class="btn btn-warning">SUBMIT</button>
-
-  </div>
-
+  </section>
 </div>

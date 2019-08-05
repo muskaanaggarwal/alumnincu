@@ -75,17 +75,21 @@
 .events{
     margin-top:20px;
 }
-.panel-heading .accordion-toggle:after {
-    
+.panel-heading .accordion-toggle:after {    
     font-family: 'FontAwesome';  
     content: "\f0ab";    
     float: right;        
     color: brown;
-}
-.panel-heading .accordion-toggle.collapsed:after {
     
-    content: "\f0ab"; 
 }
+.panel-heading .accordion-toggle.collapsed:after {    
+    content: "\f0ab";
+
+}
+/* 
+.collapse.show	{
+    transform: rotate(180deg);
+} */
 .tabs{
     margin-top:30px;
 }
