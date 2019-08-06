@@ -1,35 +1,45 @@
-<body class="form-v10">
-  <div class="page-content">
-    <div class="form-v10-content">
-      <form class="form-detail" action="#" method="post" id="myform">
-        <div class="form-left">
-          <h2>FORGOTTEN</h2>
-          <div class="form-row">
-            <input type="text" name="company" class="company" id="company" placeholder="Your Roll Number" required>
-          </div>
-          <div class="form-row-last">
-              <input type="submit" name="register" class="register" value="BACK">
-            </div>
+<div class="main">
 
-        </div>
-        <div class="form-right">
-          <h2>PASSWORD</h2>
+  <section class="sign-in">
+    <div class="container">
+      <h2 class="center">FORGOTTEN PASSWORD</h2>
+      <div class="signin-content">
+        <div class="signin-form">
+          <form>
+            <div class="form-group">
+              <label for="your_name"><i class="fa fa-user"></i></label>
+              <input type="text" formControlName="roll_no" id="roll_no" class="form-control mb-2"
+                placeholder="Roll number" required  />
+            </div>  
 
-          <div class="form-row">
-            <input type="text" name="additional" class="additional" id="additional" placeholder="Your Email"
-              required>
-          </div>
-          <div class="form-row-last">
-            <input type="submit" name="register" class="register" value="SUBMIT">
-          </div>
+            
+          </form>
         </div>
-      </form>
+
+        <div class="signin-form">
+          <form>
+            <div class="form-group">
+              <label for="your_name"><i class="fa fa-envelope"></i></label>
+              <input type="text" formControlName="roll_no" id="roll_no" class="form-control mb-2"
+                placeholder="Email Address" required  />
+            </div>  
+
+            
+          </form>
+        </div>
+      </div>
+      <div class="center formbutton">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
+          </div>
+          <div class="col-md-3"> <button type="button" class="btn btn-warning save" disable>Save</button>
+          </div>
+          <div class="col-md-3"></div>
+    
+    
+        </div>
+      </div><br>
     </div>
-  </div>
-</body>
-<!-- <div class="form-checkbox">
-						<label class="container"><p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>
-						  	<input type="checkbox" name="checkbox">
-						  	<span class="checkmark"></span>
-						</label>
-					</div> -->
+  </section>
+</div>

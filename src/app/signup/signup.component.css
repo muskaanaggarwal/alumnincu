@@ -426,8 +426,16 @@ label.valid {
 }
 
 .iconfix .label {
-  height: 20em;
+top: 80%;
+position: absolute;
+
 }
+.iconfix{
+  top:80%;
+  position: relative;
+
+}
+
 input[type="submit"]:disabled {
   background: #dddddd;
   cursor: not-allowed;
