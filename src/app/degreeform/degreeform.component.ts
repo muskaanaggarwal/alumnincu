@@ -16,7 +16,7 @@ export class DegreeformComponent implements OnInit {
   Programs: Object[];
   Streams: Object[];
   Specializations: Object[];
-  current_batch: String;
+  current_batch: string;
   current_school: number;
   current_program: number;
   current_stream: number;
@@ -97,6 +97,12 @@ export class DegreeformComponent implements OnInit {
   }
   onBatchChange(key: string) {
     this.current_batch = key;
+    let used = []
+    this.filteredStreams = this.Streams.filter(tempStream => {
+      if(tempStream['batch_id'] == this.current_batch){
+        return tempStream;
+      }
+    });
   }
   onSchoolChange(key: number) {
     this.current_school = key;
@@ -116,8 +122,21 @@ export class DegreeformComponent implements OnInit {
         return tempStream;
       }
     });
+    this.filteredBatches = this.Batches.filter(tempBatch => {
+      let end: number = eval(tempBatch['endYear']);
+      let start: number = eval(tempBatch['startYear']);
+      let x = this.Programs.filter(p => {
+        if(p['program_id'] == this.current_program){
+          return p;
+        } 
+      });
+      if(end - start == x[0]['duration']){
+        return tempBatch;
+      }
+    });
+
     this.filteredSpecialization = null;
-    this.filteredBatches = null;
+    // this.filteredBatches = null;
   }
   onStreamChange(key: number) {
     this.current_stream = key;
