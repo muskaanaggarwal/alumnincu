@@ -42,16 +42,17 @@
                       </div>
                     </div>
                     <div class="form-group row px-3">
-                      <label for="stream" class="col-md-3 col-form-label">
-                        <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Stream
-                      </label>
-                      <div class="col-md-9">
-                        <select id="stream" formControlName="stream_id" (ngModelChange)="onStreamChange($event)"
-                          class="form-control mb-2">
-                          <option *ngFor="let str of filteredStreams" [value]="str.stream_id">{{ str.stream_name }}
-                          </option>
-                        </select>
-                      </div>
+                        <label for="batches" class="col-md-3 col-form-label">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Batch
+                          </label>
+                          <div class="col-md-9">
+                            <select id="batches" formControlName="batch_id" (ngModelChange)="onBatchChange($event)"
+                              class="form-control mb-2">
+                              <option *ngFor="let bran of filteredBatches" [value]="bran.batch_id">
+                                {{ bran.batch_id }}</option>
+                            </select>
+                          </div>
+                     
                     </div>
                     <div class="form-group row px-3">
                       <label for="specialization" class="col-md-3 col-form-label">
@@ -67,16 +68,16 @@
                       </div>
                     </div>
                     <div class="form-group row px-3">
-                      <label for="batches" class="col-md-3 col-form-label">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Batch
-                      </label>
-                      <div class="col-md-9">
-                        <select id="batches" formControlName="batch_id" (ngModelChange)="onBatchChange($event)"
-                          class="form-control mb-2">
-                          <option *ngFor="let bran of filteredBatches" [value]="bran.batch_id">
-                            {{ bran.batch_id }}</option>
-                        </select>
-                      </div>
+                        <label for="stream" class="col-md-3 col-form-label">
+                            <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Stream
+                          </label>
+                          <div class="col-md-9">
+                            <select id="stream" formControlName="stream_id" (ngModelChange)="onStreamChange($event)"
+                              class="form-control mb-2">
+                              <option *ngFor="let str of filteredStreams" [value]="str.stream_id">{{ str.stream_name }}
+                              </option>
+                            </select>
+                          </div>
                     </div>
 
                   </form>
