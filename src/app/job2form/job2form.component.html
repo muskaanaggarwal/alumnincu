@@ -1,27 +1,17 @@
-<navbar></navbar>
-
 <body><br><br>
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
 
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>DEGREE DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>DEGREE DETAILS</b></h5>
           </div>
         </div>
-    <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>ADDRESS DETAILS</b></h5>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+   
     <div class="card-item itemclass">
       <div class="card-body">
 
@@ -29,93 +19,96 @@
           <div class="form-group col-2">
             <img class="leftslider" routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
-         
-            <div class="form-group col-8">
-                <div class="form-row">
-                  <div class="form-group col-md-12">
-                      <h2 class="card-title center"><b>JOB DETAILS</b></h2>
-                      <h3 class="card-title center"><small>Self-Employment Coperate</small></h3>
-                  </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <form [formGroup]="job2Form">
-    
-                        <div class="form-group">
-                            <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
-                                width="20px"></label>
-                            <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
-                              placeholder="Company Name" required>
-                          </div>
-                          <div class="form-group">
-                            <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png" height="20px"
-                                width="20px"></label>
-                            <input type="text" formControlName="designation" id="designation" class="form-control mb-2"
-                              placeholder="Designation" required>
-                          </div>
-                          </form>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <form [formGroup]="job2Form">
-    
-                        <div class="form-group">
-                            <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png" height="20px"
-                                width="20px"></label>
-                            <input type="text" formControlName="company_city" id="company_city" class="form-control mb-2"
-                              placeholder="City" required>
-                          </div>
-                          <div class="form-group">
-                            <label><img src="https://cdn4.iconfinder.com/data/icons/contact-and-address-1/32/contact-08-512.png" height="20px"
-                                width="20px"></label>
-                            <input type="text" formControlName="website" id="website" class="form-control mb-2"
-                              placeholder="Website" required>
-                          </div>
-                        </form>
-    
-                    </div>
-                  </div>
-    
-    
+
+          <div class="form-group col-8">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <h2 class="card-title center"><b>JOB DETAILS</b></h2>
+                <h3 class="card-title center"><small>Self-Employment Coperate</small></h3>
               </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <form [formGroup]="job2Form">
+
+                  <div class="form-group">
+                    <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
+                        width="20px"></label>
+                    <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
+                      placeholder="Company Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
+                        height="20px" width="20px"></label>
+                    <input type="text" formControlName="designation" id="designation" class="form-control mb-2"
+                      placeholder="Designation" required>
+                  </div>
+                </form>
+              </div>
+              <div class="form-group col-md-6">
+                <form [formGroup]="job2Form">
+
+                  <div class="form-group">
+                    <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
+                        height="20px" width="20px"></label>
+                    <input type="text" formControlName="company_city" id="company_city" class="form-control mb-2"
+                      placeholder="City" required>
+                  </div>
+                  <div class="form-group">
+                    <label><img src="https://cdn4.iconfinder.com/data/icons/contact-and-address-1/32/contact-08-512.png"
+                        height="20px" width="20px"></label>
+                    <input type="text" formControlName="website" id="website" class="form-control mb-2"
+                      placeholder="Website" required>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
           <div class="form-group col-2">
-            <img class="rightslider" routerLink="/personalform"
+            <img class="rightslider" routerLink="/addressform"
               src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
         </div>
-
-
-
       </div>
     </div>
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>PERSONAL DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>ADDRESS DETAILS</b></h5>
           </div>
         </div>
+      </div>
+    </div>
     <div class="cardclass card-item">
-        <div class="card-body">
-            <div class="parent">
-              <div class="child">
-                <h5><b>SOCIAL LINK DETAILS</b></h5>
-              </div>
-            </div>
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>PERSONAL DETAILS</b></h5>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="cardclass card-item">
+      <div class="card-body">
+        <div class="parent">
+          <div class="child">
+            <h5><b>SOCIAL LINK DETAILS</b></h5>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="center formbutton">
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
-        </div>
-        <div class="col-md-3"> <button type="button" class="btn btn-warning save" disable>Save</button>
-        </div>
-        <div class="col-md-3"></div>
-  
-  
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
       </div>
+      <div class="col-md-3"> <button type="button" class="btn btn-warning save" disable>Save</button>
+      </div>
+      <div class="col-md-3"></div>
+
+
     </div>
-  </body>
+  </div>
+</body>

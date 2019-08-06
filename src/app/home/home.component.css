@@ -4,6 +4,9 @@
     margin-top:20px;
     border-radius: 20px;
     color:white;
+   padding-left:0px;
+   padding-right:0px;
+   width:100%!important;
 
     
 }
@@ -13,6 +16,7 @@
     border-radius: 20px;
     margin-top:15px;
     padding:10px;
+    width:100%!important;
 }
 
 #head1{
@@ -75,17 +79,22 @@
 .events{
     margin-top:20px;
 }
-.panel-heading .accordion-toggle:after {
-    
+a.info.accordion-toggle:after {    
     font-family: 'FontAwesome';  
     content: "\f0ab";    
     float: right;        
     color: brown;
-}
-.panel-heading .accordion-toggle.collapsed:after {
     
-    content: "\f0ab"; 
 }
+a.info.accordion-toggle[aria-expanded="true"]:after {    
+    content: "\f0aa";
+   
+    
+}
+/* 
+.collapse.show	{
+    transform: rotate(180deg);
+} */
 .tabs{
     margin-top:30px;
 }
