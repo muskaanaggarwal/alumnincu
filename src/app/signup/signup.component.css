@@ -83,6 +83,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   .clear {
     clear: both; }
 
+
   .container {
     width: 1100px;
     background: #fff;
@@ -149,7 +150,9 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     margin-bottom: 33px; }
   
   .signup-image {
-    margin-top: 45px; }
+    margin-top: 45px;
+    border-radius: 20px;
+   }
   
   figure {
     margin-bottom: 50px;
@@ -202,6 +205,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   input {
     width: 100%;
     display: block;
+    /* position: absolute; */
 
     border: none;
     border-bottom: 1px solid #999;
@@ -233,8 +237,10 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   
   label {
     position: absolute;
+    /* display: block; */
     left: 0;
-    top: 50%;
+    top: 45%;
+    /* top: auto; */
     transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
