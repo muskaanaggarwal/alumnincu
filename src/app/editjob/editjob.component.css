@@ -118,8 +118,11 @@ h1, h5 {
 			position: relative;
 			margin-bottom: 5px;
             overflow: hidden;
-		margin-left:60px;
+		margin-left:0px;
 		margin-right:70px;
+		padding-left:10px;
+		padding-bottom:0px;
+        
         
     
     }
@@ -232,4 +235,18 @@ h1{
 }
 .input2{
 	margin-left:5px;
+}
+.input-group-addon{
+	
+    padding-bottom: 0px;
+    padding-top: 12px!important;
+    padding-right: 0px;
+    padding-left: 0px;
+
+}
+.fa{
+	
+    padding-right: 0px;
+    padding-left: 60px;
+
 }
