@@ -235,7 +235,7 @@ input {
 label {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
