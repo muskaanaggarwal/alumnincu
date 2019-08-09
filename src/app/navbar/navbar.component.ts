@@ -8,19 +8,19 @@ import { DataserviceService } from '../dataservice.service';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() LoggedIn: boolean;
-  @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
   constructor(private dataService: DataserviceService) {
   }
+  isLoggedIn: boolean;
   user: Object;
 
   ngOnInit() {
     if (this.dataService.user) {
+      this.isLoggedIn = true;
       this.user = this.dataService.user;
     }
-  } 
-  loggedIn(){
-    this.isLoggedIn.emit(this.LoggedIn);
+    else{
+      this.isLoggedIn = false;
+    }
   }
   logout(){
     this.dataService.user = null;

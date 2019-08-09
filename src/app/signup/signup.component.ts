@@ -6,9 +6,6 @@ import { Router } from '@angular/router';
 import { MustMatch } from '../_helpers/must-match.validator';
 
 
-
-
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

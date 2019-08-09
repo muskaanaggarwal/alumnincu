@@ -15,14 +15,6 @@ export class AlumniComponent implements OnInit {
   submitted = false;
   isLoggedIn: boolean;
 
-  @Input() set LoggedIn(value: boolean) {
-      this.isLoggedIn = value;
-  }
-  get LoggedIn(): boolean {
-      return this.isLoggedIn;
-  } 
-  
-
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -70,14 +62,11 @@ export class AlumniComponent implements OnInit {
           }
         }
         else {
-          this.isLoggedIn.emit(false);
           this.errorMessage = "Invalid roll number or password!";
         }
       },
         (error: any) => {
-          this.isLoggedIn.emit(false);
           this.errorMessage = "Something went wrong!\n" + error['message'];
-          console.log("Error in logging in", error);
         });
     }
   
