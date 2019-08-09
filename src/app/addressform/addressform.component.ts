@@ -17,6 +17,7 @@ export class AddressformComponent implements OnInit {
   address = new Addressmodel;
 
   url = 'http://localhost:9800/addressform';
+  errorMessage: string;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -41,8 +42,19 @@ export class AddressformComponent implements OnInit {
     this.dataService.addressForm = this.addressForm;
   }
 
-  addressform() {
-    
+  postAddress() {
+    this.errorMessage = "";
+    if(this.addressForm.valid && this.dataService.user['roll_no'] != undefined){
+      this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
+      console.log(this.addressForm);
+      this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
+      },
+        (error: any) => {
+          this.errorMessage = error.message;
+        });
+    }
+    else{
+      this.errorMessage = 'Form invalid';
+    }
   }
-
 }

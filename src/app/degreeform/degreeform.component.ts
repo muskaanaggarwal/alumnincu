@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Degreemodel } from './degreemodel.model';
 import { Router } from '@angular/router';
@@ -31,7 +31,8 @@ export class DegreeformComponent implements OnInit {
   program_url = 'http://localhost:9800/program/all';
   stream_url = 'http://localhost:9800/stream/all';
   specialization_url = 'http://localhost:9800/specialization/all';
-  url = 'http://localhost:9800/degreeform';
+  url = 'http://localhost:9800/personal_detailsform';
+  errorMessage: string;
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
 
@@ -41,8 +42,8 @@ export class DegreeformComponent implements OnInit {
       school_id: [''],
       program_id: [''],
       stream_id: [''],
-      specialization_id: [''],
-      batch_id: [''],
+      specialization_id: ['', Validators.required],
+      batch_id: ['', Validators.required],
     });
     if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
@@ -51,13 +52,6 @@ export class DegreeformComponent implements OnInit {
     if (this.dataService.degreeForm) {
       this.degreeForm = this.dataService.degreeForm;
     }
-    this.dataService.get(this.batch_url).subscribe((data: Array<any>) => {
-      this.Batches = data;
-      this.current_batch = data[0]['batch_id'];
-    },
-      (error: any) => {
-        console.log("Error in fetching details", error);
-      });
     this.dataService.get(this.school_url).subscribe((data: Array<any>) => {
       this.Schools = data;
       this.current_school = data[0]['school_id'];
@@ -68,6 +62,13 @@ export class DegreeformComponent implements OnInit {
     this.dataService.get(this.program_url).subscribe((data: Array<any>) => {
       this.Programs = data;
       this.current_program = data[0]['program_id'];
+    },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
+    this.dataService.get(this.batch_url).subscribe((data: Array<any>) => {
+      this.Batches = data;
+      this.current_batch = data[0]['batch_id'];
     },
       (error: any) => {
         console.log("Error in fetching details", error);
@@ -99,15 +100,20 @@ export class DegreeformComponent implements OnInit {
     this.current_batch = key;
     let used = []
     this.filteredStreams = this.Streams.filter(tempStream => {
-      if(tempStream['batch_id'] == this.current_batch){
+      if (tempStream['program_id'] == this.current_program) {
+        return tempStream;
+      }
+    }).filter(tempStream => {
+      if (tempStream['batch_id'] == this.current_batch) {
         return tempStream;
       }
     });
+    this.filteredSpecialization = null;
   }
   onSchoolChange(key: number) {
     this.current_school = key;
     this.filteredPrograms = this.Programs.filter(tempProgram => {
-      if(tempProgram['school_id'] == this.current_school){
+      if (tempProgram['school_id'] == this.current_school) {
         return tempProgram;
       }
     });
@@ -117,41 +123,44 @@ export class DegreeformComponent implements OnInit {
   }
   onProgramChange(key: number) {
     this.current_program = key;
-    this.filteredStreams = this.Streams.filter(tempStream => {
-      if(tempStream['program_id'] == this.current_program){
-        return tempStream;
-      }
-    });
     this.filteredBatches = this.Batches.filter(tempBatch => {
       let end: number = eval(tempBatch['endYear']);
       let start: number = eval(tempBatch['startYear']);
       let x = this.Programs.filter(p => {
-        if(p['program_id'] == this.current_program){
+        if (p['program_id'] == this.current_program) {
           return p;
-        } 
+        }
       });
-      if(end - start == x[0]['duration']){
+      if (end - start == x[0]['duration']) {
         return tempBatch;
       }
     });
 
     this.filteredSpecialization = null;
-    // this.filteredBatches = null;
   }
   onStreamChange(key: number) {
     this.current_stream = key;
     this.filteredSpecialization = this.Specializations.filter(tempSpecialization => {
-      if(tempSpecialization['stream_id'] == this.current_stream){
+      if (tempSpecialization['stream_id'] == this.current_stream) {
         return tempSpecialization;
-      }
-    });
-    this.filteredBatches = this.Streams.filter(tempStream => {
-      if(tempStream['stream_id'] == this.current_stream){
-          return tempStream;
       }
     });
   }
   onSpecializationChange(key: number) {
     this.current_specialization = key;
+  }
+  postPersonalDetails() {
+    this.errorMessage = "";
+    if(this.degreeForm.valid){
+      this.degreeForm.value['roll_no'] = this.dataService.user['roll_no'];
+      this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
+      },
+        (error: any) => {
+          this.errorMessage = error.message;
+        });
+    }
+    else{
+      this.errorMessage = "Form is invalid!";
+    }
   }
 }
