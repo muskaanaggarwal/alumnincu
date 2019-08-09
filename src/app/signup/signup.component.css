@@ -235,7 +235,7 @@ input {
 label {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -426,9 +426,17 @@ label.valid {
 }
 
 .iconfix .label {
-  height: 20em;
+top: 80%;
+position: absolute;
+
 }
+.iconfix{
+  top:80%;
+  position: relative;
+
+}
+
 input[type="submit"]:disabled {
   background: #dddddd;
   cursor: not-allowed;
-}
+} 

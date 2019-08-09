@@ -50,7 +50,12 @@ export class SignupComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.signupForm.invalid) {
-        return;
+      console.log(1);
+
+      return "iconfix"
+      console.log(1);
+      return;
+
     }
     this.signup();
      this.route.navigateByUrl('/alumni');

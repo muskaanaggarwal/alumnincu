@@ -118,8 +118,10 @@ h1, h5 {
 			position: relative;
 			margin-bottom: 5px;
             overflow: hidden;
-		margin-left:60px;
+		margin-left:0px;
 		margin-right:70px;
+		padding-left:10px;
+		padding-bottom:0px;
         
     
     }
@@ -224,3 +226,25 @@ h1{
 		outline: none;
 		border: none;
 }
+.login:focus{
+	outline: 0 none!important;
+}
+.login:active{
+	outline: 0 none!important;
+}
+.input-group-addon{
+	
+    padding-bottom: 0px;
+    padding-top: 12px!important;
+    padding-right: 0px;
+    padding-left: 0px;
+
+}
+.fa{
+	
+    padding-right: 0px;
+    padding-left: 60px;
+
+}
+
+
