@@ -1,4 +1,4 @@
-<body><br><br>
+<div class="body"><br><br>
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
     <div class="card-item itemclass">
@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="form-group col-2">
-              <img class=" rightslider" routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+              <img class=" rightslider" (click)="checkSaved()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
             </div>
           </div>
         </form>
@@ -129,21 +129,22 @@
 
   <div class="center formbutton">
     <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4 mt-3">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 p-3">
         <div *ngIf="errorMessage" class="alert alert-danger">
           {{ errorMessage }}
         </div>
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{ successMessage }}
+        </div>
       </div>
-      <div class="col-4"></div>
+      <div class="col-md-4"></div>
       <div class="col-md-3"></div>
       <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/signup">Back</button>
       </div>
       <div class="col-md-3"> <button type="button" class="btn btn-warning save" (click)="postPersonalDetails()" >Save</button>
       </div>
       <div class="col-md-3"></div>
-
-
     </div>
   </div>
-</body>
+</div>

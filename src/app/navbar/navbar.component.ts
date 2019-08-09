@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
-
 
 @Component({
   selector: 'navbar',
@@ -9,21 +8,20 @@ import { DataserviceService } from '../dataservice.service';
 })
 export class NavbarComponent implements OnInit {
 
+  @Input() LoggedIn: boolean;
+  @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
   constructor(private dataService: DataserviceService) {
   }
-  isLoggedIn: boolean;
   user: Object;
 
   ngOnInit() {
     if (this.dataService.user) {
-      this.isLoggedIn = true;
       this.user = this.dataService.user;
     }
-    else {
-      this.isLoggedIn = false;
-    }
+  } 
+  loggedIn(){
+    this.isLoggedIn.emit(this.LoggedIn);
   }
-
   logout(){
     this.dataService.user = null;
     this.dataService.details = null;
