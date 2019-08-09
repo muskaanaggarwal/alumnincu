@@ -25,11 +25,7 @@ export class SociallinkformComponent implements OnInit {
 
   // for (var attrname in sociallinkform) {personalform[attrname]=sociallinkform[attrname];}
 
-  personal_details_url = 'http://localhost:9800/personal_detailsform';
-  address_url = 'http://localhost:9800/addressform';
-  job_url = 'http://localhost:9800/jobform';
-  job2_url = 'http://localhost:9800/job2form';
-  degree_url = 'http://localhost:9800/degreeform';
+  url = 'http://localhost:9800/personal_detailsform';
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
@@ -68,63 +64,27 @@ export class SociallinkformComponent implements OnInit {
   }
   sociallinkform() {
     this.errorMessage = null;
-    this.postAddress();
-    this.postJob(this.jobForm);
-    this.postJob(this.job2Form);
     this.postPersonalDetails();
     if(!this.errorMessage){
       this.route.navigateByUrl('/dashboard');
     }
   }
-  postAddress() {
-    if(this.addressForm.valid && this.dataService.user['roll_no'] != undefined){
-      this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
-      console.log(this.addressForm);
-      this.dataService.alumniportalUser(this.address_url, this.addressForm.value).subscribe((data: Array<any>) => {
+  postPersonalDetails() {
+    if(this.personalForm.valid){
+      this.personalForm.value['facebook'] = this.sociallinkForm.value['facebook'];
+      this.personalForm.value['twitter'] = this.sociallinkForm.value['twitter'];
+      this.personalForm.value['linkedin'] = this.sociallinkForm.value['linkedin'];
+      this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
+      this.personalForm.value['batch_id'] = this.degreeForm.value['batch_id'];
+      this.personalForm.value['specialization_id'] = this.degreeForm.value['specialization_id'];
+      this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
       },
         (error: any) => {
           this.errorMessage = error.message;
         });
     }
     else{
-      console.log('Form invalid');
+      this.errorMessage = "Form Invalid!"
     }
-  }
-  postJob(jobForm: FormGroup) {
-    if (jobForm.valid) {
-      this.dataService.alumniportalUser(this.job_url, jobForm.value).subscribe((data: Array<any>) => {
-        this.postJobUserRelation(data['company_id'], 1);
-      },
-        (error: any) => {
-          this.errorMessage = error.message;
-        });
-    }
-    else {
-      this.errorMessage = 'Form invalid';
-    }
-  }
-  postJobUserRelation(company_id, campus_or_current: number) {
-    let jobUser: JobUserModel = new JobUserModel;
-    jobUser.company_id = company_id
-    jobUser.roll_no = this.dataService.user['roll_no'];
-    jobUser.campus_or_current = campus_or_current;
-    this.dataService.alumniportalUser(this.job2_url, jobUser).subscribe((data: Array<any>) => {
-    },
-      (error: any) => {
-        this.errorMessage = error.message;
-      });
-  }
-  postPersonalDetails() {
-    this.personalForm.value['facebook'] = this.sociallinkForm.value['facebook'];
-    this.personalForm.value['twitter'] = this.sociallinkForm.value['twitter'];
-    this.personalForm.value['linkedin'] = this.sociallinkForm.value['linkedin'];
-    this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
-    this.personalForm.value['batch_id'] = this.degreeForm.value['batch_id'];
-    this.personalForm.value['specialization_id'] = this.degreeForm.value['specialization_id'];
-    this.dataService.alumniportalUser(this.personal_details_url, this.personalForm.value).subscribe((data: Array<any>) => {
-    },
-      (error: any) => {
-        this.errorMessage = error.message;
-      });
   }
 }

@@ -13,53 +13,43 @@ import { Router } from '@angular/router';
 export class PersonalformComponent implements OnInit {
 
   personalForm: FormGroup;
-personal= new Personalmodel();
+  personal = new Personalmodel();
   url = 'http://localhost:9800/personal_detailsform';
+  errorMessage: string;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
     this.personalForm = this.formBuilder.group({
       photo: [''],
       spouse_name: [''],
-      
       anniversary_date: [''],
-      });
-    if(!this.dataService.user){
+    });
+    if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
       return;
     }
-      if(this.dataService.personalForm){
-        this.personalForm = this.dataService.personalForm;
-      }
+    if (this.dataService.personalForm) {
+      this.personalForm = this.dataService.personalForm;
+    }
   }
   ngOnDestroy() {
     this.dataService.personalForm = this.personalForm;
   }
-  // localpersonal(){
-  //   let photo: any = document.getElementById('photo');
-  //   let spouse_name: any = document.getElementById('spouse_name');
-  //   let anniversary: any = document.getElementById('anniversary');
-  
-  
-  //   if(photo){
-  //     this.personal.photo = photo.value;
-  //   }
-  //   if(spouse_name){
-  //     this.personal.spouse_name = spouse_name.value;
-  //   } if(anniversary){
-  //     this.personal.anniversary = anniversary.value;
-  //   } 
-  //   console.log(this.personal);
-  //  }
-  personalform() {
-    console.log("Data before***", this.personalForm.value)
-    // execute the registerUser() given in the spring boot 
-    this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data)
-    },
-      (error: any) => {
-        console.log("Error in saving the record", error);
-      });
-  }
 
+  postPersonalDetails() {
+    this.errorMessage = "";
+    if (this.personalForm.valid) {
+      this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
+      this.personalForm.value['batch_id'] = this.dataService.degreeForm.value['batch_id'];
+      this.personalForm.value['specialization_id'] = this.dataService.degreeForm.value['specialization_id'];
+      this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
+      },
+        (error: any) => {
+          this.errorMessage = error.message;
+        });
+    }
+    else {
+      this.errorMessage = "Form Invalid!";
+    }
+  }
 }
