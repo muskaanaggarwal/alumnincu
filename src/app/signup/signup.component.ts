@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.errorMessage = null;
     this.signupForm = this.formBuilder.group({
-      roll_no: ['',[Validators.required, Validators.minLength(6)]],
+      roll_no: ['',[Validators.required, Validators.minLength(6),Validators.maxLength(10)]],
       email: ['', [Validators.required, Validators.email]],
       contact: ['',[Validators.required, Validators.minLength(10)]],
       date_of_birth: ['',Validators.required],

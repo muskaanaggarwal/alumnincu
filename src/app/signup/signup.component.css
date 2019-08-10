@@ -230,6 +230,7 @@ input {
 
 .agree-term {
   display: inline-block;
+  word-break: break-all;
   width: auto; }
 
 label {

@@ -21,16 +21,32 @@
             <img class="leftslider" routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
           <div class="form-group col-8">
+              <form [formGroup]="jobForm">
+
             <div class="form-row">
               <div class="form-group col-md-12">
                 <h2 class="card-title center"><b>JOB DETAILS</b></h2>
-                <!-- <input type="checkbox" placeholder="Campus Placement"> -->
-                <!-- <h3 class="card-title center" typ><small>Campus Placement</small></h3> -->
+                
               </div>
-            </div>
+            </div><br><br>
             <div class="form-row">
+                <div class="form-group col-md-3">
+                 
+                  </div>
               <div class="form-group col-md-6">
-                <form [formGroup]="jobForm">
+                  <div class="form-group center">
+                      <input type="checkbox" name="agree-term" value="0" formControlName="campus_or_current" id="agree-term" class="agree-term" />
+                      <label for="agree-term" class="label-agree-term"><span><span></span></span>Campus Placement</label>
+                  </div>
+              </div>
+              <div class="form-group col-md-3">
+                 
+              </div>
+             
+            </div><br><br>
+
+            <div class="form-row" >
+              <div class="form-group col-md-6">
 
                   <div class="form-group">
                     <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
@@ -44,10 +60,8 @@
                     <input type="text" formControlName="designation" id="designation" class="form-control mb-2"
                       placeholder="Designation" required>
                   </div>
-                </form>
               </div>
               <div class="form-group col-md-6">
-                <form [formGroup]="jobForm">
 
                   <div class="form-group">
                     <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
@@ -61,9 +75,10 @@
                     <input type="text" formControlName="website" id="website" class="form-control mb-2"
                       placeholder="Website" required>
                   </div>
-                </form>
               </div>
             </div>
+          </form>
+
           </div>
           <div class="form-group col-2">
             <img class="rightslider" routerLink="/job2form" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">

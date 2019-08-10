@@ -9,7 +9,7 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 @Component({
   selector: 'app-jobform',
   templateUrl: './jobform.component.html',
-  styleUrls: ['../addressform/addressform.component.css']
+  styleUrls: ['../addressform/addressform.component.css','./jobform.component.css']
 })
 export class JobformComponent implements OnInit {
   job = new Jobmodel();
@@ -25,6 +25,8 @@ export class JobformComponent implements OnInit {
       company_name: ['', Validators.required],
       company_city: [''],
       website: [''],
+      campus_or_current: [''],
+
      
       });
     if(!this.dataService.user){
