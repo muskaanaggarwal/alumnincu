@@ -6,9 +6,6 @@ import { Router } from '@angular/router';
 import { MustMatch } from '../_helpers/must-match.validator';
 
 
-
-
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -35,7 +32,8 @@ export class SignupComponent implements OnInit {
       date_of_birth: ['',Validators.required],
       first_name: ['',Validators.required],
       last_name: ['',Validators.required],
-      isverified: ['1'],
+      accepted: ['',Validators.required],
+      isverified: [false],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required]
   }, {
@@ -50,24 +48,15 @@ export class SignupComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.signupForm.invalid) {
-      console.log(1);
-
-      return "iconfix"
-      console.log(1);
       return;
-
     }
     this.signup();
      this.route.navigateByUrl('/alumni');
 }
   signup() {
-    console.log("Data before***", this.signupForm.value)
-    // execute the registerUser() given in the spring boot 
     this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
-      console.log("Data After***", data);
     },
       (error: any) => {
-        console.log("Error in saving the record", error);
       });
   }
 }

@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
-
 
 @Component({
   selector: 'navbar',
@@ -19,11 +18,10 @@ export class NavbarComponent implements OnInit {
       this.isLoggedIn = true;
       this.user = this.dataService.user;
     }
-    else {
+    else{
       this.isLoggedIn = false;
     }
   }
-
   logout(){
     this.dataService.user = null;
     this.dataService.details = null;

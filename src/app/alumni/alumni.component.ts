@@ -1,5 +1,5 @@
 import { DataserviceService } from './../dataservice.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ export class AlumniComponent implements OnInit {
   url = 'http://localhost:9800/loginform';
   errorMessage: String;
   submitted = false;
+  isLoggedIn: boolean;
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
@@ -49,6 +50,7 @@ export class AlumniComponent implements OnInit {
           else {
             this.dataService.user = data[0];
             this.dataService.get("http://localhost:9800/details?id="+this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+              this.isLoggedIn = true; 
               if(data.length > 0){
                 this.dataService.details = data[0];
                 this.route.navigateByUrl('/degreeform');
@@ -65,7 +67,6 @@ export class AlumniComponent implements OnInit {
       },
         (error: any) => {
           this.errorMessage = "Something went wrong!\n" + error['message'];
-          console.log("Error in logging in", error);
         });
     }
   

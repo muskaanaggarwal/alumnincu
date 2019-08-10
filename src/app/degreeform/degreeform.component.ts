@@ -33,6 +33,8 @@ export class DegreeformComponent implements OnInit {
   specialization_url = 'http://localhost:9800/specialization/all';
   url = 'http://localhost:9800/personal_detailsform';
   errorMessage: string;
+  successMessage: string;
+  saved: boolean;
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
 
@@ -105,7 +107,7 @@ export class DegreeformComponent implements OnInit {
       }
     }).filter(tempStream => {
       if (tempStream['batch_id'] == this.current_batch) {
-        return tempStream;
+        return tempStream;  
       }
     });
     this.filteredSpecialization = null;
@@ -149,18 +151,33 @@ export class DegreeformComponent implements OnInit {
   onSpecializationChange(key: number) {
     this.current_specialization = key;
   }
-  postPersonalDetails() {
-    this.errorMessage = "";
-    if(this.degreeForm.valid){
-      this.degreeForm.value['roll_no'] = this.dataService.user['roll_no'];
-      this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
-      },
-        (error: any) => {
-          this.errorMessage = error.message;
-        });
+
+  checkSaved(){
+    if(!this.saved){
+      this.errorMessage = "Please click save before you proceed!"
     }
     else{
-      this.errorMessage = "Form is invalid!";
+      this.route.navigateByUrl('/jobform');
+    }
+  }
+
+  postPersonalDetails() {
+    if(!this.saved){
+      this.errorMessage = "";
+      if(this.degreeForm.valid){
+        this.degreeForm.value['roll_no'] = this.dataService.user['roll_no'];
+        this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
+          this.saved = true;
+          this.successMessage = "Saved successfully! Click next to proceed"
+        },
+          (error: any) => {
+            this.errorMessage = error.message;
+          });
+      }
+      else{
+        this.saved = false;
+        this.errorMessage = "Form is invalid!";
+      }
     }
   }
 }

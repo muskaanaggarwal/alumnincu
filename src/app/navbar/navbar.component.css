@@ -4,3 +4,6 @@
 .box{
   border: solid white 1px;
 }
+.dropdown-item:hover{
+  background: #90111F;
+}
