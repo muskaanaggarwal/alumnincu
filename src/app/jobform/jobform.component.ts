@@ -14,6 +14,8 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class JobformComponent implements OnInit {
   job = new Jobmodel();
   jobForm: FormGroup;
+  saved:boolean;
+  successMessage: string;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
   errorMessage: string;
@@ -40,21 +42,34 @@ export class JobformComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
+  checkSaved(){
+    if(!this.saved){
+      this.errorMessage = "Please click save before you proceed!"
+    }
+    else{
+      this.route.navigateByUrl('/job2form');
+    }
+  }
 
   
   postJob() {
+    if(!this.saved){
     this.errorMessage = "";
     if (this.jobForm.valid) {
       this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
         this.postJobUserRelation(data['company_id'], 0);
+        this.saved=true;
+        this.successMessage = "Saved successfully! Click next to proceed"
       },
         (error: any) => {
           this.errorMessage = error.message;
         });
     }
     else {
+      this.saved=false;
       this.errorMessage = 'Form invalid';
     }
+  }
   }
   postJobUserRelation(company_id, campus_or_current: number) {
     let jobUser: JobUserModel = new JobUserModel;
