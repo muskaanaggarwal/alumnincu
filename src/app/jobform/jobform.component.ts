@@ -28,9 +28,8 @@ export class JobformComponent implements OnInit {
       company_city: [''],
       website: [''],
       campus_or_current: [''],
-
-     
       });
+    this.saved = false;
     if(!this.dataService.user){
       this.route.navigateByUrl('/alumni');
       return;
@@ -43,6 +42,7 @@ export class JobformComponent implements OnInit {
     this.dataService.jobForm = this.jobForm;
   }
   checkSaved(){
+    console.log(this.saved);
     if(!this.saved){
       this.errorMessage = "Please click save before you proceed!"
     }
