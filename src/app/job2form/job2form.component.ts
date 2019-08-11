@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Job2model } from './job2.model';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class Job2formComponent implements OnInit {
   job2Form: FormGroup;
   job2 = new Job2model();
-  url = 'http://localhost:9800/job2form';
+  url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
   errorMessage: string;
   saved: boolean;
@@ -22,12 +22,11 @@ export class Job2formComponent implements OnInit {
 
   ngOnInit() {
     this.job2Form = this.formBuilder.group({
-      company_name: [''],
+      company_name: ['', Validators.required],
       designation: [''],
       company_city: [''],
       website: [''],
-      campus_or_current: [''],
-
+      campus_or_current: ['', Validators.required],
     });
     if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
@@ -45,7 +44,7 @@ export class Job2formComponent implements OnInit {
       this.errorMessage = "Please click save before you proceed!"
     }
     else {
-      this.route.navigateByUrl('/job2form');
+      this.route.navigateByUrl('/addressform');
     }
   }
   postJob() {
