@@ -13,6 +13,8 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 })
 export class JobformComponent implements OnInit {
   job = new Jobmodel();
+  submitted = false;
+
   jobForm: FormGroup;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
@@ -37,13 +39,27 @@ export class JobformComponent implements OnInit {
         this.jobForm = this.dataService.jobForm;
       }
   }
+
+
+  get f() { return this.jobForm.controls; }
+
+
+
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
+  onSubmit() {
+    this.submitted = true;
 
+    // stop here if form is invalid
+    if (this.jobForm.invalid) {
+      return;
+    }
+    this.postJob();
+}
   
   postJob() {
-    this.errorMessage = "";
+    // this.errorMessage = "";
     if (this.jobForm.valid) {
       this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
         this.postJobUserRelation(data['company_id'], 0);

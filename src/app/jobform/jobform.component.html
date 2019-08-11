@@ -21,7 +21,7 @@
             <img class="leftslider" routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
           <div class="form-group col-8">
-              <form [formGroup]="jobForm">
+              <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
 
             <div class="form-row">
               <div class="form-group col-md-12">
@@ -35,8 +35,8 @@
                   </div>
               <div class="form-group col-md-6">
                   <div class="form-group center">
-                      <input type="checkbox" name="agree-term" value="0" formControlName="campus_or_current" id="agree-term" class="agree-term" />
-                      <label for="agree-term" class="label-agree-term"><span><span></span></span>Campus Placement</label>
+                      <input type="checkbox" name="agree-term" value="0" formControlName="campus_or_current" id="agree-term" class="checkbutton" />
+                      <label for="agree-term" class="checkbuttonlab"><span><span></span></span>Campus Placement</label>
                   </div>
               </div>
               <div class="form-group col-md-3">
@@ -52,7 +52,11 @@
                     <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
                         width="20px"></label>
                     <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
-                      placeholder="Company Name" required>
+                    [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }" placeholder="Company Name" required>
+                    <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.company_name.errors.required">Roll Number is required</div>
+          
+                      </div>
                   </div>
                   <div class="form-group">
                     <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
