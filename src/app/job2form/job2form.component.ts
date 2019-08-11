@@ -16,6 +16,8 @@ export class Job2formComponent implements OnInit {
   url = 'http://localhost:9800/job2form';
   job_url = 'http://localhost:9800/job2form';
   errorMessage: string;
+  saved: boolean;
+  successMessage: string;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -38,12 +40,21 @@ export class Job2formComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.job2Form = this.job2Form;
   }
-
+  checkSaved() {
+    if (!this.saved) {
+      this.errorMessage = "Please click save before you proceed!"
+    }
+    else {
+      this.route.navigateByUrl('/job2form');
+    }
+  }
   postJob() {
     this.errorMessage = "";
     if (this.job2Form.valid) {
       this.dataService.alumniportalUser(this.url, this.job2Form.value).subscribe((data: Array<any>) => {
-        this.postJobUserRelation(data['company_id'], 1);
+        this.postJobUserRelation(data['company_id']);
+        this.saved = true;
+        this.successMessage = "Saved successfully! Click next to proceed"
       },
         (error: any) => {
           this.errorMessage = error.message;
@@ -51,13 +62,13 @@ export class Job2formComponent implements OnInit {
     }
     else {
       this.errorMessage = 'Form invalid';
+      this.saved = false;
     }
   }
-  postJobUserRelation(company_id, campus_or_current: number) {
+  postJobUserRelation(company_id) {
     let jobUser: JobUserModel = new JobUserModel;
     jobUser.company_id = company_id
     jobUser.roll_no = this.dataService.user['roll_no'];
-    jobUser.campus_or_current = campus_or_current;
     this.dataService.alumniportalUser(this.job_url, jobUser).subscribe((data: Array<any>) => {
     },
       (error: any) => {

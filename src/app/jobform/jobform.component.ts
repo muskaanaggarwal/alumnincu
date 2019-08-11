@@ -9,12 +9,12 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 @Component({
   selector: 'app-jobform',
   templateUrl: './jobform.component.html',
-  styleUrls: ['../addressform/addressform.component.css','./jobform.component.css']
+  styleUrls: ['../addressform/addressform.component.css', './jobform.component.css']
 })
 export class JobformComponent implements OnInit {
   job = new Jobmodel();
   jobForm: FormGroup;
-  saved:boolean;
+  saved: boolean;
   successMessage: string;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
@@ -24,58 +24,55 @@ export class JobformComponent implements OnInit {
   ngOnInit() {
     this.jobForm = this.formBuilder.group({
       designation: [''],
-      company_name: ['', Validators.required],
+      company_name: [''],
       company_city: [''],
       website: [''],
       campus_or_current: [''],
-      });
-    this.saved = false;
-    if(!this.dataService.user){
+    });
+    if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
       return;
     }
-      if(this.dataService.jobForm){
-        this.jobForm = this.dataService.jobForm;
-      }
+    if (this.dataService.jobForm) {
+      this.jobForm = this.dataService.jobForm;
+    }
   }
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
-  checkSaved(){
-    console.log(this.saved);
-    if(!this.saved){
+  checkSaved() {
+    if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"
     }
-    else{
+    else {
       this.route.navigateByUrl('/job2form');
     }
   }
 
-  
+
   postJob() {
-    if(!this.saved){
-    this.errorMessage = "";
-    if (this.jobForm.valid) {
-      this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
-        this.postJobUserRelation(data['company_id'], 0);
-        this.saved=true;
-        this.successMessage = "Saved successfully! Click next to proceed"
-      },
-        (error: any) => {
-          this.errorMessage = error.message;
-        });
-    }
-    else {
-      this.saved=false;
-      this.errorMessage = 'Form invalid';
+    if (!this.saved) {
+      this.errorMessage = "";
+      if (this.jobForm.valid) {
+        this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
+          this.postJobUserRelation(data['company_id']);
+          this.saved = true;
+          this.successMessage = "Saved successfully! Click next to proceed"
+        },
+          (error: any) => {
+            this.errorMessage = error.message;
+          });
+      }
+      else {
+        this.saved = false;
+        this.errorMessage = 'Form invalid';
+      }
     }
   }
-  }
-  postJobUserRelation(company_id, campus_or_current: number) {
+  postJobUserRelation(company_id) {
     let jobUser: JobUserModel = new JobUserModel;
     jobUser.company_id = company_id
     jobUser.roll_no = this.dataService.user['roll_no'];
-    jobUser.campus_or_current = campus_or_current;
     this.dataService.alumniportalUser(this.job_url, jobUser).subscribe((data: Array<any>) => {
     },
       (error: any) => {

@@ -35,14 +35,14 @@
                   </div>
               <div class="form-group col-md-4 center">
                   <div class="form-group">
-                      <input type="radio" name="agree-term" value="1" formControlName="campus_or_current" id="agree-term" class="agree-term" />
-                      <label for="agree-term" class="label-agree-term"><span><span></span></span>Self-Employed</label>
+                      <input type="radio" name="campus_or_current" value="2" formControlName="campus_or_current" id="agree-term" class="agree-term" />
+                      <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Self-Employed</label>
                   </div>
               </div>
               <div class="form-group col-md-4 center">
                   <div class="form-group">
-                      <input type="radio" name="agree-term" value="2" formControlName="campus_or_current" id="agree-term" class="agree-term" />
-                      <label for="agree-term" class="label-agree-term"><span><span></span></span>Coperate</label>
+                      <input type="radio" name="campus_or_current" value="3" formControlName="campus_or_current" id="agree-term" class="agree-term" />
+                      <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Coperate</label>
                   </div>
               </div>
               <div class="form-group col-md-2">
@@ -55,13 +55,13 @@
                     <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
                         width="20px"></label>
                     <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
-                      placeholder="Company Name" required>
+                      placeholder="Company Name" >
                   </div>
                   <div class="form-group">
                     <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
                         height="20px" width="20px"></label>
                     <input type="text" formControlName="designation" id="designation" class="form-control mb-2"
-                      placeholder="Designation" required>
+                      placeholder="Designation" >
                   </div>
               </div>
               <div class="form-group col-md-6">
@@ -69,20 +69,20 @@
                     <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
                         height="20px" width="20px"></label>
                     <input type="text" formControlName="company_city" id="company_city" class="form-control mb-2"
-                      placeholder="City" required>
+                      placeholder="City" >
                   </div>
                   <div class="form-group">
                     <label><img src="https://cdn4.iconfinder.com/data/icons/contact-and-address-1/32/contact-08-512.png"
                         height="20px" width="20px"></label>
                     <input type="text" formControlName="website" id="website" class="form-control mb-2"
-                      placeholder="Website" required>
+                      placeholder="Website" >
                   </div>
               </div>
             </div>
             </form>
           </div>
           <div class="form-group col-2">
-            <img class="rightslider" routerLink="/addressform"
+            <img class="rightslider" click()="checkSaved()"
               src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
         </div>
@@ -124,6 +124,9 @@
         <div class="col-4 mt-3">
           <div *ngIf="errorMessage" class="alert alert-danger">
             {{ errorMessage }}
+          </div>
+          <div *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
           </div>
         </div>
         <div class="col-4"></div>
