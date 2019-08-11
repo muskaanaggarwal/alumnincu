@@ -69,6 +69,7 @@ export class Job2formComponent implements OnInit {
     let jobUser: JobUserModel = new JobUserModel;
     jobUser.company_id = company_id
     jobUser.roll_no = this.dataService.user['roll_no'];
+    jobUser.campus_or_current = this.job2Form.value['campus_or_current'];
     this.dataService.alumniportalUser(this.job_url, jobUser).subscribe((data: Array<any>) => {
     },
       (error: any) => {
