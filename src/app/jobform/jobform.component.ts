@@ -37,7 +37,7 @@ export class JobformComponent implements OnInit {
     if (this.dataService.jobForm) {
       this.jobForm = this.dataService.jobForm;
     }
-    else{
+    else {
       this.jobForm.value['campus_or_current'] = 0;
     }
   }
@@ -69,7 +69,7 @@ export class JobformComponent implements OnInit {
       }
       else {
         this.saved = false;
-        this.errorMessage = 'Form invalid';
+        this.errorMessage = 'Please fill all the details';
       }
     }
   }
@@ -84,7 +84,7 @@ export class JobformComponent implements OnInit {
         this.errorMessage = error.message;
       });
   }
-  proceed(){
+  proceed() {
     this.route.navigateByUrl('/job2form');
   }
 }

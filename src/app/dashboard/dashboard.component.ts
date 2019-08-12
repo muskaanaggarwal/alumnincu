@@ -16,22 +16,22 @@ export class DashboardComponent implements OnInit {
   details: Object;
 
   ngOnInit() {
-    if(!this.dataService.user){
+    if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
       return;
     }
     this.isLoggedIn = false;
-    if(this.dataService.user){
+    if (this.dataService.user) {
       this.isLoggedIn = true;
       this.user = this.dataService.user;
     }
-    else{
-      this.isLoggedIn = false; 
+    else {
+      this.isLoggedIn = false;
     }
-    if(this.dataService.details){
+    if (this.dataService.details) {
       this.details = this.dataService.details;
     }
-    else{
+    else {
       this.details = null;
     }
   }

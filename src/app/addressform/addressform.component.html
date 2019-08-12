@@ -1,4 +1,5 @@
 <navbar></navbar>
+
 <body><br><br>
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
@@ -42,21 +43,21 @@
                     <label><img src="https://cdn0.iconfinder.com/data/icons/map-3/1024/pin9-512.png" height="20px"
                         width="20px"></label>
                     <input type="text" formControlName="address_line_1" id="address_line_1" class="form-control mb-2"
-                      placeholder="Address Line 1" required>
+                      placeholder="Address Line 1">
                   </div>
 
                   <div class="form-group">
                     <label><img src="https://cdn0.iconfinder.com/data/icons/map-3/1024/pin9-512.png" height="20px"
                         width="20px"></label>
                     <input type="text" formControlName="address_line_2" id="address_line_2" class="form-control mb-2"
-                      placeholder="Address Line 2" required>
+                      placeholder="Address Line 2">
                   </div>
 
                   <div class="form-group">
                     <label><img src="https://cdn0.iconfinder.com/data/icons/map-3/1024/pin9-512.png" height="20px"
                         width="20px"></label>
                     <input type="text" formControlName="address_line_3" id="address_line_3" class="form-control mb-2"
-                      placeholder="Address Line 3" required>
+                      placeholder="Address Line 3">
                   </div>
                 </form>
 
@@ -68,21 +69,19 @@
                     <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
                         height="20px" width="20px"></label>
                     <input type="text" formControlName="country" id="country" class="form-control mb-2"
-                      placeholder="Country" required>
+                      placeholder="Country">
                   </div>
 
                   <div class="form-group">
                     <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
                         height="20px" width="20px"></label>
-                    <input type="text" formControlName="state" id="state" class="form-control mb-2" placeholder="State"
-                      required>
+                    <input type="text" formControlName="state" id="state" class="form-control mb-2" placeholder="State">
                   </div>
 
                   <div class="form-group">
                     <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
                         height="20px" width="20px"></label>
-                    <input type="text" formControlName="city" id="city" class="form-control mb-2" placeholder="City"
-                      required>
+                    <input type="text" formControlName="city" id="city" class="form-control mb-2" placeholder="City">
                   </div>
 
                 </form>
@@ -100,7 +99,7 @@
                         src="https://cdn2.iconfinder.com/data/icons/lucid-generic/24/mailbox_box_letter_mail_post-512.png"
                         height="20px" width="20px"></label>
                     <input type="text" formControlName="pincode" id="pincode" class="form-control mb-2"
-                      placeholder="Pincode" required>
+                      placeholder="Pincode">
                   </div>
                 </form>
               </div>
@@ -112,12 +111,12 @@
           </div>
 
           <div class="form-group col-2">
-            <img class=" rightslider" routerLink="/personalform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+            <img class=" rightslider" (click)="checkSaved()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
         </div>
       </div>
     </div>
-  
+
     <div class="cardclass card-item">
       <div class="card-body">
         <div class="parent">
@@ -140,13 +139,16 @@
   </div>
   <div class="center formbutton">
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 mt-3">
-          <div *ngIf="errorMessage" class="alert alert-danger">
-            {{ errorMessage }}
-          </div>
+      <div class="col-4"></div>
+      <div class="col-4 mt-3">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
         </div>
-        <div class="col-4"></div>
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+      </div>
+      <div class="col-4"></div>
       <div class="col-md-3"></div>
       <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/dashboard">Home</button>
       </div>
