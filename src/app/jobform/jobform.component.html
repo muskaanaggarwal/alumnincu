@@ -22,76 +22,74 @@
             <img class="leftslider" routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
           <div class="form-group col-8">
-              <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="jobForm">
 
-            <div class="form-row">
-              <div class="form-group col-md-12">
-                <h2 class="card-title center"><b>JOB DETAILS</b></h2>
-                
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <h2 class="card-title center pb-5"><b>JOB DETAILS</b></h2>
+                </div>
               </div>
-            </div><br><br>
-            <div class="form-row">
+              <div class="row" *ngIf="!ask">
+                <div class="col-12 center">
+                  <h3>Were you placed after completing your degree?</h3>
+                </div>
+                <div class="mx-auto pt-3">
+                  <button class="btn-lg btn-success mx-3" (click)="ask = true">Yes</button>
+                  <button class="btn-lg btn-danger mx-3" routerLink="/job2form">No</button>
+                </div>
+              </div>
+              <div *ngIf="ask">
+                <div class="form-row">
+                  <div class="col-md-2"></div>
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
-                        <input type="radio" name="campus_or_current" value="1" formControlName="campus_or_current" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Campus Placed</label>
+                      <input type="radio" value="1" formControlName="campus_or_current" />
+                      <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Campus Placed</label>
                     </div>
-                </div>
-                <div class="form-group col-md-4 center">
+                  </div>
+                  <div class="form-group col-md-4 center">
                     <div class="form-group">
-                        <input type="radio" name="campus_or_current" value="0" formControlName="campus_or_current" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Off-Campus Placed</label>
+                      <input type="radio" value="2" formControlName="campus_or_current" />
+                      <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Off-Campus Placed</label>
                     </div>
+                  </div>
+                  <div class="col-md-2"></div>
                 </div>
-                <div class="form-group col-md-4 center">
-                  <div class="form-group">
-                      <input type="radio" name="campus_or_current" value="0" formControlName="campus_or_current" id="agree-term" class="agree-term" />
-                      <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Not Placement Taken</label>
-                  </div>
-              </div>
-            </div><br><br>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
 
-            <div class="form-row" >
-              <div class="form-group col-md-6">
+                    <div class="form-group">
+                      <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
+                          width="20px"></label>
+                      <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
+                        placeholder="Company Name">
+                    </div>
+                    <div class="form-group">
+                      <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
+                          height="20px" width="20px"></label>
+                      <input type="text" formControlName="designation" id="designation" class="form-control mb-2"
+                        placeholder="Designation">
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
 
-                  <div class="form-group">
-                    <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
-                        width="20px"></label>
-                    <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
-<<<<<<< HEAD
-                    [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }" placeholder="Company Name" required>
-                    <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
-                        <div *ngIf="f.company_name.errors.required">Roll Number is required</div>
-          
-                      </div>
-=======
-                      placeholder="Company Name">
->>>>>>> dedfbcc1c1ebd3748b1ccbdd01928f61838cb1a2
+                    <div class="form-group">
+                      <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
+                          height="20px" width="20px"></label>
+                      <input type="text" formControlName="company_city" id="company_city" class="form-control mb-2"
+                        placeholder="City">
+                    </div>
+                    <div class="form-group">
+                      <label><img
+                          src="https://cdn4.iconfinder.com/data/icons/contact-and-address-1/32/contact-08-512.png"
+                          height="20px" width="20px"></label>
+                      <input type="text" formControlName="website" id="website" class="form-control mb-2"
+                        placeholder="Website">
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
-                        height="20px" width="20px"></label>
-                    <input type="text" formControlName="designation" id="designation" class="form-control mb-2"
-                      placeholder="Designation" >
-                  </div>
+                </div>
               </div>
-              <div class="form-group col-md-6">
-
-                  <div class="form-group">
-                    <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
-                        height="20px" width="20px"></label>
-                    <input type="text" formControlName="company_city" id="company_city" class="form-control mb-2"
-                      placeholder="City" >
-                  </div>
-                  <div class="form-group">
-                    <label><img src="https://cdn4.iconfinder.com/data/icons/contact-and-address-1/32/contact-08-512.png"
-                        height="20px" width="20px"></label>
-                    <input type="text" formControlName="website" id="website" class="form-control mb-2"
-                      placeholder="Website" >
-                  </div>
-              </div>
-            </div>
-          </form>
+            </form>
           </div>
           <div class="form-group col-2">
             <img class="rightslider" (click)="checkSaved()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
