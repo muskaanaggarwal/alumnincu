@@ -13,9 +13,9 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 })
 export class JobformComponent implements OnInit {
   job = new Jobmodel();
-  submitted = false;
-
   jobForm: FormGroup;
+  saved:boolean;
+  successMessage: string;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
   errorMessage: string;
@@ -28,8 +28,6 @@ export class JobformComponent implements OnInit {
       company_city: [''],
       website: [''],
       campus_or_current: [''],
-
-     
       });
     if(!this.dataService.user){
       this.route.navigateByUrl('/alumni');
@@ -39,44 +37,43 @@ export class JobformComponent implements OnInit {
         this.jobForm = this.dataService.jobForm;
       }
   }
-
-
-  get f() { return this.jobForm.controls; }
-
-
-
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.jobForm.invalid) {
-      return;
+  checkSaved(){
+    if(!this.saved){
+      this.errorMessage = "Please click save before you proceed!"
     }
-    this.postJob();
-}
+    else{
+      this.route.navigateByUrl('/job2form');
+    }
+  }
+
   
   postJob() {
-    // this.errorMessage = "";
+    if(!this.saved){
+    this.errorMessage = "";
     if (this.jobForm.valid) {
       this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
-        this.postJobUserRelation(data['company_id'], 0);
+        this.postJobUserRelation(data['company_id']);
+        this.saved=true;
+        this.successMessage = "Saved successfully! Click next to proceed"
       },
         (error: any) => {
           this.errorMessage = error.message;
         });
     }
     else {
+      this.saved=false;
       this.errorMessage = 'Form invalid';
     }
   }
-  postJobUserRelation(company_id, campus_or_current: number) {
+  }
+  postJobUserRelation(company_id) {
     let jobUser: JobUserModel = new JobUserModel;
     jobUser.company_id = company_id
     jobUser.roll_no = this.dataService.user['roll_no'];
-    jobUser.campus_or_current = campus_or_current;
+    jobUser.campus_or_current = this.jobForm.value['campus_or_current'];
     this.dataService.alumniportalUser(this.job_url, jobUser).subscribe((data: Array<any>) => {
     },
       (error: any) => {
