@@ -107,7 +107,7 @@ export class DegreeformComponent implements OnInit {
       }
     }).filter(tempStream => {
       if (tempStream['batch_id'] == this.current_batch) {
-        return tempStream;  
+        return tempStream;
       }
     });
     this.filteredSpecialization = null;
@@ -152,19 +152,19 @@ export class DegreeformComponent implements OnInit {
     this.current_specialization = key;
   }
 
-  checkSaved(){
-    if(!this.saved){
+  checkSaved() {
+    if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"
     }
-    else{
+    else {
       this.route.navigateByUrl('/jobform');
     }
   }
 
   postPersonalDetails() {
-    if(!this.saved){
+    if (!this.saved) {
       this.errorMessage = "";
-      if(this.degreeForm.valid){
+      if (this.degreeForm.valid) {
         this.degreeForm.value['roll_no'] = this.dataService.user['roll_no'];
         this.dataService.alumniportalUser(this.url, this.degreeForm.value).subscribe((data: Array<any>) => {
           this.saved = true;
@@ -174,9 +174,9 @@ export class DegreeformComponent implements OnInit {
             this.errorMessage = error.message;
           });
       }
-      else{
+      else {
         this.saved = false;
-        this.errorMessage = "Form is invalid!";
+        this.errorMessage = "Please fill all the details";
       }
     }
   }

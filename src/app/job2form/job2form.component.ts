@@ -8,7 +8,7 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 @Component({
   selector: 'app-job2form',
   templateUrl: './job2form.component.html',
-  styleUrls: ['../addressform/addressform.component.css','./job2form.component.css']
+  styleUrls: ['../addressform/addressform.component.css', './job2form.component.css']
 })
 export class Job2formComponent implements OnInit {
   job2Form: FormGroup;

@@ -65,12 +65,12 @@ export class SociallinkformComponent implements OnInit {
   sociallinkform() {
     this.errorMessage = null;
     this.postPersonalDetails();
-    if(!this.errorMessage){
+    if (!this.errorMessage) {
       this.route.navigateByUrl('/dashboard');
     }
   }
   postPersonalDetails() {
-    if(this.personalForm.valid){
+    if (this.personalForm.valid) {
       this.personalForm.value['facebook'] = this.sociallinkForm.value['facebook'];
       this.personalForm.value['twitter'] = this.sociallinkForm.value['twitter'];
       this.personalForm.value['linkedin'] = this.sociallinkForm.value['linkedin'];
@@ -83,7 +83,7 @@ export class SociallinkformComponent implements OnInit {
           this.errorMessage = error.message;
         });
     }
-    else{
+    else {
       this.errorMessage = "Form Invalid!"
     }
   }

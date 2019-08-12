@@ -16,6 +16,8 @@ export class PersonalformComponent implements OnInit {
   personal = new Personalmodel();
   url = 'http://localhost:9800/personal_detailsform';
   errorMessage: string;
+  saved: boolean;
+  successMessage: string;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -35,21 +37,34 @@ export class PersonalformComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.personalForm = this.personalForm;
   }
-
-  postPersonalDetails() {
-    this.errorMessage = "";
-    if (this.personalForm.valid) {
-      this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
-      this.personalForm.value['batch_id'] = this.dataService.degreeForm.value['batch_id'];
-      this.personalForm.value['specialization_id'] = this.dataService.degreeForm.value['specialization_id'];
-      this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
-      },
-        (error: any) => {
-          this.errorMessage = error.message;
-        });
+  checkSaved() {
+    if (!this.saved) {
+      this.errorMessage = "Please click save before you proceed!"
     }
     else {
-      this.errorMessage = "Form Invalid!";
+      this.route.navigateByUrl('/sociallinkform');
+    }
+  }
+
+  postPersonalDetails() {
+    if (!this.saved) {
+      this.errorMessage = "";
+      if (this.personalForm.valid) {
+        this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
+        this.personalForm.value['batch_id'] = this.dataService.degreeForm.value['batch_id'];
+        this.personalForm.value['specialization_id'] = this.dataService.degreeForm.value['specialization_id'];
+        this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
+          this.saved = true;
+          this.successMessage = "Saved successfully! Click next to proceed";
+        },
+          (error: any) => {
+            this.errorMessage = error.message;
+          });
+      }
+      else {
+        this.saved = false;
+        this.errorMessage = "Please fill all the details";
+      }
     }
   }
 }
