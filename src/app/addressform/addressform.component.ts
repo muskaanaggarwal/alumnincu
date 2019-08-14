@@ -16,6 +16,8 @@ export class AddressformComponent implements OnInit {
   addressForm: FormGroup;
   address = new Addressmodel;
   saved: boolean;
+  submitted = false;
+
   errorMessage: string;
   successMessage: string;
 
@@ -40,6 +42,16 @@ export class AddressformComponent implements OnInit {
       this.addressForm = this.dataService.addressForm;
     }
   }
+  get f() { return this.addressForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+    console.log(1);
+    // stop here if form is invalid
+    if (this.addressForm.invalid) {
+      return;
+    }
+    console.log(2);
+}
   ngOnDestroy() {
     this.dataService.addressForm = this.addressForm;
   }
