@@ -1,6 +1,8 @@
 <navbar></navbar>
 
-<body><br><br>
+  <div class="body"><br><br>
+    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
   <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
   <div class="cards border-dark">
 
@@ -22,7 +24,6 @@
             <img class="leftslider" routerLink="/degreeform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
           </div>
           <div class="form-group col-8">
-            <form [formGroup]="jobForm">
 
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -43,16 +44,27 @@
                   <div class="col-md-2"></div>
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
-                      <input  type="radio" value="1" formControlName="campus_or_current" />
-                      <label for="agree-term" class="label-agree-term">&nbsp;&nbsp;Campus Placed</label>
+                      <input type="radio" value="1" formControlName="campus_or_current"   >
+                      <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Campus Placed</label>
+                      
                     </div>
                   </div>
+                   
+               
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
-                      <input   type="radio" value="2" formControlName="campus_or_current" />
-                      <label  for="agree-term" class="label-agree-term">&nbsp;&nbsp;Off-Campus Placed</label>
+                      <input type="radio" value="2" formControlName="campus_or_current"   >
+                      <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Off-Campus Placed</label>
+                      
                     </div>
                   </div>
+                   
+                    <div *ngIf="isSubmitted && myForm.errors?.required" class="err">
+                      <p>Please select either value</p>
+                   </div>
+                  
+                    
+                  
                   <div class="col-md-2"></div>
                 </div>
                 <div class="form-row">
@@ -62,7 +74,11 @@
                       <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
                           width="20px"></label>
                       <input type="text" formControlName="company_name" id="company_name" class="form-control mb-2"
-                        placeholder="Company Name">
+                        placeholder="Company Name" [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }" >
+                        <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
+                          <div *ngIf="f.company_name.errors.required">Company name is required</div>
+            
+                        </div>
                     </div>
                     <div class="form-group">
                       <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
@@ -89,7 +105,6 @@
                   </div>
                 </div>
               </div>
-            </form>
           </div>
           <div class="form-group col-2">
             <img class="rightslider" (click)="checkSaved()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
@@ -141,11 +156,12 @@
       <div class="col-md-3"></div>
       <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/dashboard">Home</button>
       </div>
-      <div class="col-md-3"> <button type="button" class="btn btn-warning save" (click)="postJob()">Save</button>
+      <div class="col-md-3"> <button type="submit" class="btn btn-warning save" >Save</button>
       </div>
       <div class="col-md-3"></div>
 
 
     </div>
   </div>
-</body>
+</form>
+</div>

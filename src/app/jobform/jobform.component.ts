@@ -12,10 +12,15 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
   styleUrls: ['../addressform/addressform.component.css', './jobform.component.css']
 })
 export class JobformComponent implements OnInit {
+  isSubmitted = false;
   job = new Jobmodel();
   jobForm: FormGroup;
   saved: boolean;
   ask: boolean;
+  submitted = false;
+   
+  
+
   successMessage: string;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
@@ -23,12 +28,14 @@ export class JobformComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    
     this.jobForm = this.formBuilder.group({
       designation: [''],
       company_name: ['', Validators.required],
       company_city: [''],
       website: [''],
       campus_or_current: ['', Validators.required],
+      
 
     });
     if (!this.dataService.user) {
@@ -45,6 +52,21 @@ export class JobformComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
+  get myForm() {
+    return this.jobForm.get('campus_or_current');
+  }
+  
+  get f() { return this.jobForm.controls; }
+  onSubmit() {
+    this.isSubmitted = true;
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.jobForm.invalid) {
+      return;
+    }
+this.postJob()
+}
   checkSaved() {
     if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"
