@@ -1,4 +1,4 @@
-.label-agree-term {
+.radio-agree-term {
     position: relative;
     font-size: 20px;
     top: 0%;
@@ -9,7 +9,7 @@
     -ms-transform: translateY(0); }
   
     
-.agree-term {
+.radio-term {
     display: inline-block;
     word-break: break-all;
     font-size: 20px;

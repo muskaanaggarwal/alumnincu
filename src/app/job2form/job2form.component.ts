@@ -18,6 +18,7 @@ export class Job2formComponent implements OnInit {
   errorMessage: string;
   saved: boolean;
   successMessage: string;
+  submitted = false;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -36,6 +37,16 @@ export class Job2formComponent implements OnInit {
       this.job2Form = this.dataService.job2Form;
     }
   }
+  get f() { return this.job2Form.controls; }
+  onSubmit() {
+    this.submitted = true;
+    console.log(1);
+    // stop here if form is invalid
+    if (this.job2Form.invalid) {
+      return;
+    }
+    console.log(2);
+}
   ngOnDestroy() {
     this.dataService.job2Form = this.job2Form;
   }

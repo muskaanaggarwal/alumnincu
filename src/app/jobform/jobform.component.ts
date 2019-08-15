@@ -29,6 +29,7 @@ export class JobformComponent implements OnInit {
       company_city: [''],
       website: [''],
       campus_or_current: ['', Validators.required],
+
     });
     if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');

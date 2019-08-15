@@ -1,4 +1,4 @@
-.label-agree-term {
+.checkbuttonlab {
     position: relative;
     font-size: 20px;
     top: 0%;
@@ -9,7 +9,7 @@
     -ms-transform: translateY(0); }
   
     
-.agree-term {
+.checkbutton {
     display: inline-block;
     word-break: break-all;
     font-size: 20px;

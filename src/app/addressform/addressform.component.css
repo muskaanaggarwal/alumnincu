@@ -7,7 +7,7 @@ html {
   font-size: 100%;
 }
 
-body {
+.body {
   max-width: 85rem;
   margin: 0 auto;
   font-size: 1rem;
