@@ -16,6 +16,8 @@ export class JobformComponent implements OnInit {
   jobForm: FormGroup;
   saved: boolean;
   ask: boolean;
+  submitted = false;
+
   successMessage: string;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
@@ -44,6 +46,17 @@ export class JobformComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.jobForm = this.jobForm;
   }
+  
+  get f() { return this.jobForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.jobForm.invalid) {
+      return;
+    }
+this.postJob()
+}
   checkSaved() {
     if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"

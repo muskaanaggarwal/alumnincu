@@ -13,6 +13,8 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class Job2formComponent implements OnInit {
   job2Form: FormGroup;
   job2 = new Job2model();
+  submitted = false;
+
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
   errorMessage: string;
@@ -39,6 +41,19 @@ export class Job2formComponent implements OnInit {
   ngOnDestroy() {
     this.dataService.job2Form = this.job2Form;
   }
+
+
+  get f() { return this.job2Form.controls; }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.job2Form.invalid) {
+      return;
+    }
+this.postJob()
+}
+
   checkSaved() {
     if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"
