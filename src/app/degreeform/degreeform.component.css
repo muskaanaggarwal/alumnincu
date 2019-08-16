@@ -268,3 +268,7 @@ max-width: 60px;
 				label{
 					white-space: nowrap;
 				} 
+				.mandate:after{
+					content:"*";
+					color:red;
+				}

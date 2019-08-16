@@ -19,7 +19,7 @@
                   <form [formGroup]="degreeForm">
                     <div class="form-group row px-3">
                       <label for="school" class="col-md-3 col-form-label">
-                        <i class="fa fa-university" aria-hidden="true"></i>&nbsp; School
+                        <i class="fa fa-university" aria-hidden="true"></i>&nbsp;<span class="mandate">School</span>
                       </label>
                       <div class="col-md-9">
                         <select id="school" formControlName="school_id" (ngModelChange)="onSchoolChange($event)"
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group row px-3">
                       <label for="program" class="col-md-3 col-form-label">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp; Program
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp; <span class="mandate">Program</span>
                       </label>
                       <div class="col-md-9">
                         <select id="program" formControlName="program_id" (ngModelChange)="onProgramChange($event)"
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group row px-3">
                       <label for="batches" class="col-md-3 col-form-label">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Batch
+                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; <span class="mandate"> Batch</span>
                       </label>
                       <div class="col-md-9">
                         <select id="batches" formControlName="batch_id" (ngModelChange)="onBatchChange($event)"
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group row px-3">
                       <label for="stream" class="col-md-3 col-form-label">
-                        <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Stream
+                        <i class="fa fa-book" aria-hidden="true"></i>&nbsp; <span class="mandate"> Stream</span>
                       </label>
                       <div class="col-md-9">
                         <select id="stream" formControlName="stream_id" (ngModelChange)="onStreamChange($event)"
@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group row px-3">
                       <label for="specialization" class="col-md-3 col-form-label">
-                        <i class="fa fa-star" aria-hidden="true"></i>&nbsp; Specialization
+                        <i class="fa fa-star" aria-hidden="true"></i>&nbsp;<span class="mandate"> Specialization</span>
                       </label>
                       <div class="col-md-9">
                         <select id="specialization" formControlName="specialization_id" class="form-control mb-2"

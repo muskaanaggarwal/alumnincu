@@ -53,8 +53,13 @@ export class Job2formComponent implements OnInit {
     if (this.job2Form.invalid) {
       return;
     }
+    
 this.postJob()
 }
+get myForm() {
+  return this.job2Form.get('campus_or_current');
+}
+
 
   checkSaved() {
     if (!this.saved) {

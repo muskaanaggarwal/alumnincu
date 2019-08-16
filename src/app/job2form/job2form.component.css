@@ -15,3 +15,8 @@
     font-size: 20px;
 
     width: auto; }
+    .err{
+        color:#dc3545;
+        margin-bottom: 20px;
+        margin-left:35px;
+    }

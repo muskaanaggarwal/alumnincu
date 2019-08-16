@@ -43,20 +43,29 @@
                   <div class="form-group col-md-2">
 
                   </div>
+
+                  
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
-                      <input type="radio" name="campus_or_current" value="3" formControlName="campus_or_current"
-                        id="agree-term" class="radio-term" />
-                      <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Self-Employed</label>
-                    </div>
-                  </div>
-                  <div class="form-group col-md-4 center">
-                    <div class="form-group">
-                      <input type="radio" name="campus_or_current" value="4" formControlName="campus_or_current"
-                        id="agree-term" class="radio-term" />
+                      <input type="radio" value="1" formControlName="campus_or_current"   >
                       <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Corporate</label>
+                      
                     </div>
                   </div>
+                   
+               
+                  <div class="form-group col-md-4 center">
+                    <div class="form-group">
+                      <input type="radio" value="2" formControlName="campus_or_current"   >
+                      <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Self Employed</label>
+                      
+                    </div>
+                  </div>
+                   
+                    <div *ngIf="submitted && myForm.errors?.required" class="err">
+                      <p>Please select either value</p>
+                   </div>
+                  
                 </div><br><br>
                 <div class="form-row">
                   <div class="form-group col-md-6">
