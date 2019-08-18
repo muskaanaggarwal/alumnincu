@@ -51,15 +51,15 @@
                 <div class="col-lg-1"></div>
               </div>
               <form class="box">
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-facebook"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Facebook">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-facebook"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="facebook" placeholder="Facebook">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-linkedin"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Linkedin">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-linkedin"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="linkedin" placeholder="Linkedin">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-twitter"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Twitter">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-twitter"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="twitter" placeholder="Twitter">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Spouse Name">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="spouse_name" placeholder="Spouse Name">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-heart"></i></span><input class="form-control form-control-mb-2" type="text"  onfocus="(this.type='date')" 
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-heart"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="anniversary_date" onfocus="(this.type='date')" 
                     placeholder="Anniversary Date">
                 </div>
 
@@ -78,7 +78,7 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
       <div class="col-lg-3">
-        <button type="button" class=" btn2 btn btn-primary btn-lg">Save</button></div>
+        <button type="button" class=" btn2 btn btn-primary btn-lg" (click)="postPersonalDetails()">Save</button></div>
       <div class="col-lg-3"></div>
     </div>
   </div>
