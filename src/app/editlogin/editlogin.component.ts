@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Router } from '@angular/router';
-import { MustMatch } from '../_helpers/must-match.validator';
+// import { MustMatch } from '../_helpers/must-match.validator';
 
 
 
@@ -23,11 +23,17 @@ export class EditloginComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
+      oldpassword: [''],
+      roll_no: [''],
+      email: [''],
+      // contact: [''],
+      date_of_birth: [''],
+      first_name: [''],
+      last_name: [''],
+      accepted: [''],
+      isverified: [false],
       password: [''],
-      newpassword: ['', [Validators.required, Validators.minLength(8)]],
-      confirmnewpassword: ['', Validators.required]
-  }, {
-      validator: MustMatch('newpassword', 'confirmnewPassword')
+      confirmpassword: ['']
   });
   }
 
@@ -47,6 +53,8 @@ export class EditloginComponent implements OnInit {
     this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
     },
       (error: any) => {
+        console.log(error);
+
       });
   }
 

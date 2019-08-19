@@ -49,20 +49,20 @@
                 <div class="col-lg-10"><b>ADDRESS DETAILS</b></div>
                 <div class="col-lg-1"></div>
               </div>
-              <form class="box">
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-address-card"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="AddressLine 1">
+              <form class="box" [formGroup]="addressForm">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-address-card"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="address_line_1" placeholder="AddressLine 1">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-address-card"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="AddressLine 2">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-address-card"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="address_line_2" placeholder="AddressLine 2">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-address-card"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="AddressLine 3">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-address-card"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="address_line_3" placeholder="AddressLine 3">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Country">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="country" placeholder="Country">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="State">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="state" placeholder="State">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="City">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="city" placeholder="City">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Postal Code">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="pincode" placeholder="Postal Code">
                 </div>
               </form>
 
@@ -79,7 +79,7 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
       <div class="col-lg-3">
-        <button type="button" class=" btn2 btn btn-primary btn-lg">Save</button></div>
+        <button type="submit" class=" btn2 btn btn-primary btn-lg" (click)="postAddress()">Save</button></div>
       <div class="col-lg-3"></div>
     </div>
   </div>
