@@ -16,7 +16,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <form [formGroup]="degreeForm">
+                  <form [formGroup]="degreeForm" (ngSubmit)="onSubmit()">
                     <div class="form-group row px-3">
                       <label for="school" class="col-md-3 col-form-label">
                         <i class="fa fa-university" aria-hidden="true"></i>&nbsp;<span class="mandate">School</span>
@@ -27,6 +27,9 @@
                           <option *ngFor="let sch of Schools" [value]="sch.school_id">
                             {{ sch.school_name }}</option>
                         </select>
+                        <div class="invalid-feedback" *ngIf="submitted && schoolName.errors?.required">
+                          <sup>*</sup>Please enter your city name
+                       </div>
                       </div>
                     </div>
                     <div class="form-group row px-3">
