@@ -1,7 +1,8 @@
 <navbar></navbar>
 <body><br><br>
-
+  
   <div class="container">
+      <form [formGroup]="signupForm" (ngsubmit)="onSubmit()">
     <div class="center"><b>
         <h1>EDIT PROFILE</h1>
       </b><br><br></div>
@@ -49,14 +50,15 @@
                 <div class="col-lg-10"><b>LOGIN DETAILS</b></div>
                 <div class="col-lg-1"></div>
               </div>
-              <form class="box" [formGroup]="signupForm">
+              <div class="box">
                 <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="oldpassword" placeholder="Old password">
                 </div>
                 <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="password" placeholder="New password">
                 </div>
                 <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="confirmpassword" placeholder="Confirm password">
-                </div>                
-              </form>
+                </div> 
+                               
+              </div>
             </div>
           </div>
         </div>
@@ -69,8 +71,10 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
       <div class="col-lg-3">
-        <button type="button" class=" btn2 btn btn-primary btn-lg" (click)="signup()">Save</button></div>
+        <button type="submit" class=" btn2 btn btn-primary btn-lg">Save</button></div>
       <div class="col-lg-3"></div>
     </div>
+  </form>
   </div>
+ 
 </body>

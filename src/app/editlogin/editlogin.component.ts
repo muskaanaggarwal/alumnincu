@@ -41,13 +41,13 @@ export class EditloginComponent implements OnInit {
   get f() { return this.signupForm.controls; }
   onSubmit() {
     this.submitted = true;
+    console.log(1)
 
     // stop here if form is invalid
     if (this.signupForm.invalid) {
       return;
     }
     this.signup();
-     this.route.navigateByUrl('/alumni');
 }
   signup() {
     this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {

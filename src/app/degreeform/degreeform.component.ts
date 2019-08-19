@@ -36,12 +36,13 @@ export class DegreeformComponent implements OnInit {
   successMessage: string;
   saved: boolean;
 
+  submitted = false;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) {
 
   }
   ngOnInit() {
     this.degreeForm = this.formBuilder.group({
-      school_id: [''],
+      school_id: ['',Validators.required],
       program_id: [''],
       stream_id: [''],
       specialization_id: ['', Validators.required],
@@ -90,6 +91,16 @@ export class DegreeformComponent implements OnInit {
         console.log("Error in fetching details", error);
       });
   }
+  onSubmit() {
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.degreeForm.invalid) {
+      return;
+    }
+this.postPersonalDetails()
+}
   ngOnDestroy() {
     this.dataService.degreeForm = this.degreeForm;
   }
@@ -151,7 +162,12 @@ export class DegreeformComponent implements OnInit {
   onSpecializationChange(key: number) {
     this.current_specialization = key;
   }
-
+  changeSchool(e) {
+    console.log(e.value)
+    this.schoolName.setValue(e.target.value, {
+      onlySelf: true
+    })
+  }
   checkSaved() {
     if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"
@@ -159,6 +175,9 @@ export class DegreeformComponent implements OnInit {
     else {
       this.route.navigateByUrl('/jobform');
     }
+  }
+  get schoolName() {
+    return this.degreeForm.get('school_id');
   }
 
   postPersonalDetails() {
