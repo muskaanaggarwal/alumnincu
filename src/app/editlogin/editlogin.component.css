@@ -107,7 +107,12 @@ h1, h5 {
     margin-top:-10px;
     margin-bottom: 40px;
 }
-
+.lable1{margin-left:100px;}
+.lable2{margin-left:100px;}
+.line2{
+	margin-top:10px;
+	margin-bottom:10px;
+}
 
 	
 	
@@ -219,7 +224,7 @@ h1{
 	outline: none!important;
 	border-radius:10px;
 	border: none;
-	margin-left:90px;
+	
 	
 }
 	.btn2:change {
@@ -247,4 +252,9 @@ h1{
 
 }
 
-
+.s{
+	text-align: center;
+}
+.h{
+	text-align: center;
+}

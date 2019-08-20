@@ -1,4 +1,5 @@
 <navbar></navbar>
+
 <body><br><br>
 
   <div class="container">
@@ -49,17 +50,25 @@
                 <div class="col-lg-10"><b>DEGREE DETAILS</b></div>
                 <div class="col-lg-1"></div>
               </div>
-              <form class="box">
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-university"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="School">
+              <form [formGroup]="degreeForm">
+                <div class="input-group row"><span class="input-group-addon"><i
+                      class="fa fa-university"></i></span><input formControlName="school_id" class="form-control form-control-mb-2" type="text"
+                    placeholder="School">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Program">
+                <div class="input-group row"><span class="input-group-addon"><i
+                      class="fa fa-graduation-cap"></i></span><input formControlName="program_id" class="form-control form-control-mb-2" type="text"
+                    placeholder="Program">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Batch">
+                <div class="input-group row"><span class="input-group-addon"><i
+                      class="fa fa-graduation-cap"></i></span><input formControlName="batch_id" class="form-control form-control-mb-2" type="text"
+                    placeholder="Batch">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Stream ">
+                <div class="input-group row"><span class="input-group-addon"><i
+                      class="fa fa-graduation-cap"></i></span><input formControlName="stream_id" class="form-control form-control-mb-2" type="text"
+                    placeholder="Stream ">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-star"></i></span><input class="form-control form-control-mb-2" type="text"
-                    placeholder="Specialization">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-star"></i></span><input formControlName="specialization_id"
+                    class="form-control form-control-mb-2" type="text" placeholder="Specialization">
                 </div>
               </form>
 
@@ -70,14 +79,18 @@
       </div>
       <div class="col-lg-1"></div>
     </div>
-
-
-    <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
-      <div class="col-lg-3">
-        <button type="button" class=" btn2 btn btn-primary btn-lg">Save</button></div>
-      <div class="col-lg-3"></div>
-    </div>
   </div>
+
+
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-3 "></div>
+        <div class="col-lg-3 h"><button type="button" class=" btn2 btn btn-primary btn-lg " routerLink="/dashboard">Home</button></div>
+        <div class="col-lg-3 s">
+          <button type="submit" disabled class=" btn2 btn btn-primary btn-lg">Save</button></div>
+        <div class="col-lg-3"></div>
+      </div>
+      </div>
+      <div class="col-lg-3"></div>
+
 </body>
