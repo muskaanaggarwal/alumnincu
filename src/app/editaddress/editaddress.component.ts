@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-editaddress',
   templateUrl: './editaddress.component.html',
-  styleUrls: ['./editaddress.component.css']
+  styleUrls: ['../editlogin/editlogin.component.css']
 })
 export class EditaddressComponent implements OnInit {
   
@@ -14,6 +14,8 @@ export class EditaddressComponent implements OnInit {
   saved: boolean;
   errorMessage: string;
   successMessage: string;
+  submitted = false;
+
 
   url = 'http://localhost:9800/addressform';
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
@@ -43,6 +45,19 @@ export class EditaddressComponent implements OnInit {
   //     this.route.navigateByUrl('/personalform');
   //   }
   // }
+
+  
+
+  get f() { return this.addressForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.addressForm.invalid) {
+      return;
+    }
+    this.postAddress();
+}
 
   postAddress() {
     if (!this.saved) {

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-editpersonal',
   templateUrl: './editpersonal.component.html',
-  styleUrls: ['./editpersonal.component.css']
+  styleUrls: ['../editlogin/editlogin.component.css']
 })
 export class EditpersonalComponent implements OnInit {
 
@@ -15,6 +15,7 @@ export class EditpersonalComponent implements OnInit {
   saved: boolean;
   successMessage: string;
   url = 'http://localhost:9800/personal_detailsform';
+  submitted=false;
 
 
 
@@ -30,7 +31,17 @@ export class EditpersonalComponent implements OnInit {
 
     });
   }
-  
+  get f() { return this.personalForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.personalForm.invalid) {
+      return;
+    }
+    this.postPersonalDetails();
+}
+
 
   postPersonalDetails() {
       this.errorMessage = "";
@@ -43,14 +54,14 @@ export class EditpersonalComponent implements OnInit {
           this.successMessage = "Saved successfully! Click next to proceed";
         },
           (error: any) => {
-            this.errorMessage = error.message;
+            // this.errorMessage = error.message;
             console.log(error);
           });
       }
-      else {
-        this.saved = false;
-        this.errorMessage = "Please fill all the details";
-      }
+      // else {
+      //   this.saved = false;
+      //   this.errorMessage = "Please fill all the details";
+      // }
     }
   }
 

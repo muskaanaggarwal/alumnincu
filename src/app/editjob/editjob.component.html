@@ -1,5 +1,7 @@
 <navbar></navbar>
 <body><br><br>
+  <form (ngSubmit)="onSubmit()"  [formGroup]="jobForm" >
+
 
   <div class="container">
     <div class="center"><b>
@@ -61,19 +63,19 @@
                   class="form-check-input input2" type="radio" id="inlineCheckbox1" name="option1">
               </div>
 
-              <form class="box" [formGroup]="jobForm">
+              <div class="box">
 
 
 
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-building"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="company_name" placeholder="Company Name">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-building"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Company Name">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-black-tie"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="designation" placeholder="Designation">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-black-tie"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Designation">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="company_city" placeholder="Company City">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-globe"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Company City">
                 </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-wifi"></i></span><input class="form-control form-control-mb-2" type="text" formControlName="website" placeholder="Website">
+                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-wifi"></i></span><input class="form-control form-control-mb-2" type="text" placeholder="Website">
                 </div>
-              </form>
+              </div>
 
 
             </div>
@@ -88,8 +90,9 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-3"><button type="button" class=" btn2 btn btn-primary btn-lg">Home</button></div>
       <div class="col-lg-3">
-        <button type="button" class=" btn2 btn btn-primary btn-lg" (click)="postJob()">Save</button></div>
+        <button type="submit" class=" btn2 btn btn-primary btn-lg">Save</button></div>
       <div class="col-lg-3"></div>
     </div>
   </div>
+  </form>
 </body>

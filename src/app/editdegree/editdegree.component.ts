@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-editdegree',
   templateUrl: './editdegree.component.html',
-  styleUrls: ['./editdegree.component.css']
+  styleUrls: ['../editlogin/editlogin.component.css']
 })
 export class EditdegreeComponent implements OnInit {
   degreeForm: FormGroup;
