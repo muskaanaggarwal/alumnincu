@@ -24,14 +24,7 @@ export class EditloginComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
       oldpassword: [''],
-      roll_no: [''],
-      email: [''],
-      // contact: [''],
-      date_of_birth: [''],
-      first_name: [''],
-      last_name: [''],
-      accepted: [''],
-      isverified: [false],
+      
       password: [''],
       confirmpassword: ['']
   });
