@@ -28,6 +28,8 @@ import { EditaddressComponent } from './editaddress/editaddress.component';
 import { EditpersonalComponent } from './editpersonal/editpersonal.component';
 import { EditjobComponent } from './editjob/editjob.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { Editjob2Component } from './editjob2/editjob2.component';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
@@ -57,6 +59,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EditpersonalComponent,
     EditjobComponent,
     DashboardComponent,
+ 
+    Editjob2Component,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       { path: 'editpersonal', component: EditpersonalComponent },
       { path: 'editjob', component: EditjobComponent },
       { path: 'dashboard', component: DashboardComponent },
+      
+      {path:'editjob2',component:Editjob2Component},
       { path: '**', redirectTo: '' }
     ])
   ],
