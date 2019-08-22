@@ -12,10 +12,9 @@ export class EditpersonalComponent implements OnInit {
 
   personalForm: FormGroup;
   errorMessage: string;
-  saved: boolean;
   successMessage: string;
   url = 'http://localhost:9800/personal_detailsform';
-  submitted=false;
+  details: object;
 
 
 
@@ -30,39 +29,45 @@ export class EditpersonalComponent implements OnInit {
       anniversary_date: [''],
 
     });
-  }
-  get f() { return this.personalForm.controls; }
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.personalForm.invalid) {
+    if (!this.dataService.user) {
+      this.route.navigateByUrl('/alumni');
       return;
     }
-    this.postPersonalDetails();
-}
-
-
-  postPersonalDetails() {
-      this.errorMessage = "";
-      if (this.personalForm.valid) {
-        // this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
-        // this.personalForm.value['batch_id'] = this.dataService.degreeForm.value['batch_id'];
-        // this.personalForm.value['specialization_id'] = this.dataService.degreeForm.value['specialization_id'];
-        this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
-          this.saved = true;
-          this.successMessage = "Saved successfully! Click next to proceed";
-        },
-          (error: any) => {
-            // this.errorMessage = error.message;
-            console.log(error);
-          });
-      }
-      // else {
-      //   this.saved = false;
-      //   this.errorMessage = "Please fill all the details";
-      // }
+    else {
+      this.dataService.get("http://localhost:9800/details?id="+this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+        this.details = data[0];
+      },
+      (error) => {
+        console.log(error);
+      });
+    }
+    if (this.dataService.personalForm) {
+      this.personalForm = this.dataService.personalForm;
     }
   }
+  ngOnDestroy() {
+    this.dataService.personalForm = this.personalForm;
+  }
+
+  postPersonalDetails() {
+    console.log("1");
+    if (this.personalForm.valid) {
+      this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
+      this.personalForm.value['batch_id'] = this.details['batch_id'];
+      this.personalForm.value['specialization_id'] = this.details['specialization_id'];
+      this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
+        this.successMessage = "Saved successfully! Click next to proceed";
+        console.log(this.personalForm.value);
+      },
+        (error: any) => {
+          this.errorMessage = error.message;
+          console.log(error);
+        });
+    }
+    else {
+      this.errorMessage = "Please fill all the details";
+    }
+  }
+}
 
 
