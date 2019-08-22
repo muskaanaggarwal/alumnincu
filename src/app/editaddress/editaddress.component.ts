@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
 export class EditaddressComponent implements OnInit {
   
   addressForm: FormGroup;
-  errorMessage: string;
-  successMessage: string;
-  submitted = false;
-
-
+  // errorMessage: string;
+  // successMessage: string;
+  // submitted = false;
   url = 'http://localhost:9800/addressform';
+  addressurl = "http://localhost:9800/address/details?id=";
+  address_id: number;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -33,7 +33,27 @@ export class EditaddressComponent implements OnInit {
       this.route.navigateByUrl('/alumni');
       return;
     }
-    if (this.dataService.addressForm) {
+    this.dataService.get(this.addressurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+      this.addressForm.patchValue({
+        address_line_1: data['address_line_1'],
+        address_line_2: data['address_line_2'],
+        address_line_3: data['address_line_3'],
+        city: data['city'],
+        state: data['state'],
+        country: data['country'],
+        pincode: data['pincode'],
+
+
+
+      } );
+      this.address_id = data['address_id'];
+
+      
+    },
+    (error: any) => {
+      console.log("Error in fetching details", error);
+    });
+        if (this.dataService.addressForm) {
       this.addressForm = this.dataService.addressForm;
     }
   }
@@ -45,15 +65,18 @@ export class EditaddressComponent implements OnInit {
   postAddress() {
       if (this.addressForm.valid && this.dataService.user['roll_no'] != undefined) {
         this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
+        this.addressForm.value['address_id'] = this.address_id;
+        // console.log(this.addressForm.value);
+
         this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
-          this.successMessage = "Saved successfully! Click next to proceed"
+          // this.successMessage = "Saved successfully! Click next to proceed"
         },
           (error: any) => {
-            this.errorMessage = error.message;
+            // this.errorMessage = error.message;
           });
       }
       else {
-        this.errorMessage = 'Please fill all the details';
+        // this.errorMessage = 'Please fill all the details';
       }
     }
   
