@@ -30,6 +30,7 @@ export class PersonalformComponent implements OnInit {
       this.route.navigateByUrl('/alumni');
       return;
     }
+    
     if (this.dataService.personalForm) {
       this.personalForm = this.dataService.personalForm;
     }

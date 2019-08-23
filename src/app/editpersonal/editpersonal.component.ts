@@ -14,8 +14,10 @@ export class EditpersonalComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   url = 'http://localhost:9800/personal_detailsform';
+  personalurl = "http://localhost:9800/personal/details?id=";
   details: object;
-
+ batch_id: string;
+ specialization_id:number;
 
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
@@ -29,11 +31,12 @@ export class EditpersonalComponent implements OnInit {
       anniversary_date: [''],
 
     });
+
     if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');
       return;
     }
-    else {
+    else{
       this.dataService.get("http://localhost:9800/details?id="+this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
         this.details = data[0];
       },
@@ -41,6 +44,25 @@ export class EditpersonalComponent implements OnInit {
         console.log(error);
       });
     }
+    
+    this.dataService.get(this.personalurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+      this.personalForm.patchValue({
+        spouse_name: data['spouse_name'],
+        anniversary_date: data['anniversary_date'],
+        facebook: data['facebook'],
+        twitter: data['twitter'],
+        linkedin: data['linkedin'],
+       
+
+
+      } );
+      this.batch_id = data['batch_id'];
+      this.specialization_id = data['specialization_id'];
+      
+    },
+    (error: any) => {
+      console.log("Error in fetching details", error);
+    });
     if (this.dataService.personalForm) {
       this.personalForm = this.dataService.personalForm;
     }
@@ -55,6 +77,8 @@ export class EditpersonalComponent implements OnInit {
       this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
       this.personalForm.value['batch_id'] = this.details['batch_id'];
       this.personalForm.value['specialization_id'] = this.details['specialization_id'];
+      this.personalForm.value['batch_id'] = this.batch_id;
+      this.personalForm.value['specialization_id'] = this.specialization_id;
       this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
         this.successMessage = "Saved successfully! Click next to proceed";
         console.log(this.personalForm.value);
