@@ -14,23 +14,47 @@ import { MustMatch } from '../_helpers/must-match.validator';
 })
 export class EditloginComponent implements OnInit {
   errorMessage: string;
-  check: Boolean =false;
+  check: Boolean = false;
   submitted = false;
   signupForm: FormGroup;
+  details: object;
+  verified: boolean;
   url = 'http://localhost:9800/signup';
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
     this.errorMessage = null;
     this.signupForm = this.formBuilder.group({
-      
+
       oldpassword: [''],
-   
+
       password: [''],
       confirmPassword: ['']
-  }, {
-      // validator: MustMatch('password', 'confirmPassword')
-  });
+    }, {
+        //validator: MustMatch('password', 'confirmPassword')
+      });
+    if (!this.dataService.user) {
+      this.route.navigateByUrl('/alumni');
+      return;
+    }
+    else {
+      this.dataService.get("http://localhost:9800/change?id=" + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+        this.details = data[0];
+        // // this.signupForm.patchValue({
+        // //   oldpassword: ['', Validators.pattern("/^" + data[0]['password'] + "$/")],
+        // // }
+        // );
+      },
+        (error) => {
+          console.log(error);
+        });
+    }
+    if (this.dataService.signupForm) {
+      this.signupForm = this.dataService.signupForm;
+    }
+  }
+  ngOnDestroy() {
+    this.dataService.signupForm = this.signupForm;
   }
   get f() { return this.signupForm.controls; }
   onSubmit() {
@@ -41,15 +65,34 @@ export class EditloginComponent implements OnInit {
       return;
     }
     this.signup();
-    
-}
-  signup() {
-    this.errorMessage = "";
 
-    this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
-    },
-      (error: any) => {
-      });
+  }
+  signup() {
+    if (this.signupForm.valid) {
+      this.errorMessage = "";
+      this.signupForm.value['roll_no'] = this.details['roll_no'];
+      this.signupForm.value['email'] = this.details['email'];
+      this.signupForm.value['contact'] = this.details['contact'];
+      this.signupForm.value['date_of_birth'] = this.details['date_of_birth'];
+      this.signupForm.value['first_name'] = this.details['first_name'];
+      this.signupForm.value['last_name'] = this.details['last_name'];
+      if (this.details['isverified'] == 1) {
+        this.verified = true;
+      }
+      else {
+        this.verified = false;
+      }
+      this.signupForm.value['isverified'] = this.verified;
+      this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
+      },
+        (error: any) => {
+          this.errorMessage = error.message;
+          console.log(error);
+        });
+    }
+    else {
+      console.log(this.signupForm.value);
+    }
   }
 
 }

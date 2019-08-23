@@ -1,29 +1,29 @@
 <navbar></navbar>
-  <div class="body"><br><br>
-    <form [formGroup]="job2Form" (ngSubmit)="onSubmit()">
+<div class="body"><br><br>
+  <form [formGroup]="job2Form" (ngSubmit)="onSubmit()">
 
-  <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
-  <div class="cards border-dark">
+    <h1 class="center"><b>Alumni Registration Form</b></h1><br><br>
+    <div class="cards border-dark">
 
-    <div class="cardclass card-item">
-      <div class="card-body">
-        <div class="parent">
-          <div class="child">
-            <h5><b>DEGREE DETAILS</b></h5>
+      <div class="cardclass card-item">
+        <div class="card-body">
+          <div class="parent">
+            <div class="child">
+              <h5><b>DEGREE DETAILS</b></h5>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="card-item itemclass">
-      <div class="card-body">
+      <div class="card-item itemclass">
+        <div class="card-body">
 
-        <div class="form-row">
-          <div class="form-group col-2">
-            <img class="leftslider" routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
-          </div>
+          <div class="form-row">
+            <div class="form-group col-2">
+              <img class="leftslider" routerLink="/jobform" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+            </div>
 
-          <div class="form-group col-8">
+            <div class="form-group col-8">
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <h2 class="card-title center"><b>CURRENT JOB DETAILS</b></h2>
@@ -44,40 +44,41 @@
 
                   </div>
 
-                  
+
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
-                      <input type="radio" value="1" formControlName="campus_or_current"   >
+                      <input type="radio" value="3" formControlName="campus_or_current">
                       <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Corporate</label>
-                      
+
                     </div>
                   </div>
-                   
-               
+
+
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
-                      <input type="radio" value="2" formControlName="campus_or_current"   >
+                      <input type="radio" value="4" formControlName="campus_or_current">
                       <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Self Employed</label>
-                      
+
                     </div>
                   </div>
-                   
-                    <div *ngIf="submitted && myForm.errors?.required" class="err">
-                      <p>Please select either value</p>
-                   </div>
-                  
+
+                  <div *ngIf="submitted && myForm.errors?.required" class="err">
+                    <p>Please select either value</p>
+                  </div>
+
                 </div><br><br>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <div class="form-group">
                       <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
                           width="20px"></label>
-                      <input type="text" formControlName="company_name" [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }" id="company_name" class="form-control mb-2"
-                        placeholder="Company Name">
-                        <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
-                          <div *ngIf="f.company_name.errors.required">Company name is required</div>
-            
-                        </div>
+                      <input type="text" formControlName="company_name"
+                        [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }" id="company_name"
+                        class="form-control mb-2" placeholder="Company Name">
+                      <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
+                        <div *ngIf="f.company_name.errors.required">Company name is required</div>
+
+                      </div>
                     </div>
                     <div class="form-group">
                       <label><img src="https://cdn2.iconfinder.com/data/icons/accounting-auditors-1/66/56-512.png"
@@ -103,64 +104,64 @@
                   </div>
                 </div>
               </div>
-          </div>
-          <div class="form-group col-2">
-            <img class="rightslider" (click)="checkSaved()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+            </div>
+            <div class="form-group col-2">
+              <img class="rightslider" (click)="checkSaved()" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <div class="cardclass card-item">
-      <div class="card-body">
-        <div class="parent">
-          <div class="child">
-            <h5><b>ADDRESS DETAILS</b></h5>
+      <div class="cardclass card-item">
+        <div class="card-body">
+          <div class="parent">
+            <div class="child">
+              <h5><b>ADDRESS DETAILS</b></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cardclass card-item">
+        <div class="card-body">
+          <div class="parent">
+            <div class="child">
+              <h5><b>PERSONAL DETAILS</b></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cardclass card-item">
+        <div class="card-body">
+          <div class="parent">
+            <div class="child">
+              <h5><b>SOCIAL LINK DETAILS</b></h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="cardclass card-item">
-      <div class="card-body">
-        <div class="parent">
-          <div class="child">
-            <h5><b>PERSONAL DETAILS</b></h5>
+    <div class="center formbutton">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 mt-3">
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+          <div *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
           </div>
         </div>
-      </div>
-    </div>
-    <div class="cardclass card-item">
-      <div class="card-body">
-        <div class="parent">
-          <div class="child">
-            <h5><b>SOCIAL LINK DETAILS</b></h5>
-          </div>
+        <div class="col-4"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/dashboard">Home</button>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="center formbutton">
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4 mt-3">
-        <div *ngIf="errorMessage" class="alert alert-danger">
-          {{ errorMessage }}
+        <div class="col-md-3"> <button type="submit" class="btn btn-warning save">Save</button>
         </div>
-        <div *ngIf="successMessage" class="alert alert-success">
-          {{ successMessage }}
-        </div>
-      </div>
-      <div class="col-4"></div>
-      <div class="col-md-3"></div>
-      <div class="col-md-3"> <button type="button" class="btn btn-warning back" routerLink="/dashboard">Home</button>
-      </div>
-      <div class="col-md-3"> <button type="submit" class="btn btn-warning save" >Save</button>
-      </div>
-      <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
 
 
+      </div>
     </div>
-  </div>
   </form>
 </div>

@@ -18,9 +18,6 @@ export class JobformComponent implements OnInit {
   saved: boolean;
   ask: boolean;
   submitted = false;
-   
-  
-
   successMessage: string;
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
@@ -28,14 +25,15 @@ export class JobformComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
-    
+
     this.jobForm = this.formBuilder.group({
       designation: [''],
       company_name: ['', Validators.required],
       company_city: [''],
       website: [''],
       campus_or_current: ['', Validators.required],
-      
+      isselfemployed: ['0'],
+
 
     });
     if (!this.dataService.user) {
@@ -55,7 +53,7 @@ export class JobformComponent implements OnInit {
   get myForm() {
     return this.jobForm.get('campus_or_current');
   }
-  
+
   get f() { return this.jobForm.controls; }
   onSubmit() {
     this.isSubmitted = true;
@@ -65,8 +63,8 @@ export class JobformComponent implements OnInit {
     if (this.jobForm.invalid) {
       return;
     }
-this.postJob()
-}
+    this.postJob()
+  }
   checkSaved() {
     if (!this.saved) {
       this.errorMessage = "Please click save before you proceed!"
