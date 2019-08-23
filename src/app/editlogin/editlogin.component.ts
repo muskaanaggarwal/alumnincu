@@ -28,10 +28,10 @@ export class EditloginComponent implements OnInit {
 
       oldpassword: [''],
 
-      password: [''],
+      password: ['', Validators.minLength(8)],
       confirmPassword: ['']
     }, {
-        //validator: MustMatch('password', 'confirmPassword')
+        validator: MustMatch('password', 'confirmPassword')
       });
     if (!this.dataService.user) {
       this.route.navigateByUrl('/alumni');

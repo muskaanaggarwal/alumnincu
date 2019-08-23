@@ -24,10 +24,10 @@ export class Editjob2Component implements OnInit {
 
     this.job2Form = this.formBuilder.group({
       designation: [''],
-      company_name: [''],
+      company_name: ['',Validators.required],
       company_city: [''],
       website: [''],
-      campus_or_current: [''],
+      campus_or_current: ['',Validators.required],
 
 
     });

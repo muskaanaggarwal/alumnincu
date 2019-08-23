@@ -201,7 +201,7 @@ text-align: center;
 .maincard{
 	padding:0px;
 	padding-left:0px;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 h1{
 	font-weight: 700;
@@ -265,4 +265,27 @@ h1{
 margin-right:7px;
 }
 #offcampus{
-	margin-right:22px;}
+	margin-right:39px;}
+#selfemployed{
+
+	margin-right:39px;
+}
+
+.invalid-feedback{
+	margin-left:40px;
+}
+.alert-success{
+	
+   text-align:center;
+
+}
+.foraddress{
+	padding:0px;
+	padding-left:0px;
+	margin-top: 20px;
+}
+.err{
+	color:#dc3545;
+	margin-bottom: 20px;
+	margin-left:35px;
+}

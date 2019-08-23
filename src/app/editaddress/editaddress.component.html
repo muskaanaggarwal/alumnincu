@@ -14,8 +14,8 @@
         <div class="col-lg-1 "></div>
         <div class="col-lg-3 bttns ">
           <div class="row 1">
-            <button type="button" routerLink="/editlogin" class=" login btn btn-primary btn-lg btn-block "><span
-                class="text">LOGIN DETAILS</span></button>
+            <button type="button" routerLink="/editlogin" class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN
+                DETAILS</span></button>
           </div>
           <div class="row 2">
             <button type="button" routerLink="/editdegree" class=" login btn btn-primary btn-lg btn-block "><span
@@ -23,28 +23,28 @@
 
           </div>
           <div class="row 3">
-            <button type="button" class=" login btn btn-primary btn-lg btn-block "><span class="text">ADDRESS
-                DETAILS</span></button>
+            <button type="button" routerLink="/editjob" class=" login btn btn-primary btn-lg btn-block "><span
+                class="text">PLACEMENT DETAILS</span></button>
 
           </div>
           <div class="row 4">
-            <button type="button" routerLink="/editjob" class=" login btn btn-primary btn-lg btn-block "><span
+            <button type="button" routerLink="/editjob2" class=" login btn btn-primary btn-lg btn-block "> <span
                 class="text">JOB DETAILS</span></button>
-
           </div>
           <div class="row 5">
+            <button type="button"  class=" login btn btn-primary btn-lg btn-block "><span
+                class="text">ADDRESS </span></button>
+
+          </div>
+          
+          <div class="row 6">
             <button type="button" routerLink="/editpersonal" class=" login btn btn-primary btn-lg btn-block "> <span
                 class="text">PERSONAL DETAILS</span></button>
-
           </div>
-
-          <div class="row 6">
-            <button type="button" routerLink="/editjob2" class=" login btn btn-primary btn-lg btn-block "> <span
-                class="text">CURRENT JOB</span></button>
-          </div>
+          
         </div>
         <div class=col-lg-1></div>
-        <div class="col-lg-6 maincard">
+        <div class="col-lg-6 foraddress">
 
           <div class="cards border-dark">
 
@@ -53,7 +53,7 @@
               <div class="card-body col-lg-12">
                 <div class="row logindetails">
                   <div class="col-lg-1"></div>
-                  <div class="col-lg-10"><b>ADDRESS DETAILS</b></div>
+                  <div class="col-lg-10"><b>ADDRESS</b></div>
                   <div class="col-lg-1"></div>
                 </div>
                 <div class="box">
@@ -83,6 +83,9 @@
                       class="form-control form-control-mb-2" type="text" formControlName="pincode"
                       placeholder="Postal Code">
                   </div>
+                  <div *ngIf="successMessage" class="alert alert-success">
+                    {{ successMessage }}
+                  </div>
                 </div>
 
               </div>
@@ -96,9 +99,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3 "></div>
-        <div *ngIf="successMessage" class="alert alert-success">
-          {{ successMessage }}
-        </div>
+       
         <div class="col-lg-3 h"><button type="button" class=" btn2 btn btn-primary btn-lg "
             rourtLink="/dashboard">Home</button></div>
         <div class="col-lg-3 s">
