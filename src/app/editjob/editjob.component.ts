@@ -30,6 +30,7 @@ export class EditjobComponent implements OnInit {
         company_city: [''],
         website: [''],
         campus_or_current: [''],
+        isselfemployed:['0'],
         
   
       });
