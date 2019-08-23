@@ -55,22 +55,43 @@
                 </div>
                 <div id="differentbox">
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                      class="form-control form-control-mb-2" formControlName="oldpassword" type="text"
+                      class="form-control form-control-mb-2" formControlName="oldpassword" type="password"
                       placeholder="Old Password">
                   </div>
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                      class="form-control form-control-mb-2" formControlName="password" type="text"
+                      class="form-control form-control-mb-2" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" type="password"
                       placeholder="New Password">
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          </div>
                   </div>
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                      class="form-control form-control-mb-2" formControlName="confirmPassword" type="text"
-                      placeholder="Confirm Password">
+                      class="form-control form-control-mb-2" formControlName="confirmPassword" type="password"
+                      placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                        </div>
                   </div>
+                  <div class="col-md-4 p-3">
+                      <div *ngIf="errorMessage" class="alert alert-danger">
+                        {{ errorMessage }}
+                      </div>
+                      <div *ngIf="successMessage" class="alert alert-success">
+                        {{ successMessage }}
+                      </div>
+                    </div>
+
+
                 </div>
+                
 
 
               </div>
+         
             </div>
+         
+            
+            
           </div>
         </div>
         <div class="col-lg-1"></div>
