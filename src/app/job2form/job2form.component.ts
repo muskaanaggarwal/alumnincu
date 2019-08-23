@@ -13,7 +13,7 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class Job2formComponent implements OnInit {
   job2Form: FormGroup;
   job2 = new Job2model();
-  
+
 
   url = 'http://localhost:9800/jobform';
   job_url = 'http://localhost:9800/job2form';
@@ -39,7 +39,7 @@ export class Job2formComponent implements OnInit {
       this.job2Form = this.dataService.job2Form;
     }
   }
-  
+
   ngOnDestroy() {
     this.dataService.job2Form = this.job2Form;
   }
@@ -53,12 +53,12 @@ export class Job2formComponent implements OnInit {
     if (this.job2Form.invalid) {
       return;
     }
-    
-this.postJob()
-}
-get myForm() {
-  return this.job2Form.get('campus_or_current');
-}
+
+    this.postJob()
+  }
+  get myForm() {
+    return this.job2Form.get('campus_or_current');
+  }
 
 
   checkSaved() {
@@ -72,10 +72,17 @@ get myForm() {
   postJob() {
     this.errorMessage = "";
     if (this.job2Form.valid) {
+      if (this.job2Form.value['campus_or_current'] == 4) {
+        this.job2Form.value['isselfemployed'] = 1;
+      }
+      else {
+        this.job2Form.value['isselfemployed'] = 0;
+      }
       this.dataService.alumniportalUser(this.url, this.job2Form.value).subscribe((data: Array<any>) => {
         this.postJobUserRelation(data['company_id']);
         this.saved = true;
-        this.successMessage = "Saved successfully! Click next to proceed"
+        this.successMessage = "Saved successfully! Click next to proceed";
+
       },
         (error: any) => {
           this.errorMessage = error.message;

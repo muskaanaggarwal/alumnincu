@@ -13,7 +13,7 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class EditjobComponent implements OnInit {
     isSubmitted = false;
     jobForm: FormGroup;
-    saved: boolean;
+
     ask: boolean;
     submitted = false;  
     successMessage: string;
@@ -33,16 +33,16 @@ export class EditjobComponent implements OnInit {
         
   
       });
-      // if (!this.dataService.user) {
-      //   this.route.navigateByUrl('/alumni');
-      //   return;
-      // }
-      // if (this.dataService.jobForm) {
-      //   this.jobForm = this.dataService.jobForm;
-      // }
-      // else {
-      //   this.jobForm.value['campus_or_current'] = 0;
-      // }
+      if (!this.dataService.user) {
+        this.route.navigateByUrl('/alumni');
+        return;
+      }
+      if (this.dataService.jobForm) {
+        this.jobForm = this.dataService.jobForm;
+      }
+      else {
+        this.jobForm.value['campus_or_current'] = 0;
+      }
     }
     ngOnDestroy() {
       this.dataService.jobForm = this.jobForm;
@@ -62,23 +62,23 @@ export class EditjobComponent implements OnInit {
       }
   this.postJob()
   }
-    checkSaved() {
-      if (!this.saved) {
-        this.errorMessage = "Please click save before you proceed!"
-      }
-      else {
-        this.route.navigateByUrl('/job2form');
-      }
-    }
+    // checkSaved() {
+    //   if (!this.saved) {
+    //     this.errorMessage = "Please click save before you proceed!"
+    //   }
+    //   else {
+    //     this.route.navigateByUrl('/job2form');
+    //   }
+    // }
   
   
     postJob() {
-      if (!this.saved) {
+      //if (!this.saved) {
         this.errorMessage = "";
         if (this.jobForm.valid) {
           this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
             this.postJobUserRelation(data['company_id']);
-            this.saved = true;
+           // this.saved = true;
             this.successMessage = "Saved successfully! Click next to proceed"
           },
             (error: any) => {
@@ -86,10 +86,10 @@ export class EditjobComponent implements OnInit {
             });
         }
         else {
-          this.saved = false;
+         // this.saved = false;
           this.errorMessage = 'Please fill all the details';
         }
-      }
+      //}
     }
     postJobUserRelation(company_id) {
       let jobUser: JobUserModel = new JobUserModel;

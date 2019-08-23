@@ -16,6 +16,7 @@ export class DataserviceService {
   public addressForm: FormGroup;
   public user: Object;
   public details: Object;
+  public signupForm: FormGroup;
 
   constructor(private http: HttpClient) { }
 

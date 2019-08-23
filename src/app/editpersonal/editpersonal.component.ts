@@ -36,13 +36,13 @@ export class EditpersonalComponent implements OnInit {
       this.route.navigateByUrl('/alumni');
       return;
     }
-    else{
-      this.dataService.get("http://localhost:9800/details?id="+this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+    else {
+      this.dataService.get("http://localhost:9800/details?id=" + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
         this.details = data[0];
       },
-      (error) => {
-        console.log(error);
-      });
+        (error) => {
+          console.log(error);
+        });
     }
     
     this.dataService.get(this.personalurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
@@ -72,7 +72,6 @@ export class EditpersonalComponent implements OnInit {
   }
 
   postPersonalDetails() {
-    console.log("1");
     if (this.personalForm.valid) {
       this.personalForm.value['roll_no'] = this.dataService.user['roll_no'];
       this.personalForm.value['batch_id'] = this.details['batch_id'];

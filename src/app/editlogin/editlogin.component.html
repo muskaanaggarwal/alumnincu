@@ -1,85 +1,93 @@
 <navbar></navbar>
+
 <body><br><br>
- <form (ngSubmit)="onSubmit()"  [formGroup]="signupForm" >
-  <div class="container">
-    <div class="center"><b>
-        <h1>EDIT PROFILE</h1>
-      </b><br><br></div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+    <div class="container">
+      <div class="center"><b>
+          <h1>EDIT PROFILE</h1>
+        </b><br><br></div>
 
 
 
-    <div class="some row">
-      <div class="col-lg-1 "></div>
-      <div class="col-lg-3 bttns ">
-        <div class="row 1">
-          <button type="button" class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN
-              DETAILS</span></button>
-        </div>
-        <div class="row 2">
-          <button type="button"routerLink="/editdegree" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">DEGREE DETAILS</span></button>
+      <div class="some row">
+        <div class="col-lg-1 "></div>
+        <div class="col-lg-3 bttns ">
+          <div class="row 1">
+            <button type="button" class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN
+                DETAILS</span></button>
+          </div>
+          <div class="row 2">
+            <button type="button" routerLink="/editdegree" class=" login btn btn-primary btn-lg btn-block "><span
+                class="text">DEGREE DETAILS</span></button>
 
-        </div>
-        <div class="row 3">
-          <button type="button" routerLink="/editaddress" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">ADDRESS</span></button>
+          </div>
+          <div class="row 3">
+            <button type="button" routerLink="/editaddress" class=" login btn btn-primary btn-lg btn-block "><span
+                class="text">ADDRESS DETAILS</span></button>
 
-        </div>
-        <div class="row 4">
-          <button type="button" routerLink="/editjob" class=" login btn btn-primary btn-lg btn-block "><span
-              class="text">CAMPUS PLACEMENT</span></button>
+          </div>
+          <div class="row 4">
+            <button type="button" routerLink="/editjob" class=" login btn btn-primary btn-lg btn-block "><span
+                class="text">JOB DETAILS</span></button>
 
-        </div>
-        <div class="row 5">
-          <button type="button" routerLink="/editpersonal" class=" login btn btn-primary btn-lg btn-block "> <span
-              class="text">PERSONAL DETAILS</span></button>
-        </div>
-         <div class="row 6">
+          </div>
+          <div class="row 5">
+            <button type="button" routerLink="/editpersonal" class=" login btn btn-primary btn-lg btn-block "> <span
+                class="text">PERSONAL DETAILS</span></button>
+          </div>
+          <div class="row 6">
             <button type="button" routerLink="/editjob2" class=" login btn btn-primary btn-lg btn-block "> <span
                 class="text">CURRENT JOB</span></button>
-           </div>
-      </div>
-      <div class=col-lg-1></div>
-      <div class="col-lg-6 maincard">
+          </div>
+        </div>
+        <div class=col-lg-1></div>
+        <div class="col-lg-6 maincard">
 
-        <div class="cards border-dark">
+          <div class="cards border-dark">
 
 
-          <div class="card-item hello">
-            <div class="card-body col-lg-12">
-              <div class="row logindetails">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10"><b>LOGIN DETAILS</b></div>
-                <div class="col-lg-1"></div>
+            <div class="card-item hello">
+              <div class="card-body col-lg-12">
+                <div class="row logindetails">
+                  <div class="col-lg-1"></div>
+                  <div class="col-lg-10"><b>LOGIN DETAILS</b></div>
+                  <div class="col-lg-1"></div>
+                </div>
+                <div id="differentbox">
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
+                      class="form-control form-control-mb-2" formControlName="oldpassword" type="text"
+                      placeholder="Old Password">
+                  </div>
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
+                      class="form-control form-control-mb-2" formControlName="password" type="text"
+                      placeholder="New Password">
+                  </div>
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
+                      class="form-control form-control-mb-2" formControlName="confirmPassword" type="text"
+                      placeholder="Confirm Password">
+                  </div>
+                </div>
+
+
               </div>
-              <div id="differentbox">
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" formControlName="oldpassword" type="text" placeholder="Old Paasword">
-                </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" formControlName="password" type="text" placeholder="New Password">
-                </div>
-                <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control form-control-mb-2" formControlName="confirmPassword" type="text" placeholder="Confirm Password">
-                </div>
-              </div>
-
-
             </div>
           </div>
         </div>
+        <div class="col-lg-1"></div>
       </div>
-      <div class="col-lg-1"></div>
     </div>
-  </div>
 
     <div class="container">
       <div class="row">
-      <div class="col-lg-3 "></div>
-      <div class="col-lg-3 h"><button type="button" class=" btn2 btn btn-primary btn-lg " routerLink="/dashboard">Home</button></div>
-      <div class="col-lg-3 s">
-        <button type="submit" class=" btn2 btn btn-primary btn-lg">Save</button></div>
-      <div class="col-lg-3"></div>
+        <div class="col-lg-3 "></div>
+        <div class="col-lg-3 h"><button type="button" class=" btn2 btn btn-primary btn-lg "
+            routerLink="/dashboard">Home</button></div>
+        <div class="col-lg-3 s">
+          <button type="submit" class=" btn2 btn btn-primary btn-lg">Save</button></div>
+        <div class="col-lg-3"></div>
+      </div>
     </div>
-    </div>
-    
+
     <div class="col-lg-3"></div>
-</form>
+  </form>
 </body>

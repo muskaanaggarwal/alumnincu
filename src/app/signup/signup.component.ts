@@ -14,32 +14,32 @@ import { MustMatch } from '../_helpers/must-match.validator';
 export class SignupComponent implements OnInit {
 
   errorMessage: string;
-  check: Boolean =false;
+  check: Boolean = false;
   submitted = false;
   signupForm: FormGroup;
   url = 'http://localhost:9800/signup';
   // title = 'alumnincu';
-  
+
   // Register your dataservice using dependency injection
-  
+
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
   ngOnInit() {
     this.errorMessage = null;
     this.signupForm = this.formBuilder.group({
-      roll_no: ['',[Validators.required, Validators.minLength(6),Validators.maxLength(10)]],
+      roll_no: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       email: ['', [Validators.required, Validators.email]],
-      contact: ['',[Validators.required, Validators.minLength(10)]],
-      date_of_birth: ['',Validators.required],
-      first_name: ['',Validators.required],
-      last_name: ['',Validators.required],
-      accepted: ['',Validators.required],
+      contact: ['', [Validators.required, Validators.minLength(10)]],
+      date_of_birth: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      accepted: ['', Validators.required],
       isverified: [false],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required]
-  }, {
-      validator: MustMatch('password', 'confirmPassword')
-  });
-}
+    }, {
+        validator: MustMatch('password', 'confirmPassword')
+      });
+  }
 
 
   get f() { return this.signupForm.controls; }
@@ -51,12 +51,12 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.signup();
-     this.route.navigateByUrl('/alumni');
-}
+    this.route.navigateByUrl('/alumni');
+  }
   signup() {
     this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
     },
-    
+
       (error: any) => {
         console.log(error);
       });
