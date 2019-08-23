@@ -14,7 +14,9 @@ import { MustMatch } from '../_helpers/must-match.validator';
 })
 export class EditloginComponent implements OnInit {
   errorMessage: string;
+  successMessage: string;
   check: Boolean = false;
+  saved: Boolean;
   submitted = false;
   signupForm: FormGroup;
   details: object;
@@ -84,14 +86,15 @@ export class EditloginComponent implements OnInit {
       }
       this.signupForm.value['isverified'] = this.verified;
       this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
+        this.successMessage = "Updated successfully!";
       },
         (error: any) => {
           this.errorMessage = error.message;
-          console.log(error);
         });
     }
     else {
       console.log(this.signupForm.value);
+      this.errorMessage = "No changes made!"
     }
   }
 

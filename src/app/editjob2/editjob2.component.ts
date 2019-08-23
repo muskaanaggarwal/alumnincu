@@ -80,7 +80,8 @@ export class Editjob2Component implements OnInit {
         this.successMessage = "Saved successfully! Click next to proceed"
       },
         (error: any) => {
-          this.errorMessage = error.message;
+          console.log(error);
+
         });
     }
     else {
