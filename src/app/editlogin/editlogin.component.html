@@ -57,7 +57,7 @@
                 </div>
                 <div id="differentbox">
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                      class="form-control form-control-mb-2" formControlName="oldpassword" type="text"
+                      class="form-control form-control-mb-2" formControlName="oldpassword" type="password"
                       placeholder="Old Password">
                   </div>
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
@@ -78,11 +78,26 @@
                         <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
                       </div>
                   </div>
+                  <div class="col-md-4 p-3">
+                      <div *ngIf="errorMessage" class="alert alert-danger">
+                        {{ errorMessage }}
+                      </div>
+                      <div *ngIf="successMessage" class="alert alert-success">
+                        {{ successMessage }}
+                      </div>
+                    </div>
+
+
                 </div>
+                
 
 
               </div>
+         
             </div>
+         
+            
+            
           </div>
         </div>
         <div class="col-lg-1"></div>

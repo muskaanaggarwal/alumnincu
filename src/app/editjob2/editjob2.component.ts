@@ -74,13 +74,20 @@ export class Editjob2Component implements OnInit {
     //if (!this.saved) {
     this.errorMessage = "";
     if (this.job2Form.valid) {
+      if (this.job2Form.value['campus_or_current'] == 4) {
+        this.job2Form.value['isselfemployed'] = 1;
+      }
+      else {
+        this.job2Form.value['isselfemployed'] = 0;
+      }
       this.dataService.alumniportalUser(this.url, this.job2Form.value).subscribe((data: Array<any>) => {
         this.postJobUserRelation(data['company_id']);
         // this.saved = true;
         this.successMessage = "Saved successfully! Click next to proceed"
       },
         (error: any) => {
-          this.errorMessage = error.message;
+          console.log(error);
+
         });
     }
     else {

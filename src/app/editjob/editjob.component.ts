@@ -83,6 +83,7 @@ export class EditjobComponent implements OnInit {
           },
             (error: any) => {
               this.errorMessage = error.message;
+              console.log(error);
             });
         }
         else {
