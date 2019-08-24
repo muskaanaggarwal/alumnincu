@@ -7,7 +7,7 @@
     <div class="container">
       <div class="center"><b>
           <h1>EDIT PROFILE</h1>
-        </b><br><br></div>
+        </b></div>
 
 
 
@@ -29,7 +29,7 @@
 
           </div>
           <div class="row 4">
-            <button type="button"  class=" login btn btn-primary btn-lg btn-block "> <span
+            <button type="button"  class=" samelogin btn btn-primary btn-lg btn-block "> <span
                 class="text">JOB DETAILS</span></button>
           </div>
           <div class="row 5">
@@ -95,7 +95,8 @@
                       class="form-control form-control-mb-2" type="text" placeholder="Website"
                       formControlName="website">
                   </div>
-                  <div *ngIf="successMessage" class="alert alert-success">
+                  <br><br><br>
+                  <div *ngIf="successMessage" class="alert alert-success center" width="20px">
                     {{ successMessage }}
                   </div>
                 </div>

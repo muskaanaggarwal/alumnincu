@@ -102,6 +102,8 @@ export class Editjob2Component implements OnInit {
     jobUser.roll_no = this.dataService.user['roll_no'];
     jobUser.campus_or_current = this.job2Form.value['campus_or_current'];
     this.dataService.alumniportalUser(this.job_url, jobUser).subscribe((data: Array<any>) => {
+      this.successMessage = "Updated successfully!";
+
     },
       (error: any) => {
         this.errorMessage = error.message;

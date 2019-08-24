@@ -79,7 +79,7 @@ export class EditjobComponent implements OnInit {
           this.dataService.alumniportalUser(this.url, this.jobForm.value).subscribe((data: Array<any>) => {
             this.postJobUserRelation(data['company_id']);
            // this.saved = true;
-            this.successMessage = "Saved successfully! Click next to proceed"
+           this.successMessage = "Updated successfully!";
           },
             (error: any) => {
               this.errorMessage = error.message;

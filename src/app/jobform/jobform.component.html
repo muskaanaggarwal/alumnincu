@@ -21,8 +21,7 @@
 
           <div class="form-row">
             <div class="form-group col-2">
-              <img class="leftslider" routerLink="/degreeform"
-                src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+              <img class="jobleftslider"   src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
             </div>
             <div class="form-group col-8">
 
@@ -47,7 +46,6 @@
                     <div class="form-group">
                       <input type="radio" value="1" formControlName="campus_or_current">
                       <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Campus Placed</label>
-
                     </div>
                   </div>
 
@@ -60,14 +58,24 @@
                     </div>
                   </div>
 
-                  <div *ngIf="submitted && myForm.errors?.required" class="err">
-                    <p>Please select either value</p>
-                  </div>
+                 
+
+                
 
 
 
                   <div class="col-md-2"></div>
                 </div>
+                <div class="form-row">
+                    <div class="col-md-3"></div>
+                    <div class="form-group col-md-6 center">
+                          <div *ngIf="submitted && myForm.errors?.required" class="err">
+                              <p>Please select either value</p>
+                            </div>
+                    </div>
+                    <div class="col-md-3"></div>
+
+                  </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
 

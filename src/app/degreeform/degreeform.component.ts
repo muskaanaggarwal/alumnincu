@@ -43,8 +43,8 @@ export class DegreeformComponent implements OnInit {
   ngOnInit() {
     this.degreeForm = this.formBuilder.group({
       school_id: ['',Validators.required],
-      program_id: [''],
-      stream_id: [''],
+      program_id: ['',Validators.required],
+      stream_id: ['',Validators.required],
       specialization_id: ['', Validators.required],
       batch_id: ['', Validators.required],
     });

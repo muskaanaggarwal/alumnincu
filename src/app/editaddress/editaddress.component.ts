@@ -66,7 +66,7 @@ export class EditaddressComponent implements OnInit {
     if (this.addressForm.valid && this.dataService.user['roll_no'] != undefined) {
       this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
       this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
-        this.successMessage = "Saved successfully! Click next to proceed"
+        this.successMessage = "Updated successfully!";
       },
         (error: any) => {
           this.errorMessage = error.message;

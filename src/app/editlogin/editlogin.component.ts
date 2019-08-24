@@ -22,6 +22,7 @@ export class EditloginComponent implements OnInit {
   details: object;
   verified: boolean;
   url = 'http://localhost:9800/signup';
+  signupurl = "http://localhost:9800/details?id=";
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
@@ -49,10 +50,18 @@ export class EditloginComponent implements OnInit {
           console.log(error);
         });
     }
-    if (this.dataService.signupForm) {
-      this.signupForm = this.dataService.signupForm;
-    }
+      this.dataService.get(this.signupurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+        this.signupForm.patchValue({
+          password: data['password'],
+           
+        } );
+     
+      },
+      (error: any) => {
+        console.log("Error in fetching details", error);
+      });
   }
+
   ngOnDestroy() {
     this.dataService.signupForm = this.signupForm;
   }

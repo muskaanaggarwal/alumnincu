@@ -5,7 +5,7 @@
     <div class="container">
       <div class="center"><b>
           <h1>EDIT PROFILE</h1>
-        </b><br><br></div>
+        </b></div>
 
 
 
@@ -13,7 +13,7 @@
         <div class="col-lg-1 "></div>
         <div class="col-lg-3 bttns ">
           <div class="row 1">
-            <button type="button"  class=" login btn btn-primary btn-lg btn-block "><span class="text">LOGIN
+            <button type="button"  class="samelogin btn btn-primary btn-lg btn-block "><span class="text">LOGIN
                 DETAILS</span></button>
           </div>
           <div class="row 2">
@@ -56,7 +56,7 @@
                   <div class="col-lg-1"></div>
                 </div>
                 <div id="differentbox">
-                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-lock"></i></span><input
                       class="form-control form-control-mb-2" formControlName="oldpassword" type="password"
                       placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldpassword.errors }" >
                       <div *ngIf="submitted && f.oldpassword.errors" class="invalid-feedback ">
@@ -66,8 +66,8 @@
                       </div>
                   </div>
                   
-                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                    class="form-control form-control-mb-2" formControlName="password" type="text"
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-key"></i></span><input
+                    class="form-control form-control-mb-2" formControlName="password" type="password"
                     placeholder="New Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback ">
                       <div *ngIf="f.password.errors.required">Password is required</div>
@@ -77,15 +77,16 @@
                     </div>
                 </div>
 
-                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                      class="form-control form-control-mb-2" formControlName="confirmPassword" type="text"
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-key"></i></span><input
+                      class="form-control form-control-mb-2" formControlName="confirmPassword" type="password"
                       placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" >
                       <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback ">
                         <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
                         <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
                       </div>
                   </div>
-                  <div *ngIf="successMessage" class="alert alert-success">
+                  <br><br><br>
+                  <div *ngIf="successMessage" class="alert alert-success center" width="20px">
                     {{ successMessage }}
                   </div>
                   
