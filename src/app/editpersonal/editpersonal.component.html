@@ -37,7 +37,7 @@
           </div>
           
           <div class="row 6">
-            <button type="button" class=" login btn btn-primary btn-lg btn-block "> <span
+            <button type="button" class="login btn btn-primary btn-lg btn-block "> <span
                 class="text">PERSONAL DETAILS</span></button>
           </div>
           
@@ -76,6 +76,9 @@
                       class="form-control form-control-mb-2" type="text" formControlName="anniversary_date"
                       onfocus="(this.type='date')" placeholder="Anniversary Date">
                   </div>
+                  <div *ngIf="successMessage" class="alert alert-success">
+                    {{ successMessage }}
+                  </div>
 
                 </div>
 
@@ -98,9 +101,7 @@
         <div class="col-lg-3"></div>
       </div>
     </div>
-    <div *ngIf="successMessage" class="alert alert-success">
-      {{ successMessage }}
-    </div>
+    
 
     <div class="col-lg-3"></div>
   </form>

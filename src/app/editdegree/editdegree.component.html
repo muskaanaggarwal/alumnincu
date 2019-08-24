@@ -76,6 +76,9 @@
                     formControlName="specialization_id" class="form-control form-control-mb-2" type="text"
                     placeholder="Specialization">
                 </div>
+                <div *ngIf="successMessage" class="alert alert-success">
+                  {{ successMessage }}
+                </div>
               </form>
 
 
