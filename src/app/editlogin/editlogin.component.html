@@ -58,22 +58,29 @@
                 <div id="differentbox">
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
                       class="form-control form-control-mb-2" formControlName="oldpassword" type="password"
-                      placeholder="Old Password">
-                  </div>
-                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
-                      class="form-control form-control-mb-2" formControlName="password" type="text"
-                      placeholder="New Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
-                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback password">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
-                        <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters
-                        </div>
+                      placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldpassword.errors }" >
+                      <div *ngIf="submitted && f.oldpassword.errors" class="invalid-feedback ">
+                        <div *ngIf="f.oldpassword.errors.required">Password is required</div>
+                        
           
                       </div>
                   </div>
+                  
+                  <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
+                    class="form-control form-control-mb-2" formControlName="password" type="text"
+                    placeholder="New Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback ">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters
+                      </div>
+        
+                    </div>
+                </div>
+
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
                       class="form-control form-control-mb-2" formControlName="confirmPassword" type="text"
                       placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" >
-                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback confirmpassword">
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback ">
                         <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
                         <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
                       </div>
