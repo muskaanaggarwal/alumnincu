@@ -27,10 +27,9 @@ export class EditloginComponent implements OnInit {
   ngOnInit() {
     this.errorMessage = null;
     this.signupForm = this.formBuilder.group({
-      oldpassword: [''],
-
-      password: ['', Validators.minLength(8)],
-      confirmPassword: ['']
+      oldpassword: ['',Validators.required],
+      password: ['', [Validators.minLength(8),Validators.required]],
+      confirmPassword: ['',Validators.required]
     }, {
         validator: MustMatch('password', 'confirmPassword')
       });
