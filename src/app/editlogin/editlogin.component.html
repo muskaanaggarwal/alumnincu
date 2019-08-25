@@ -13,7 +13,7 @@
         <div class="col-lg-1 "></div>
         <div class="col-lg-3 bttns ">
           <div class="row 1">
-            <button type="button"  class="samelogin btn btn-primary btn-lg btn-block "><span class="text">LOGIN
+            <button type="button" class="samelogin btn btn-primary btn-lg btn-block "><span class="text">LOGIN
                 DETAILS</span></button>
           </div>
           <div class="row 2">
@@ -35,12 +35,12 @@
                 class="text">ADDRESS </span></button>
 
           </div>
-          
+
           <div class="row 6">
             <button type="button" routerLink="/editpersonal" class=" login btn btn-primary btn-lg btn-block "> <span
                 class="text">PERSONAL DETAILS</span></button>
           </div>
-          
+
         </div>
         <div class=col-lg-1></div>
         <div class="col-lg-6 maincard">
@@ -58,49 +58,54 @@
                 <div id="differentbox">
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-lock"></i></span><input
                       class="form-control form-control-mb-2" formControlName="oldpassword" type="password"
-                      placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldpassword.errors }" >
-                      <div *ngIf="submitted && f.oldpassword.errors" class="invalid-feedback ">
-                        <div *ngIf="f.oldpassword.errors.required">Password is required</div>
-                        
-          
-                      </div>
+                      placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldpassword.errors }">
+                    <div *ngIf="submitted && f.oldpassword.errors" class="invalid-feedback ">
+                      <div *ngIf="f.oldpassword.errors.required">Password is required</div>
+
+
+                    </div>
                   </div>
-                  
+
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-key"></i></span><input
-                    class="form-control form-control-mb-2" formControlName="password" type="password"
-                    placeholder="New Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+                      class="form-control form-control-mb-2" formControlName="password" type="password"
+                      placeholder="New Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback ">
                       <div *ngIf="f.password.errors.required">Password is required</div>
                       <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters
                       </div>
-        
+
                     </div>
-                </div>
+                  </div>
 
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-key"></i></span><input
                       class="form-control form-control-mb-2" formControlName="confirmPassword" type="password"
-                      placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" >
-                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback ">
-                        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-                      </div>
+                      placeholder="Confirm Password"
+                      [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback ">
+                      <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                      <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                    </div>
                   </div>
                   <br><br><br>
                   <div *ngIf="successMessage" class="alert alert-success center" width="20px">
                     {{ successMessage }}
                   </div>
-                  
+                  <div *ngIf="errorMessage" class="alert alert-danger center">
+                    {{ errorMessage }}<br>
+                    No changes were made.
+                  </div>
+
 
                 </div>
-                
+
 
 
               </div>
-         
+
             </div>
-         
-            
-            
+
+
+
           </div>
         </div>
         <div class="col-lg-1"></div>

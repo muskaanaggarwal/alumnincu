@@ -21,6 +21,7 @@ export class EditloginComponent implements OnInit {
   signupForm: FormGroup;
   details: object;
   verified: boolean;
+  pwd: string;
   url = 'http://localhost:9800/signup';
   signupurl = "http://localhost:9800/details?id=";
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
@@ -28,7 +29,7 @@ export class EditloginComponent implements OnInit {
   ngOnInit() {
     this.errorMessage = null;
     this.signupForm = this.formBuilder.group({
-      oldpassword: ['',Validators.required],
+      oldpassword: [''],
       password: ['', [Validators.minLength(8),Validators.required]],
       confirmPassword: ['',Validators.required]
     }, {
@@ -41,10 +42,7 @@ export class EditloginComponent implements OnInit {
     else {
       this.dataService.get("http://localhost:9800/change?id=" + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
         this.details = data[0];
-        // // this.signupForm.patchValue({
-        // //   oldpassword: ['', Validators.pattern("/^" + data[0]['password'] + "$/")],
-        // // }
-        // );
+        this.pwd = data[0]['password'];
       },
         (error) => {
           console.log(error);
@@ -77,7 +75,7 @@ export class EditloginComponent implements OnInit {
 
   }
   signup() {
-    if (this.signupForm.valid) {
+    if (this.signupForm.valid && (this.signupForm.value['oldpassword']) === this.pwd) {
       this.errorMessage = "";
       this.signupForm.value['roll_no'] = this.details['roll_no'];
       this.signupForm.value['email'] = this.details['email'];
@@ -100,8 +98,7 @@ export class EditloginComponent implements OnInit {
         });
     }
     else {
-      console.log(this.signupForm.value);
-      this.errorMessage = "No changes made!"
+      this.errorMessage = "Old password must match!"
     }
   }
 

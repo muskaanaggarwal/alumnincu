@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from '../dataservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataserviceService, private route: Router) { }
 
   ngOnInit() {
+    if (this.dataService.user) {
+      this.route.navigateByUrl('/dashboard');
+      return;
+    }
   }
   rotate(event: any){
     console.log(1);
