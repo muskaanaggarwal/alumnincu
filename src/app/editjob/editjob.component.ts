@@ -13,12 +13,15 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class EditjobComponent implements OnInit {
     isSubmitted = false;
     jobForm: FormGroup;
+    company_id: string;
+
 
     ask: boolean;
     submitted = false;  
     successMessage: string;
     url = 'http://localhost:9800/jobform';
     job_url = 'http://localhost:9800/job2form';
+    geturl= 'http://localhost:9800/job/details?id=';
     errorMessage: string;
     constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
   
@@ -43,7 +46,25 @@ export class EditjobComponent implements OnInit {
       else {
         this.jobForm.value['campus_or_current'] = 0;
       }
+
+      this.dataService.get(this.geturl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+        this.jobForm.patchValue({
+          designation: data['designation'],
+          company_name: data['company_name'],
+          company_city: data['company_city'],
+          website: data['website'],
+          campus_or_current: data['campus_or_current'], 
+        } );
+        this.company_id = data['company_id'];
+  
+        
+      },
+      (error: any) => {
+        // console.log("Error in fetching details", error);
+      });
     }
+
+    
     ngOnDestroy() {
       this.dataService.jobForm = this.jobForm;
     }
@@ -83,7 +104,7 @@ export class EditjobComponent implements OnInit {
           },
             (error: any) => {
               this.errorMessage = error.message;
-              console.log(error);
+              // console.log(error);
             });
         }
         else {

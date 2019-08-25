@@ -36,7 +36,7 @@ export class EditdegreeComponent implements OnInit {
         });
     },
       (error: any) => {
-        console.log("Error in fetching details", error);
+        // console.log("Error in fetching details", error);
       });
   }
 

@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(){}
   ngOnInit(){}
   loggedIn(value: boolean){
-    console.log(1, value);
+    // console.log(1, value);
     this.isLoggedIn = value;
   }
 }

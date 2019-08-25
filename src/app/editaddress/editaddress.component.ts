@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 export class EditaddressComponent implements OnInit {
 
   addressForm: FormGroup;
-   errorMessage: string;
-   successMessage: string;
+  errorMessage: string;
+  successMessage: string;
   // submitted = false;
   url = 'http://localhost:9800/addressform';
   addressurl = "http://localhost:9800/address/details?id=";
@@ -45,15 +45,15 @@ export class EditaddressComponent implements OnInit {
 
 
 
-      } );
+      });
       this.address_id = data['address_id'];
 
-      
+
     },
-    (error: any) => {
-      console.log("Error in fetching details", error);
-    });
-        if (this.dataService.addressForm) {
+      (error: any) => {
+        // console.log("Error in fetching details", error);
+      });
+    if (this.dataService.addressForm) {
       this.addressForm = this.dataService.addressForm;
     }
   }

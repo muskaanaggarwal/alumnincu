@@ -41,7 +41,7 @@ export class EditpersonalComponent implements OnInit {
         this.details = data[0];
       },
         (error) => {
-          console.log(error);
+          // console.log(error);
         });
     }
     
@@ -61,7 +61,7 @@ export class EditpersonalComponent implements OnInit {
       
     },
     (error: any) => {
-      console.log("Error in fetching details", error);
+      // console.log("Error in fetching details", error);
     });
     if (this.dataService.personalForm) {
       this.personalForm = this.dataService.personalForm;
@@ -80,11 +80,11 @@ export class EditpersonalComponent implements OnInit {
       this.personalForm.value['specialization_id'] = this.specialization_id;
       this.dataService.alumniportalUser(this.url, this.personalForm.value).subscribe((data: Array<any>) => {
         this.successMessage = "Saved successfully! Click next to proceed";
-        console.log(this.personalForm.value);
+        // console.log(this.personalForm.value);
       },
         (error: any) => {
           this.errorMessage = error.message;
-          console.log(error);
+          // console.log(error);
         });
     }
     else {
