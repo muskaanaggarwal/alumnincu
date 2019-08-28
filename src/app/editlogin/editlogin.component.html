@@ -60,7 +60,7 @@
                       class="form-control form-control-mb-2" formControlName="oldpassword" type="password"
                       placeholder="Old Password" [ngClass]="{ 'is-invalid': submitted && f.oldpassword.errors }">
                     <div *ngIf="submitted && f.oldpassword.errors" class="invalid-feedback ">
-                      <div *ngIf="f.oldpassword.errors.required">Password is required</div>
+                      <div *ngIf="f.oldpassword.errors.required">Old password is required</div>
 
 
                     </div>
@@ -89,6 +89,9 @@
                   <br><br><br>
                   <div *ngIf="successMessage" class="alert alert-success center" width="20px">
                     {{ successMessage }}
+                  </div>
+                  <div *ngIf="SamepwdMessage" class="alert alert-danger center" width="20px">
+                    {{ SamepwdMessage }}
                   </div>
                   <div *ngIf="errorMessage" class="alert alert-danger center">
                     {{ errorMessage }}<br>

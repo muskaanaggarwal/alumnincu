@@ -203,7 +203,7 @@ figure {
 input {
   width: 100%;
   display: block;
-
+  
   border: none;
   border-bottom: 1px solid #999;
   padding: 6px 30px;
@@ -227,6 +227,7 @@ input {
       color: #222; }
     input:focus:-moz-placeholder {
       color: #222; }
+      
 
 .agree-term {
   display: inline-block;
@@ -441,3 +442,8 @@ input[type="submit"]:disabled {
   background: #dddddd;
   cursor: not-allowed;
 } 
+
+.fa:after{
+  content:"*";
+  color:red;
+}

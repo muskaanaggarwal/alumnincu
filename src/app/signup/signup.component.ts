@@ -68,8 +68,8 @@ export class SignupComponent implements OnInit {
       this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
       },
 
-        (error: any) => {
-          console.log(error);
-        });
-    }
+      (error: any) => {
+        // console.log(error);
+      });
   }
+}

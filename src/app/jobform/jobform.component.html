@@ -15,16 +15,13 @@
           </div>
         </div>
       </div>
-
       <div class="card-item itemclass">
         <div class="card-body">
-
           <div class="form-row">
             <div class="form-group col-2">
-              <img class="jobleftslider"   src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
+              <img class="jobleftslider" src="https://png.pngtree.com/svg/20170717/9a1d5ffc8b.svg">
             </div>
             <div class="form-group col-8">
-
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <h2 class="card-title center pb-5"><b>JOB DETAILS</b></h2>
@@ -48,37 +45,25 @@
                       <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Campus Placed</label>
                     </div>
                   </div>
-
-
                   <div class="form-group col-md-4 center">
                     <div class="form-group">
                       <input type="radio" value="2" formControlName="campus_or_current">
                       <label for="agree-term" class="radio-agree-term">&nbsp;&nbsp;Off-Campus Placed</label>
-
                     </div>
                   </div>
-
-                 
-
-                
-
-
-
                   <div class="col-md-2"></div>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-3"></div>
-                    <div class="form-group col-md-6 center">
-                          <div *ngIf="submitted && myForm.errors?.required" class="err">
-                              <p>Please select either value</p>
-                            </div>
+                  <div class="col-md-3"></div>
+                  <div class="form-group col-md-6 center">
+                    <div *ngIf="submitted && myForm.errors?.required" class="err">
+                      <p>Please select either value</p>
                     </div>
-                    <div class="col-md-3"></div>
-
                   </div>
+                  <div class="col-md-3"></div>
+                </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-
                     <div class="form-group">
                       <label><img src="https://png.pngtree.com/svg/20151105/7558e2b18b.png" height="20px"
                           width="20px"></label>
@@ -86,7 +71,6 @@
                         placeholder="Company Name" [ngClass]="{ 'is-invalid': submitted && f.company_name.errors }">
                       <div *ngIf="submitted && f.company_name.errors" class="invalid-feedback">
                         <div *ngIf="f.company_name.errors.required">Company name is required</div>
-
                       </div>
                     </div>
                     <div class="form-group">
@@ -97,7 +81,6 @@
                     </div>
                   </div>
                   <div class="form-group col-md-6">
-
                     <div class="form-group">
                       <label><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/country-13-557848.png"
                           height="20px" width="20px"></label>

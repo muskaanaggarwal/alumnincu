@@ -11,11 +11,14 @@ import { JobUserModel } from '../sociallinkform/job_user.model';
 export class Editjob2Component implements OnInit {
   isSubmitted = false;
   job2Form: FormGroup;
+  company_id: string;
 
   ask: boolean;
   submitted = false;
   successMessage: string;
   url = 'http://localhost:9800/jobform';
+  geturl = 'http://localhost:9800/job2/details?id=';
+
   job_url = 'http://localhost:9800/job2form';
   errorMessage: string;
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
@@ -24,10 +27,10 @@ export class Editjob2Component implements OnInit {
 
     this.job2Form = this.formBuilder.group({
       designation: [''],
-      company_name: ['',Validators.required],
+      company_name: ['', Validators.required],
       company_city: [''],
       website: [''],
-      campus_or_current: ['',Validators.required],
+      campus_or_current: ['', Validators.required],
 
 
     });
@@ -41,6 +44,22 @@ export class Editjob2Component implements OnInit {
     else {
       this.job2Form.value['campus_or_current'] = 0;
     }
+
+    this.dataService.get(this.geturl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+      if (Object.entries(data).length !== 0 && data.constructor === Object) {
+        this.job2Form.patchValue({
+          designation: data['designation'],
+          company_name: data['company_name'],
+          company_city: data['company_city'],
+          website: data['website'],
+          campus_or_current: data['campus_or_current'],
+        });
+        this.company_id = data['company_id'];
+      }
+    },
+      (error: any) => {
+        // console.log("Error in fetching details", error);
+      });
   }
   ngOnDestroy() {
     this.dataService.job2Form = this.job2Form;
@@ -83,10 +102,10 @@ export class Editjob2Component implements OnInit {
       this.dataService.alumniportalUser(this.url, this.job2Form.value).subscribe((data: Array<any>) => {
         this.postJobUserRelation(data['company_id']);
         // this.saved = true;
-        this.successMessage = "Saved successfully! Click next to proceed"
+        this.successMessage = "Updated successfully!"
       },
         (error: any) => {
-          console.log(error);
+          // console.log(error);
 
         });
     }

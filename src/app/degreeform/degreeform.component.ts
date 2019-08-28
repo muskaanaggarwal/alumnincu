@@ -60,35 +60,35 @@ export class DegreeformComponent implements OnInit {
       this.current_school = data[0]['school_id'];
     },
       (error: any) => {
-        console.log("Error in fetching details", error);
+        // console.log("Error in fetching details", error);
       });
     this.dataService.get(this.program_url).subscribe((data: Array<any>) => {
       this.Programs = data;
       this.current_program = data[0]['program_id'];
     },
       (error: any) => {
-        console.log("Error in fetching details", error);
+        // console.log("Error in fetching details", error);
       });
     this.dataService.get(this.batch_url).subscribe((data: Array<any>) => {
       this.Batches = data;
       this.current_batch = data[0]['batch_id'];
     },
       (error: any) => {
-        console.log("Error in fetching details", error);
+        // console.log("Error in fetching details", error);
       });
     this.dataService.get(this.stream_url).subscribe((data: Array<any>) => {
       this.Streams = data;
       this.current_stream = data[0]['stream_id'];
     },
       (error: any) => {
-        console.log("Error in fetching details", error);
+        // console.log("Error in fetching details", error);
       });
     this.dataService.get(this.specialization_url).subscribe((data: Array<any>) => {
       this.Specializations = data;
       this.current_specialization = data[0]['specialization_id'];
     },
       (error: any) => {
-        console.log("Error in fetching details", error);
+        // console.log("Error in fetching details", error);
       });
   }
   onSubmit() {
@@ -163,7 +163,7 @@ this.postPersonalDetails()
     this.current_specialization = key;
   }
   changeSchool(e) {
-    console.log(e.value)
+    // console.log(e.value)
     this.schoolName.setValue(e.target.value, {
       onlySelf: true
     })

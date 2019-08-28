@@ -45,12 +45,14 @@ export class AddressformComponent implements OnInit {
     this.dataService.addressForm = this.addressForm;
   }
   checkSaved() {
-    if (!this.saved) {
-      this.errorMessage = "Please click save before you proceed!"
-    }
-    else {
-      this.route.navigateByUrl('/personalform');
-    }
+    this.route.navigateByUrl('/personalform');
+
+    // if (!this.saved) {
+    //   this.errorMessage = "Please click save before you proceed!"
+    // }
+    // else {
+    //   this.route.navigateByUrl('/personalform');
+    // }
   }
 
   get f() { return this.addressForm.controls; }
@@ -70,7 +72,7 @@ export class AddressformComponent implements OnInit {
       this.errorMessage = "";
       if (this.addressForm.valid && this.dataService.user['roll_no'] != undefined) {
         this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
-        console.log(this.addressForm);
+        // console.log(this.addressForm);
         this.dataService.alumniportalUser(this.url, this.addressForm.value).subscribe((data: Array<any>) => {
           this.saved = true;
           this.successMessage = "Saved successfully! Click next to proceed"

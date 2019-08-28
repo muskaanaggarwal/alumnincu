@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     }
   }
   rotate(event: any){
-    console.log(1);
+    // console.log(1);
     var a: HTMLElement = event.target || event.srcElement || event.currentTarget;
     a.style.transform = "rotateZ(180deg)";
     }
