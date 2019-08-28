@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   submitted = false;
   signupForm: FormGroup;
   url = 'http://localhost:9800/signup';
+  details_url = 'http://localhost:9800/personal/details?id=';
   // title = 'alumnincu';
 
   // Register your dataservice using dependency injection
@@ -50,15 +51,25 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-    this.signup();
-    this.route.navigateByUrl('/alumni');
+    this.signupForm.value['roll_no'] = this.signupForm.value['roll_no'].toUpperCase();
+    this.dataService.get(this.details_url + this.signupForm.value['roll_no']).subscribe((data: Array<any>) => {
+      if(Object.entries(data).length === 0 && data.constructor === Object){
+        this.signup();
+        this.route.navigateByUrl('/alumni');
+      }
+      else{
+        this.errorMessage = 'User already exists with provided details!';
+      }
+    }, (error) => {
+      // console.log(error);
+    });
   }
-  signup() {
-    this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
-    },
+    signup() {
+      this.dataService.alumniportalUser(this.url, this.signupForm.value).subscribe((data: Array<any>) => {
+      },
 
-      (error: any) => {
-        console.log(error);
-      });
+        (error: any) => {
+          console.log(error);
+        });
+    }
   }
-}
