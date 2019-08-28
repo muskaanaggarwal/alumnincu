@@ -33,6 +33,7 @@ export class EditjobComponent implements OnInit {
         company_city: [''],
         website: [''],
         campus_or_current: ['',Validators.required],
+        isselfemployed:['0'],
         
   
       });
@@ -54,6 +55,7 @@ export class EditjobComponent implements OnInit {
           company_city: data['company_city'],
           website: data['website'],
           campus_or_current: data['campus_or_current'], 
+          
         } );
         this.company_id = data['company_id'];
   
