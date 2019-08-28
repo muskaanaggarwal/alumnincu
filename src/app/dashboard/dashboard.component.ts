@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css', '../home/home.component.css']
 })
 export class DashboardComponent implements OnInit {
+  photoUri: string;
 
   constructor(private dataService: DataserviceService, private route: Router) { }
 
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
     else {
       this.details = null;
     }
+    this.photoUri = "../../assets/Images/"+this.dataService.user['roll_no']+".jpg";
   }
 
 }

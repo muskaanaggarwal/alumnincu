@@ -48,11 +48,11 @@ export class EditpersonalComponent implements OnInit {
     this.dataService.get(this.personalurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
       if (Object.entries(data).length !== 0 && data.constructor === Object) {
         this.personalForm.patchValue({
+          facebook: data['facebook'],
+          linkedin: data['linkedin'],
+          twitter: data['twitter'],
           spouse_name: data['spouse_name'],
           anniversary_date: data['anniversary_date'],
-          facebook: data['facebook'],
-          twitter: data['twitter'],
-          linkedin: data['linkedin'],
         });
         this.batch_id = data['batch_id'];
         this.specialization_id = data['specialization_id'];

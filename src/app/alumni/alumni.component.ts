@@ -54,7 +54,7 @@ export class AlumniComponent implements OnInit {
             this.isLoggedIn = true;
             if (data.length > 0) {
               this.dataService.details = data[0];
-              this.route.navigateByUrl('/dashboard');
+              this.route.navigateByUrl('/degreeform');
             }
             else {
               this.route.navigateByUrl('/degreeform');

@@ -31,7 +31,7 @@ export class DegreeformComponent implements OnInit {
   program_url = 'http://localhost:9800/program/all';
   stream_url = 'http://localhost:9800/stream/all';
   specialization_url = 'http://localhost:9800/specialization/all';
-  url = 'http://localhost:9800/personal_detailsform';
+  url = 'http://localhost:9800/personal_detailsform?file="C:/"';
   errorMessage: string;
   successMessage: string;
   saved: boolean;
