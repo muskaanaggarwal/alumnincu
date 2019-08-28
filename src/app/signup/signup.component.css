@@ -203,7 +203,7 @@ figure {
 input {
   width: 100%;
   display: block;
-
+  
   border: none;
   border-bottom: 1px solid #999;
   padding: 6px 30px;
@@ -441,7 +441,8 @@ input[type="submit"]:disabled {
   background: #dddddd;
   cursor: not-allowed;
 } 
-.form-control:after{
-  content: "*";
+
+.fa:after{
+  content:"*";
   color:red;
 }
