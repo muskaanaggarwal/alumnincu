@@ -46,7 +46,8 @@ export class PersonalformComponent implements OnInit {
       roll_no: this.dataService.user['roll_no']
     };
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    this.uploader.onCompleteAll = () => alert('File uploaded');
+    this.uploader.onCompleteAll = () => console.log("image uploaded!");
+    ;
   }
   ngOnDestroy() {
     this.dataService.personalForm = this.personalForm;
