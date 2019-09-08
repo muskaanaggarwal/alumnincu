@@ -181,7 +181,6 @@ this.postPersonalDetails()
   }
 
   postPersonalDetails() {
-    if (!this.saved) {
       this.errorMessage = "";
       if (this.degreeForm.valid) {
         this.degreeForm.value['roll_no'] = this.dataService.user['roll_no'];
@@ -197,6 +196,6 @@ this.postPersonalDetails()
         this.saved = false;
         this.errorMessage = "Please fill all the details";
       }
-    }
+    
   }
 }

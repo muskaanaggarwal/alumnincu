@@ -9,9 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css', '../home/home.component.css']
 })
-@Pipe({
-  name: 'safeHtml'
-})
+
 export class DashboardComponent implements OnInit {
   photoUri: any;
   personalurl = "http://localhost:9800/details?id=";
@@ -27,20 +25,37 @@ export class DashboardComponent implements OnInit {
       this.route.navigateByUrl('/alumni');
       return;
     }
+
+
+
+
     this.isLoggedIn = false;
     if (this.dataService.user) {
+
       this.isLoggedIn = true;
       this.user = this.dataService.user;
+
+      
+    this.dataService.get("http://localhost:9800/details?id=" + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+      if (data.length > 0) {
+        this.dataService.details = data[0];
+              this.details = this.dataService.details;
+
+      }
+      else {
+        this.details = null;
+      }
+    },
+    (error)=> {
+      // console.log(1)
+    });
+    
     }
     else {
       this.isLoggedIn = false;
     }
-    if (this.dataService.details) {
-      this.details = this.dataService.details;
-    }
-    else {
-      this.details = null;
-    }
+    
+    
     this.dataService.get(this.personalurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
       let img = data[0]['photo'];
       img = img.split('\\');
