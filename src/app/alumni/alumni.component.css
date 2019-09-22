@@ -418,7 +418,4 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
       margin-right: 0px;
       margin-bottom: 10px; } }
   
-      .fa:after{
-        content:"*";
-        color:red;
-      }
+      

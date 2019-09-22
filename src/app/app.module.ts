@@ -28,6 +28,7 @@ import { EditaddressComponent } from './editaddress/editaddress.component';
 import { EditpersonalComponent } from './editpersonal/editpersonal.component';
 import { EditjobComponent } from './editjob/editjob.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 import { Editjob2Component } from './editjob2/editjob2.component';
 // import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -70,6 +71,7 @@ import { Editjob2Component } from './editjob2/editjob2.component';
     HttpModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FileUploadModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'admin', component: AdminComponent },

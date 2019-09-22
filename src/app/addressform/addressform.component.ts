@@ -68,7 +68,6 @@ export class AddressformComponent implements OnInit {
   }
 
   postAddress() {
-    if (!this.saved) {
       this.errorMessage = "";
       if (this.addressForm.valid && this.dataService.user['roll_no'] != undefined) {
         this.addressForm.value['roll_no'] = this.dataService.user['roll_no'];
@@ -85,6 +84,6 @@ export class AddressformComponent implements OnInit {
         this.saved = false;
         this.errorMessage = 'Please fill all the details';
       }
-    }
+    
   }
 }

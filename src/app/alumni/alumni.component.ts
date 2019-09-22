@@ -20,7 +20,7 @@ export class AlumniComponent implements OnInit {
   ngOnInit() {
     this.errorMessage = null;
     this.loginForm = this.formBuilder.group({
-      roll_no: ['',[Validators.required, Validators.minLength(6)]],
+      roll_no: ['', [Validators.required, Validators.minLength(6)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
@@ -42,32 +42,33 @@ export class AlumniComponent implements OnInit {
   }
 
   login() {
-      this.dataService.login("http://localhost:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
-        if (data.length) {
-          if (data[0]["isverified"] != 1) {
-            this.errorMessage = "Please wait till your account gets verified!";
-          }
-          else {
-            this.dataService.user = data[0];
-            this.dataService.get("http://localhost:9800/details?id="+this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
-              this.isLoggedIn = true; 
-              if(data.length > 0){
-                this.dataService.details = data[0];
-                this.route.navigateByUrl('/degreeform');
-              }
-              else{
-                this.route.navigateByUrl('/degreeform');
-              }
-            });
-          }
+    this.loginForm.value['roll_no'] = this.loginForm.value['roll_no'].toUpperCase();
+    this.dataService.login("http://localhost:9800/login", this.loginForm.value).subscribe((data: Array<any>) => {
+      if (data.length) {
+        if (data[0]["isverified"] != 1) {
+          this.errorMessage = "Please wait till your account gets verified!";
         }
         else {
-          this.errorMessage = "Invalid roll number or password!";
+          this.dataService.user = data[0];
+          this.dataService.get("http://localhost:9800/details?id=" + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
+            this.isLoggedIn = true;
+            if (data.length > 0) {
+              this.dataService.details = data[0];
+              this.route.navigateByUrl('/degreeform');
+            }
+            else {
+              this.route.navigateByUrl('/degreeform');
+            }
+          });
         }
-      },
-        (error: any) => {
-          this.errorMessage = "Something went wrong!\n" + error['message'];
-        });
-    }
-  
+      }
+      else {
+        this.errorMessage = "Invalid roll number or password!";
+      }
+    },
+      (error: any) => {
+        this.errorMessage = "Something went wrong!\n" + error['message'];
+      });
+  }
+
 }

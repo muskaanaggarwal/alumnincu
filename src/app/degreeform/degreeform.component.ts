@@ -31,7 +31,7 @@ export class DegreeformComponent implements OnInit {
   program_url = 'http://localhost:9800/program/all';
   stream_url = 'http://localhost:9800/stream/all';
   specialization_url = 'http://localhost:9800/specialization/all';
-  url = 'http://localhost:9800/personal_detailsform';
+  url = 'http://localhost:9800/personal_detailsform?file=';
   errorMessage: string;
   successMessage: string;
   saved: boolean;
@@ -181,7 +181,6 @@ this.postPersonalDetails()
   }
 
   postPersonalDetails() {
-    if (!this.saved) {
       this.errorMessage = "";
       if (this.degreeForm.valid) {
         this.degreeForm.value['roll_no'] = this.dataService.user['roll_no'];
@@ -197,6 +196,6 @@ this.postPersonalDetails()
         this.saved = false;
         this.errorMessage = "Please fill all the details";
       }
-    }
+    
   }
 }

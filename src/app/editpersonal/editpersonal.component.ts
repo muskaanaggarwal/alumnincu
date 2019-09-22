@@ -16,8 +16,8 @@ export class EditpersonalComponent implements OnInit {
   url = 'http://localhost:9800/personal_detailsform';
   personalurl = "http://localhost:9800/personal/details?id=";
   details: object;
- batch_id: string;
- specialization_id:number;
+  batch_id: string;
+  specialization_id: number;
 
 
   constructor(private formBuilder: FormBuilder, private dataService: DataserviceService, private route: Router) { }
@@ -44,25 +44,24 @@ export class EditpersonalComponent implements OnInit {
           // console.log(error);
         });
     }
-    
+
     this.dataService.get(this.personalurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
-      this.personalForm.patchValue({
-        spouse_name: data['spouse_name'],
-        anniversary_date: data['anniversary_date'],
-        facebook: data['facebook'],
-        twitter: data['twitter'],
-        linkedin: data['linkedin'],
-       
+      if (Object.entries(data).length !== 0 && data.constructor === Object) {
+        this.personalForm.patchValue({
+          facebook: data['facebook'],
+          linkedin: data['linkedin'],
+          twitter: data['twitter'],
+          spouse_name: data['spouse_name'],
+          anniversary_date: data['anniversary_date'],
+        });
+        this.batch_id = data['batch_id'];
+        this.specialization_id = data['specialization_id'];
+      }
 
-
-      } );
-      this.batch_id = data['batch_id'];
-      this.specialization_id = data['specialization_id'];
-      
     },
-    (error: any) => {
-      // console.log("Error in fetching details", error);
-    });
+      (error: any) => {
+        // console.log("Error in fetching details", error);
+      });
     if (this.dataService.personalForm) {
       this.personalForm = this.dataService.personalForm;
     }
