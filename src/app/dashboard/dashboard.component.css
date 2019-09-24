@@ -76,15 +76,18 @@
     font-size: 20px;
 }
 figure{
-    padding-left:190px;
+    padding-left:0px;
+    text-align:center;
 }
 .name{
     margin-top:40px;
     padding-left:0px;
+    text-align: center;
+
 }
 .ca2{
     
-    margin-top: 16px;
+    margin-top: 60px;
     margin-left: 16px;
     margin-bottom: 16px;
     margin-right: 16px;
@@ -100,6 +103,8 @@ figure{
 }
 .call{
     padding: 0px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 img{
     margin-top:20px;

@@ -1,22 +1,24 @@
 <navbar></navbar>
 <div class="container-fluid">
   <div class="dashboard row">
-    <div class=" col-lg-4">
+    <div class ="col-lg-2"></div>
+    <div class="col-lg-3">
       <figure><img *ngIf="details" src="{{ photoUri }}" id="photo" alt="USER IMAGE"
           style="object-fit: cover; border-radius: 12px; width: 180px; height: 180px;">
       </figure>
     </div>
 
-    <div class=" name col-lg-5">
+    <div class=" name col-lg-3">
       <h2 *ngIf="user" class=" intro form-title">{{ user.first_name }} {{ user.last_name }}</h2>
       <h2 *ngIf="user" class=" intro form-title">Roll Number: {{ user.roll_no }}</h2>
       <h2 *ngIf="details" class="intro form-title">Batch: {{ details.batch_id }}</h2>
     </div>
-    <div class="call col-lg-3">
+    <div class="call col-lg-2">
 
-      <button type="button" routerLink="/editdegree" class="ca2 btn btn-warning">Update your Profile</button><br>
+      <button type="button" routerLink="/editdegree" class="ca2 btn btn-warning"><b>Update your Profile ></b></button><br>
 
     </div>
+    <div class="col-lg-2"></div>
   </div>
 </div>
 <div class=" uevents container-container">
