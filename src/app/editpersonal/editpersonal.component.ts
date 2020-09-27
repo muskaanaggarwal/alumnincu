@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataserviceService } from '../dataservice.service';
 import { Router } from '@angular/router';
+import {FileUploadModule, FileUploader, FileItem} from 'ng2-file-upload';
+
 
 @Component({
   selector: 'app-editpersonal',
@@ -17,6 +19,11 @@ export class EditpersonalComponent implements OnInit {
   personalurl = "http://localhost:9800/personal/details?id=";
   details: object;
   batch_id: string;
+  uploader: any;
+
+  selectedFiles: any;
+  fileInput: any;
+  isDropOver: any;
   specialization_id: number;
 
 
@@ -28,6 +35,7 @@ export class EditpersonalComponent implements OnInit {
       linkedin: [''],
       twitter: [''],
       spouse_name: [''],
+      photo: [''],
       anniversary_date: [''],
 
     });
@@ -43,6 +51,18 @@ export class EditpersonalComponent implements OnInit {
         (error) => {
           // console.log(error);
         });
+
+        const headers = [{name: 'Accept', value: 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:9800/api/files'}];
+    this.uploader = new FileUploader({url: 'http://localhost:9800/api/files', autoUpload: true, headers: headers});
+    this.uploader.options.additionalParameter = {
+      roll_no: this.dataService.user['roll_no']
+    };
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteAll = () => console.log("image uploaded!");
+    ;
+
+
+
     }
 
     this.dataService.get(this.personalurl + this.dataService.user['roll_no']).subscribe((data: Array<any>) => {
@@ -51,6 +71,7 @@ export class EditpersonalComponent implements OnInit {
           facebook: data['facebook'],
           linkedin: data['linkedin'],
           twitter: data['twitter'],
+          photo: data['photo'],
           spouse_name: data['spouse_name'],
           anniversary_date: data['anniversary_date'],
         });
@@ -68,6 +89,26 @@ export class EditpersonalComponent implements OnInit {
   }
   ngOnDestroy() {
     this.dataService.personalForm = this.personalForm;
+  }
+
+  
+  selectFile(event) {
+    const file = event.target.files.item(0);
+    if (file.type.match('image.*')) {
+      this.selectedFiles = event.target.files;
+    } else {
+      alert('invalid format!');
+    }
+  }
+  fileClicked() {
+    try {
+      this.fileInput.nativeElement.click();
+    } catch (error) {
+      // console.log(error); 
+    }
+  }
+  fileOverAnother(e: any): void {
+    this.isDropOver = e;
   }
 
   postPersonalDetails() {

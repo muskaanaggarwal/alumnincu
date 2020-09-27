@@ -65,6 +65,11 @@
                         class="fa fa-twitter"></i></span><input class="form-control form-control-mb-2" type="text"
                         formControlName="twitter" placeholder="Twitter">
                   </div>
+                  <div class="input-group row"><span class="input-group-addon"><i
+                    class="fa fa-photo"></i></span><input #fileInput ng2FileSelect [ngClass]="{'dragover': isDropOver}" [uploader]="uploader" (fileOver)="fileOverAnother($event)"
+                    (click)="fileClicked()" class="form-control form-control-mb-2" type="text"
+                    formControlName="photo" placeholder="Photo" onfocus="(this.type='file')"  id="validatedCustomFile" (change)="selectFile($event)" accept="image/*">
+              </div>
                   <div class="input-group row"><span class="input-group-addon"><i class="fa fa-user"></i></span><input
                       class="form-control form-control-mb-2" type="text" formControlName="spouse_name"
                       placeholder="Spouse Name">

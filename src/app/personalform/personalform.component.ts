@@ -71,6 +71,7 @@ export class PersonalformComponent implements OnInit {
       this.route.navigateByUrl('/sociallinkform');
     }
   }
+  
   selectFile(event) {
     const file = event.target.files.item(0);
     if (file.type.match('image.*')) {

@@ -15,10 +15,9 @@
               <div *ngIf="f.roll_no.errors.required">Roll Number is required</div>
               <div *ngIf="f.roll_no.errors.minlength">Roll Number must be at least 6 characters</div>
               <div *ngIf="f.roll_no.errors.maxlength">Roll Number must be at most 10 characters</div>
-
             </div>
-
           </div>
+
           <div class="form-group">
             <label for="name"><i class="fa fa-address-card"></i></label>
             <input type="text" formControlName="first_name" name="name" required class="form-control"
@@ -27,6 +26,7 @@
               <div *ngIf="f.first_name.errors.required">First Name is required</div>
             </div>
           </div>
+
           <div class="form-group">
             <label for="name"><i class="fa fa-address-card"></i></label>
             <input type="text" formControlName="last_name" name="name" required class="form-control"
@@ -34,8 +34,8 @@
             <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
               <div *ngIf="f.last_name.errors.required">Last Name is required</div>
             </div>
-
           </div>
+
           <div class="form-group">
             <label for="name"><i class="fa fa-birthday-cake"></i></label>
             <input placeholder="Date Of Birth" type="text" onfocus="(this.type='date')" formControlName="date_of_birth"
@@ -45,6 +45,7 @@
               <div *ngIf="f.date_of_birth.errors.required">Date Of Birth is required</div>
             </div>
           </div>
+
           <div class="form-group">
             <label for="name"><i class="fa fa-phone"></i></label>
             <input type="text" formControlName="contact" name="name" required class="form-control"
@@ -52,9 +53,9 @@
             <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
               <div *ngIf="f.contact.errors.required">Contact is required</div>
               <div *ngIf="f.contact.errors.minlength">Contact must be at least 10 digits</div>
-
             </div>
           </div>
+
           <div class="form-group">
             <label for="pass"><i class="fa fa-envelope"></i></label>
             <input type="url" name="pass" formControlName="email" id="pass" required class="form-control"
@@ -62,19 +63,18 @@
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">E-mail is required</div>
               <div *ngIf="f.email.errors.email">E-mail is not valid</div>
-
             </div>
           </div>
+
+
           <div class="form-group">
             <label for="re-pass"><i class="fa fa-lock"></i></label>
             <input type="password" name="re_pass" formControlName="password" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
-              
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
               <div *ngIf="f.password.errors.required">Password is required</div>
               <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters
               </div>
-
             </div>
           </div>
           
@@ -87,6 +87,7 @@
               <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
             </div>
           </div>
+          
           <div class="form-group">
             <input type="checkbox" name="agree-term" formControlName="accepted" id="agree-term"
               [ngClass]="{ 'is-invalid': submitted && f.isverified.errors }" class="agree-term" />
@@ -94,19 +95,23 @@
               I am an alumni of The NorthCap
               University</label>
           </div>
+          
           <div *ngIf="errorMessage" class="alert alert-danger">
             {{ errorMessage }}
           </div>
+
           <div class="form-group form-button">
             <input type="submit" name="signup" id="signup" class="form-submit"
               [disabled]="!signupForm.value['accepted']" value="Register" />
           </div>
         </form>
       </div>
+
       <div class="signup-image">
         <figure><img src="http://ku.90sjimg.com/element_origin_min_pic/18/03/18/edc97d70f986f6967c9135c5bfe96c8d.jpg"
             alt="sing up image"></figure>
         <a routerLink="/alumni" class="signup-image-link"><b>I am already a member</b></a>
+
       </div>
     </div>
   </div>

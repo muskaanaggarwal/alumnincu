@@ -12,6 +12,7 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/directory" style="color: beige">DIRECTORY </a>
       </li>
+
       <li class="nav-item active box">
         <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/alumni" style="color: beige">LOGIN/SIGNUP</a>
         <div *ngIf="isLoggedIn" class="dropdown">
@@ -26,6 +27,7 @@
           </ul>
         </div>
       </li>
+      
     </ul>
   </div>
 </nav>
